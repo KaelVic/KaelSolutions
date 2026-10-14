@@ -40,7 +40,7 @@ function VisibleAlertsBell() {
           : t("Central de avisos")
       }
       data-testid="alerts-bell"
-      className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl text-muted-foreground transition-all duration-200 hover:bg-muted/70 hover:text-foreground"
+      className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl text-muted-foreground transition-all duration-200 hover:bg-muted/70 hover:text-foreground md:h-9 md:w-9"
     >
       <Bell size={17} aria-hidden />
       {count > 0 ? (

@@ -378,6 +378,7 @@ export function SidebarContent({
                             isActive
                               ? "bg-cyan-500/10 font-semibold text-cyan-900 shadow-xs ring-1 ring-cyan-500/25 before:absolute before:top-1.5 before:bottom-1.5 before:left-0 before:w-1 before:rounded-r-full before:bg-cyan-500 dark:text-cyan-200"
                               : "text-muted-foreground hover:bg-muted/70 hover:text-foreground",
+                            !collapsed && "md:py-1",
                             collapsed && "justify-center px-2 py-2 before:hidden",
                           )}
                         >
@@ -416,6 +417,7 @@ export function SidebarContent({
                           pathname === group.hub.href
                             ? "bg-cyan-500/10 font-semibold text-cyan-900 shadow-xs ring-1 ring-cyan-500/25 dark:text-cyan-200"
                             : "text-muted-foreground hover:bg-muted/70 hover:text-foreground",
+                          !collapsed && "md:py-1",
                           collapsed && "justify-center px-2 py-2",
                         )}
                       >

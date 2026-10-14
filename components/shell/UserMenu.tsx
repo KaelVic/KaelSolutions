@@ -19,7 +19,13 @@ import { SignOut, ShieldCheck } from "@/lib/ui/icons";
 
 function initials(name: string | null, email: string): string {
   if (name && name.trim()) {
-    return name.trim().split(/\s+/).slice(0, 2).map((p) => p[0]).join("").toUpperCase();
+    return name
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((p) => p[0])
+      .join("")
+      .toUpperCase();
   }
   return email.slice(0, 2).toUpperCase();
 }
@@ -39,7 +45,7 @@ export function UserMenu() {
           <Button
             variant="ghost"
             size="icon"
-            className="group relative h-9 w-9 rounded-full p-0 ring-1 ring-border/70 transition-all hover:ring-2 hover:ring-cyan-500/50"
+            className="group relative h-11 w-11 rounded-full p-0 ring-1 ring-border/70 transition-all hover:ring-2 hover:ring-cyan-500/50 md:h-9 md:w-9"
             aria-label={t("Menu do usuário")}
           >
             <Avatar className="h-8 w-8 ring-1 ring-background">
@@ -94,7 +100,14 @@ export function UserMenu() {
               <DropdownMenuSeparator />
             </>
           )}
-          <DropdownMenuItem disabled={isPending} onClick={() => startTransition(async () => { await signOut(); })}>
+          <DropdownMenuItem
+            disabled={isPending}
+            onClick={() =>
+              startTransition(async () => {
+                await signOut();
+              })
+            }
+          >
             <SignOut size={16} className="mr-2" aria-hidden />
             {t("Sair")}
           </DropdownMenuItem>

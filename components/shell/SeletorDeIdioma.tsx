@@ -86,13 +86,11 @@ export function SeletorDeIdioma() {
           variant="ghost"
           size="icon"
           disabled={salvando}
-          className="h-9 w-9 rounded-xl text-muted-foreground transition-all duration-200 hover:bg-muted/70 hover:text-foreground"
+          className="h-11 w-11 rounded-xl text-muted-foreground transition-all duration-200 hover:bg-muted/70 hover:text-foreground md:h-9 md:w-9"
           aria-label={`${t("Idioma")}: ${emVigor.nomeNativo}`}
           data-testid="seletor-de-idioma"
         >
-          <span className="text-xs font-semibold tabular-nums">
-            {emVigor.rotuloCurto}
-          </span>
+          <span className="text-xs font-semibold tabular-nums">{emVigor.rotuloCurto}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[180px]">

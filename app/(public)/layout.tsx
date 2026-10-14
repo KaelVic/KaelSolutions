@@ -73,12 +73,13 @@ export default async function PublicLayout({ children }: { children: React.React
               {marca.logoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
+                  data-testid="logo-da-fachada"
                   src={marca.logoUrl}
                   alt={marca.nome}
                   className={
                     marca.logoDarkUrl
                       ? "h-10 w-auto max-w-full object-contain dark:hidden"
-                      : "h-10 w-auto max-w-full rounded-md bg-white object-contain p-1"
+                      : "h-10 w-auto max-w-full object-contain"
                   }
                 />
               ) : null}
