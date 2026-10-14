@@ -31,7 +31,7 @@ procurada — o que faz qualquer checagem ingênua aprovar tudo.
 ```bash
 ghcr_status() {   # $1=imagem  $2=tag  → 200 existe | 404 não existe | 403 privado
   local t
-  t=$(curl -s "https://ghcr.io/token?scope=repository:KaelVic/$1:pull&service=ghcr.io" \
+  t=$(curl -s "https://ghcr.io/token?scope=repository:kaelvic/$1:pull&service=ghcr.io" \
       | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
   curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $t" \
     -H 'Accept: application/vnd.oci.image.index.v1+json' \
@@ -136,7 +136,7 @@ for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do
 done
 # esperado: 200 em todos
 
-docker run --rm ghcr.io/kaelsolutions/ks-crm:X.Y.Z \
+docker run --rm ghcr.io/kaelvic/kaelsolutions:X.Y.Z \
   node -e 'console.log(process.env.APP_VERSION)'
 # esperado: X.Y.Z   (antes desta release, `undefined` — nenhuma imagem publicada a carrega)
 ```

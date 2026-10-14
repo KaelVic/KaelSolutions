@@ -16,7 +16,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript)](https://www.typescriptlang.org)
 [![Supabase](https://img.shields.io/badge/Supabase-Postgres%2BAuth%2BStorage-3ecf8e?logo=supabase)](https://supabase.com)
 [![Self-hosted](https://img.shields.io/badge/self--hosted-1%20comando-orange)](hostgator-setup-kit/)
-[![CI](https://github.com/kaelsolutions/KS_CRM/actions/workflows/ci.yml/badge.svg)](https://github.com/kaelsolutions/KS_CRM/actions/workflows/ci.yml)
+[![CI](https://github.com/KaelVic/KaelSolutions/actions/workflows/ci.yml/badge.svg)](https://github.com/KaelVic/KaelSolutions/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 [**⚡ Instalar**](#-instalar-na-sua-vps-o-caminho-principal) · [**🔄 Atualizar**](#-atualizar) · [**🧭 Visão**](VISION.md) · [**🏗️ Arquitetura**](ARCHITECTURE.md) · [**🤝 Contribuir**](CONTRIBUTING.md) · [**🗺️ Roadmap**](#%EF%B8%8F-roadmap)
@@ -72,7 +72,7 @@ travamento: é o terminal escondendo a senha. Digite (ou cole) e dê Enter.
 Já dentro da VPS:
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 bash hostgator-setup-kit/install.sh
 ```
@@ -327,7 +327,7 @@ Detalhes: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 > Esta seção é pra quem vai mexer no código.
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 
 nvm use                     # Node 22
@@ -478,9 +478,9 @@ o `imagens-ok` (constrói as três imagens Docker). Verde na sua máquina não �
 
 ## 🐛 Reportando bugs
 
-Abra uma [issue](https://github.com/kaelsolutions/KS_CRM/issues/new/choose) — o template pede o que precisamos (ambiente, `/api/v1/health`, steps). Rodar `bash hostgator-setup-kit/healthcheck.sh` e colar a saída ajuda muito.
+Abra uma [issue](https://github.com/KaelVic/KaelSolutions/issues/new/choose) — o template pede o que precisamos (ambiente, `/api/v1/health`, steps). Rodar `bash hostgator-setup-kit/healthcheck.sh` e colar a saída ajuda muito.
 
-Pra **vulnerabilidades de segurança**, **NÃO abra issue pública** — use o [relato privado de vulnerabilidades](https://github.com/kaelsolutions/KS_CRM/security/advisories/new). Detalhes em [`SECURITY.md`](SECURITY.md).
+Pra **vulnerabilidades de segurança**, **NÃO abra issue pública** — use o [relato privado de vulnerabilidades](https://github.com/KaelVic/KaelSolutions/security/advisories/new). Detalhes em [`SECURITY.md`](SECURITY.md).
 
 ---
 
@@ -511,8 +511,8 @@ Pra **vulnerabilidades de segurança**, **NÃO abra issue pública** — use o [
 
 ## 💬 Comunidade
 
-- **Discussões:** [GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions) — pra perguntas, ideias, showcase.
-- **Issues:** [GitHub Issues](https://github.com/kaelsolutions/KS_CRM/issues) — bugs e tasks.
+- **Discussões:** [GitHub Discussions](https://github.com/KaelVic/KaelSolutions/discussions) — pra perguntas, ideias, showcase.
+- **Issues:** [GitHub Issues](https://github.com/KaelVic/KaelSolutions/issues) — bugs e tasks.
 - **Instagram:** [@KaelVic](https://www.instagram.com/KaelVic)
 - **YouTube:** [youtube.com/@KaelVic](https://www.youtube.com/@KaelVic)
 
@@ -532,8 +532,8 @@ Este é um projeto **self-host**: cada pessoa roda o CRM na **própria infraestr
 (VPS, banco Supabase e chave de IA próprios). Isso implica:
 
 - **Suporte é comunitário e "as-is".** Dúvidas e bugs entram como
-  [Issues](https://github.com/kaelsolutions/KS_CRM/issues) ou
-  [Discussions](https://github.com/kaelsolutions/KS_CRM/discussions). Não há SLA nem
+  [Issues](https://github.com/KaelVic/KaelSolutions/issues) ou
+  [Discussions](https://github.com/KaelVic/KaelSolutions/discussions). Não há SLA nem
   suporte garantido — é open source mantido por boa vontade.
 - **Você é responsável pela sua instalação.** Atualizações não são automáticas (você clica
   ou roda `update.sh` quando quiser), e manter/backup do seu servidor é com você.

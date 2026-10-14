@@ -224,9 +224,9 @@ Veja [`README.md`](README.md) §Como rodar local.
 
 ## Suporte
 
-**[GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions)** — é o canal público,
+**[GitHub Discussions](https://github.com/KaelVic/KaelSolutions/discussions)** — é o canal público,
 funciona para qualquer pessoa e é onde a resposta fica registrada para quem vier depois. Para bug,
-[abra uma issue](https://github.com/kaelsolutions/KS_CRM/issues/new/choose).
+[abra uma issue](https://github.com/KaelVic/KaelSolutions/issues/new/choose).
 
 Se for algo que não cabe em público (segurança, por exemplo): `contato@kaelsolutions.com` — o mesmo
 endereço do [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).

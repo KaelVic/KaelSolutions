@@ -144,7 +144,7 @@ Agora escolha um dos dois caminhos:
 1. Conecte no servidor por SSH e **abra o Claude Code lá dentro** (na VPS, não no seu PC).
 2. Escreva pra ele exatamente isto:
 
-   > *"Clone https://github.com/kaelsolutions/KS_CRM e me instale o KaelSolutions
+   > *"Clone https://github.com/KaelVic/KaelSolutions e me instale o KaelSolutions
    > seguindo o `hostgator-setup-kit/install.sh`. Me pergunte as chaves uma por uma e
    > resolva os erros você mesmo."*
 
@@ -160,7 +160,7 @@ Agora escolha um dos dois caminhos:
 No servidor, baixe o projeto e rode o instalador:
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 bash hostgator-setup-kit/install.sh
 ```

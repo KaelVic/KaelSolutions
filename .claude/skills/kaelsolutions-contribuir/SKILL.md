@@ -41,7 +41,7 @@ for g in ${r:+"$r/.agents/skills"} ~/.claude/skills ~/.agents/skills ~/.gemini/c
 done
 if [ -n "$s" ]; then bash "$s"; else
   echo "NÃO MEDIDO — não achei o quem-sou.sh ${r:+no clone $r }nem nas pastas globais dos guias." >&2
-  echo "Instale os guias pelo comando de uma linha do README (https://github.com/kaelsolutions/KS_CRM#readme) e rode de novo." >&2
+  echo "Instale os guias pelo comando de uma linha do README (https://github.com/KaelVic/KaelSolutions#readme) e rode de novo." >&2
   false
 fi
 ```

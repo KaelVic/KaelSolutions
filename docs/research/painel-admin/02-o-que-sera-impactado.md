@@ -468,9 +468,9 @@ invalidação não alcança, (4) falha fora do memo. Quatro peças, não uma.
 
 | Serviço | Linha | `image:` | `pull_policy:` | `env_file` | `mem_limit` |
 |---|---|---|---|---|---|
-| `app` | `docker-compose.prod.yml:14` | `${APP_IMAGE:-ghcr.io/kaelsolutions/ks-crm:stable}` (`:35`) | `${APP_PULL_POLICY:-always}` (`:36`) | `.env` (`:38`) | 768m |
-| `worker` | `:58` | `${WORKER_IMAGE:-ghcr.io/KaelVic/kaelsolutions-worker:stable}` (`:92`) | `always` (`:93`) | `.env` (`:98`) | 512m |
-| `scheduler` | `:203` | `${SCHEDULER_IMAGE:-ghcr.io/KaelVic/kaelsolutions-scheduler:stable}` (`:213`) | `always` (`:214`) | — (`INTERNAL_SECRET` via `environment:`) | — |
+| `app` | `docker-compose.prod.yml:14` | `${APP_IMAGE:-ghcr.io/kaelvic/kaelsolutions:stable}` (`:35`) | `${APP_PULL_POLICY:-always}` (`:36`) | `.env` (`:38`) | 768m |
+| `worker` | `:58` | `${WORKER_IMAGE:-ghcr.io/kaelvic/kaelsolutions-worker:stable}` (`:92`) | `always` (`:93`) | `.env` (`:98`) | 512m |
+| `scheduler` | `:203` | `${SCHEDULER_IMAGE:-ghcr.io/kaelvic/kaelsolutions-scheduler:stable}` (`:213`) | `always` (`:214`) | — (`INTERNAL_SECRET` via `environment:`) | — |
 
 O `worker` mantém `build:` **ao lado** da imagem (`:94-97`), e o comentário
 `:58-68` explica: com os dois presentes o Compose usa a imagem quando ela existe e

@@ -35,7 +35,10 @@ export function ThemeToggle({ className }: { className?: string }) {
     <Button
       variant="ghost"
       size="icon"
-      className={cn("h-9 w-9 rounded-xl text-muted-foreground transition-all duration-200 hover:bg-muted/70 hover:text-foreground", className)}
+      className={cn(
+        "h-11 w-11 rounded-xl text-muted-foreground transition-all duration-200 hover:bg-muted/70 hover:text-foreground md:h-9 md:w-9",
+        className,
+      )}
       onClick={cycle}
       aria-label={t(`Tema: ${theme}. Cmd+Shift+L para alternar.`)}
       suppressHydrationWarning

@@ -13,7 +13,7 @@ O KaelSolutions é distribuído em rolling release a partir da branch `main`. Co
 
 **Não abra issue pública para vulnerabilidades.**
 
-Use o [relato privado de vulnerabilidades do GitHub](https://github.com/kaelsolutions/KS_CRM/security/advisories/new) — o relato chega só aos mantenedores, e o histórico fica auditável.
+Use o [relato privado de vulnerabilidades do GitHub](https://github.com/KaelVic/KaelSolutions/security/advisories/new) — o relato chega só aos mantenedores, e o histórico fica auditável.
 
 O que esperar:
 

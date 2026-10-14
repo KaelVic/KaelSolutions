@@ -31,7 +31,7 @@ echo "── pré-voo do contribuidor · $(date -u +%Y-%m-%dT%H:%MZ) ──"
 # ── 0. Âncora ────────────────────────────────────────────────────────────────
 if git fetch origin -q 2>/dev/null; then :; else olhe "sem rede: origin/main pode estar velha (git fetch origin)"; fi
 if ! git rev-parse -q --verify origin/main >/dev/null 2>&1; then
-  trava "origin/main não existe neste clone — adicione o remoto do repositório principal: git remote add upstream https://github.com/kaelsolutions/KS_CRM.git && git fetch upstream && git branch --track main-upstream upstream/main"
+  trava "origin/main não existe neste clone — adicione o remoto do repositório principal: git remote add upstream https://github.com/KaelVic/KaelSolutions.git && git fetch upstream && git branch --track main-upstream upstream/main"
   exit 0
 fi
 MAIN="$(git rev-parse --short origin/main)"
@@ -151,7 +151,7 @@ else
     done
   fi
   if [ "$pop_sem_produto" = 1 ]; then
-    olhe "NÃO MEDIDO contra a main do PRODUTO: nenhum remoto aponta para KaelVic/KaelSolutions — a unicidade abaixo sai sobre '${pop_base:-nenhuma base}' e a cópia local. Corrija com: git remote add upstream https://github.com/kaelsolutions/KS_CRM.git && git fetch upstream"
+    olhe "NÃO MEDIDO contra a main do PRODUTO: nenhum remoto aponta para KaelVic/KaelSolutions — a unicidade abaixo sai sobre '${pop_base:-nenhuma base}' e a cópia local. Corrija com: git remote add upstream https://github.com/KaelVic/KaelSolutions.git && git fetch upstream"
   fi
   # "livre" sobre a base errada não é ✓: é ⚠ com o nome da régua.
   livre() { if [ "$pop_sem_produto" = 1 ]; then olhe "$* (NÃO MEDIDO contra a main do produto)"; else ok "$*"; fi; }

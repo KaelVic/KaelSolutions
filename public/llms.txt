@@ -14,14 +14,14 @@ Key facts:
 
 ## Docs
 
-- [README (Portuguese)](https://github.com/kaelsolutions/KS_CRM/blob/main/README.md): visão geral, quickstart, stack
-- [README (English)](https://github.com/kaelsolutions/KS_CRM/blob/main/README.en.md): project overview, quickstart, stack
-- [README (Spanish)](https://github.com/kaelsolutions/KS_CRM/blob/main/README.es.md): visión general en español
-- [Vision & positioning](https://github.com/kaelsolutions/KS_CRM/blob/main/VISION.md): what the project believes about self-improving AI agents
-- [Architecture](https://github.com/kaelsolutions/KS_CRM/blob/main/ARCHITECTURE.md): one-page architecture
-- [Setup guide](https://github.com/kaelsolutions/KS_CRM/blob/main/docs/SETUP.md): step-by-step setup of every integration
-- [Self-host on a VPS](https://github.com/kaelsolutions/KS_CRM/blob/main/docs/deploy-selfhost/README.md): docker compose deploy on any VPS
+- [README (Portuguese)](https://github.com/KaelVic/KaelSolutions/blob/main/README.md): visão geral, quickstart, stack
+- [README (English)](https://github.com/KaelVic/KaelSolutions/blob/main/README.en.md): project overview, quickstart, stack
+- [README (Spanish)](https://github.com/KaelVic/KaelSolutions/blob/main/README.es.md): visión general en español
+- [Vision & positioning](https://github.com/KaelVic/KaelSolutions/blob/main/VISION.md): what the project believes about self-improving AI agents
+- [Architecture](https://github.com/KaelVic/KaelSolutions/blob/main/ARCHITECTURE.md): one-page architecture
+- [Setup guide](https://github.com/KaelVic/KaelSolutions/blob/main/docs/SETUP.md): step-by-step setup of every integration
+- [Self-host on a VPS](https://github.com/KaelVic/KaelSolutions/blob/main/docs/deploy-selfhost/README.md): docker compose deploy on any VPS
 
 ## Repository
 
-- [GitHub](https://github.com/kaelsolutions/KS_CRM): source code, issues, discussions
+- [GitHub](https://github.com/KaelVic/KaelSolutions): source code, issues, discussions

@@ -9,7 +9,7 @@ API_GW_HTTP_PORT=8001
 .runtime/supabase/docker-compose.kaelsolutions-traefik.yml
 coolify kaelsolutions-supabase_default kaelsolutions_supabase 
 SUPABASE_INTERNAL_URL="http://127.0.0.1:8001"
-APP_IMAGE=ghcr.io/kaelsolutions/ks-crm:1.76.0
+APP_IMAGE=ghcr.io/kaelvic/kaelsolutions:1.76.0
 linha-Atualizando-o-Supabase=0
 4:▶ Procurando atualizações
 7:▶ Conferindo se dá para atualizar (preflight)

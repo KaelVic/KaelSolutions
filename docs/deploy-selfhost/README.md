@@ -23,7 +23,7 @@
 ## 1. Clonar e configurar
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git && cd KaelSolutions
+git clone https://github.com/KaelVic/KaelSolutions.git && cd KaelSolutions
 cp .env.hostgator.example .env   # o template de produção (o .env.example é o de dev)
 ```
 

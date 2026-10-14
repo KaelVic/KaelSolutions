@@ -54,7 +54,7 @@ AJUDA
 
 set -euo pipefail
 
-REPO_URL="${KAELSOLUTIONS_REPO_URL:-https://github.com/kaelsolutions/KS_CRM.git}"
+REPO_URL="${KAELSOLUTIONS_REPO_URL:-https://github.com/KaelVic/KaelSolutions.git}"
 CACHE_PADRAO="$HOME/.kaelsolutions/guias"
 CACHE="${KAELSOLUTIONS_GUIAS_HOME:-$CACHE_PADRAO}"
 # Absoluto, como o --fonte: o link guarda o caminho LITERAL, e um relativo

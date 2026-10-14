@@ -1954,7 +1954,7 @@ grep -n 'SUPABASE_ACCESS_TOKEN\|Criando o projeto Supabase' hostgator-setup-kit/
 **Mede com:**
 
 ```bash
-for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do for t in 1.3.0 stable; do echo -n "$i:$t "; docker buildx imagetools inspect ghcr.io/KaelVic/$i:$t --format '{{.Manifest.Digest}}'; done; done
+for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do for t in 1.3.0 stable; do echo -n "$i:$t "; docker buildx imagetools inspect ghcr.io/kaelvic/$i:$t --format '{{.Manifest.Digest}}'; done; done
 ```
 
 **Deu:**
@@ -2057,7 +2057,7 @@ grep -rn 'IMAGE_NAME' .github/ ; grep -n 'images:' .github/workflows/publish-ima
 **Mede com:**
 
 ```bash
-grep -c 'KaelVic' tests/unit/packaging-artefato-do-cliente.test.ts ; grep -rln 'ghcr.io/KaelVic' --exclude-dir=node_modules . | grep -E 'tests/|hostgator-setup-kit/test'
+grep -c 'KaelVic' tests/unit/packaging-artefato-do-cliente.test.ts ; grep -rln 'ghcr.io/kaelvic' --exclude-dir=node_modules . | grep -E 'tests/|hostgator-setup-kit/test'
 ```
 
 **Deu:**
@@ -2068,9 +2068,9 @@ tests/shell/update-guard.test.sh
 hostgator-setup-kit/test-validators.sh
 ```
 
-**Sugestão:** ... os testes que casam a string (`tests/shell/update-guard.test.sh`, `hostgator-setup-kit/test-validators.sh`) e os docs — **mais** o `.env` de cada instalação viva, que é a parte que nenhum commit alcança. (`tests/unit/packaging-artefato-do-cliente.test.ts` entra no custo por outro motivo: ele guarda a forma do compose e os gatilhos do workflow, não a string do namespace.) Régua para reconferir antes de citar este parágrafo: `grep -rln "ghcr.io/KaelVic" --exclude-dir=node_modules .`
+**Sugestão:** ... os testes que casam a string (`tests/shell/update-guard.test.sh`, `hostgator-setup-kit/test-validators.sh`) e os docs — **mais** o `.env` de cada instalação viva, que é a parte que nenhum commit alcança. (`tests/unit/packaging-artefato-do-cliente.test.ts` entra no custo por outro motivo: ele guarda a forma do compose e os gatilhos do workflow, não a string do namespace.) Régua para reconferir antes de citar este parágrafo: `grep -rln "ghcr.io/kaelvic" --exclude-dir=node_modules .`
 
-**Vira teste:** tests/unit/packaging-artefato-do-cliente.test.ts: it("o ADR só lista como guarda-namespace arquivos que contêm a string") — para cada path citado na §D1 como teste que 'casa a string', exigir grep('ghcr.io/KaelVic') > 0
+**Vira teste:** tests/unit/packaging-artefato-do-cliente.test.ts: it("o ADR só lista como guarda-namespace arquivos que contêm a string") — para cada path citado na §D1 como teste que 'casa a string', exigir grep('ghcr.io/kaelvic') > 0
 
 ### L126 · FALSA · gravidade alta · pendencia
 
@@ -2099,7 +2099,7 @@ verify, build-and-size, invariants, e2e, imagens-ok
 **Mede com:**
 
 ```bash
-TOKEN=$(curl -s 'https://ghcr.io/token?scope=repository:KaelVic/kaelsolutions:pull&service=ghcr.io' | python3 -c 'import sys,json;print(json.load(sys.stdin)["token"])'); curl -s -H "Authorization: Bearer $TOKEN" https://ghcr.io/v2/KaelVic/kaelsolutions/tags/list | python3 -c 'import sys,json;t=json.load(sys.stdin)["tags"];print(len(t),sorted(t))' ; curl -s -o /dev/null -w '%{http_code}\n' -H "Authorization: Bearer $TOKEN" https://ghcr.io/v2/KaelVic/kaelsolutions/manifests/latest
+TOKEN=$(curl -s 'https://ghcr.io/token?scope=repository:kaelvic/kaelsolutions:pull&service=ghcr.io' | python3 -c 'import sys,json;print(json.load(sys.stdin)["token"])'); curl -s -H "Authorization: Bearer $TOKEN" https://ghcr.io/v2/KaelVic/kaelsolutions/tags/list | python3 -c 'import sys,json;t=json.load(sys.stdin)["tags"];print(len(t),sorted(t))' ; curl -s -o /dev/null -w '%{http_code}\n' -H "Authorization: Bearer $TOKEN" https://ghcr.io/v2/KaelVic/kaelsolutions/manifests/latest
 ```
 
 **Deu:**
@@ -2269,7 +2269,7 @@ kaelsolutions:stable APP_VERSION=1.3.0 | kaelsolutions:latest APP_VERSION=840917
 gh release list: v1.3.0 … Latest … 2026-08-13T19:58:03Z
 ```
 
-**Sugestão:** > **Onde já vale.** Toda imagem publicada a partir da v1.3.0 carrega `APP_VERSION` — medido em 2026-08-14 direto no registry: `kaelsolutions:1.3.0` e `kaelsolutions-worker:1.3.0` trazem `APP_VERSION=1.3.0`; a `1.2.1` não traz nenhuma. Quem ainda roda imagem anterior à 1.3.0 responde `desconhecido`, que é a resposta honesta e o motivo de o fallback não ser mais um número plausível. Para saber o que a SUA imagem carrega: `docker run --rm ghcr.io/kaelsolutions/ks-crm:<tag> node -e 'console.log(process.env.APP_VERSION)'`.
+**Sugestão:** > **Onde já vale.** Toda imagem publicada a partir da v1.3.0 carrega `APP_VERSION` — medido em 2026-08-14 direto no registry: `kaelsolutions:1.3.0` e `kaelsolutions-worker:1.3.0` trazem `APP_VERSION=1.3.0`; a `1.2.1` não traz nenhuma. Quem ainda roda imagem anterior à 1.3.0 responde `desconhecido`, que é a resposta honesta e o motivo de o fallback não ser mais um número plausível. Para saber o que a SUA imagem carrega: `docker run --rm ghcr.io/kaelvic/kaelsolutions:<tag> node -e 'console.log(process.env.APP_VERSION)'`.
 
 ### L234 · FALSA · gravidade media · ponteiro
 
@@ -2591,7 +2591,7 @@ agent-turn.html  agent-turn.workflow.json  atualizacao-self-service.architecture
 **Mede com:**
 
 ```bash
-docker buildx imagetools inspect ghcr.io/kaelsolutions/ks-crm:stable --format '{{.Manifest.Digest}}' ; docker buildx imagetools inspect ghcr.io/kaelsolutions/ks-crm:1.3.0 --format '{{.Manifest.Digest}}'
+docker buildx imagetools inspect ghcr.io/kaelvic/kaelsolutions:stable --format '{{.Manifest.Digest}}' ; docker buildx imagetools inspect ghcr.io/kaelvic/kaelsolutions:1.3.0 --format '{{.Manifest.Digest}}'
 ```
 
 **Deu:**
@@ -2611,7 +2611,7 @@ stable → sha256:c4bc70b606c8e63f3fc9557ed31b1a211b58beaac3b67509eb0c8acbc0dbae
 **Mede com:**
 
 ```bash
-for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do for t in 1.3.0 stable; do echo -n "$i:$t "; docker buildx imagetools inspect ghcr.io/KaelVic/$i:$t --format '{{.Manifest.Digest}}'; done; done
+for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do for t in 1.3.0 stable; do echo -n "$i:$t "; docker buildx imagetools inspect ghcr.io/kaelvic/$i:$t --format '{{.Manifest.Digest}}'; done; done
 ```
 
 **Deu:**
@@ -2867,7 +2867,7 @@ grep -n "TARGET_TAG" hostgator-setup-kit/update.sh | head -3 ; grep -n "stable" 
 
 ```
 update.sh:39: [ -n "$TARGET_TAG" ] || TARGET_TAG="$(git tag -l 'v*' --sort=-v:refname | head -1)"
-docker-compose.prod.yml:35 image: ${APP_IMAGE:-ghcr.io/kaelsolutions/ks-crm:stable} (idem worker:92 e scheduler:196)
+docker-compose.prod.yml:35 image: ${APP_IMAGE:-ghcr.io/kaelvic/kaelsolutions:stable} (idem worker:92 e scheduler:196)
 docs/DEPLOY-CHECKLIST.md:45: - [ ] `gh release create vX.Y.Z` com as notas do CHANGELOG
 docs/doctrine/packaging.md:340: [ ] 9. `gh release create vX.Y.Z`
 Medido no GHCR: kaelsolutions:latest revision=840917ed (topo da main) vs kaelsolutions:stable version=1.3.0 revision=9bd59e9.
@@ -2893,7 +2893,7 @@ update.sh:200: "if ! dc pull; then ... se um run de publicação quebrou ... o c
 GHCR (medido agora): as três respondem HTTP 200 em :latest e :stable.
 ```
 
-**Sugestão:** publica **três** imagens — `kaelsolutions`, `kaelsolutions-worker` e `kaelsolutions-scheduler` — sob a mesma tag de versão. Sob a mesma tag, não necessariamente as três: a matriz roda com `fail-fast: false` e cada job empurra a sua, então uma versão pode existir para duas imagens e faltar na terceira (é exatamente o caso que o `dc pull` do `update.sh` trata). Antes de anunciar uma versão, confirme as três: `for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do docker buildx imagetools inspect ghcr.io/KaelVic/$i:<versão> --format '{{.Manifest.Digest}}'; done`
+**Sugestão:** publica **três** imagens — `kaelsolutions`, `kaelsolutions-worker` e `kaelsolutions-scheduler` — sob a mesma tag de versão. Sob a mesma tag, não necessariamente as três: a matriz roda com `fail-fast: false` e cada job empurra a sua, então uma versão pode existir para duas imagens e faltar na terceira (é exatamente o caso que o `dc pull` do `update.sh` trata). Antes de anunciar uma versão, confirme as três: `for i in kaelsolutions kaelsolutions-worker kaelsolutions-scheduler; do docker buildx imagetools inspect ghcr.io/kaelvic/$i:<versão> --format '{{.Manifest.Digest}}'; done`
 
 ### L108 · FRAGIL · gravidade media · contagem
 
@@ -2926,7 +2926,7 @@ docs/adr/0001-packaging-e-distribuicao.md:148: "4–34 min" não existe no repo
 **Mede com:**
 
 ```bash
-docker buildx imagetools inspect ghcr.io/KaelVic/kaelsolutions-worker:stable 2>&1 | awk '/^Digest:/{print $2; exit}'
+docker buildx imagetools inspect ghcr.io/kaelvic/kaelsolutions-worker:stable 2>&1 | awk '/^Digest:/{print $2; exit}'
 ```
 
 **Deu:**
@@ -3046,7 +3046,7 @@ P4 (mesmo arquivo): "**nenhuma** chave do `.env` sumiu (39 → 43: as 4 novas s�
 **Mede com:**
 
 ```bash
-docker buildx imagetools inspect ghcr.io/KaelVic/kaelsolutions-worker:stable 2>&1 | awk '/^Digest:/{print $2;exit}'; docker buildx imagetools inspect ghcr.io/KaelVic/kaelsolutions-worker:1.3.0 2>&1 | awk '/^Digest:/{print $2;exit}'; git rev-parse v1.3.0^{commit}
+docker buildx imagetools inspect ghcr.io/kaelvic/kaelsolutions-worker:stable 2>&1 | awk '/^Digest:/{print $2;exit}'; docker buildx imagetools inspect ghcr.io/kaelvic/kaelsolutions-worker:1.3.0 2>&1 | awk '/^Digest:/{print $2;exit}'; git rev-parse v1.3.0^{commit}
 ```
 
 **Deu:**
@@ -4329,7 +4329,7 @@ grep -n '^## ' CHANGELOG.md ; grep -n '^\[' CHANGELOG.md
 Headings: Não lançado, 1.3.0, 1.2.1, 1.2.0, 1.1.0, 1.0.0. Definições de link: Não lançado, 1.2.1, 1.2.0, 1.1.0, 1.0.0. **Falta `[1.3.0]:`** — o único heading de versão sem destino. No GitHub ele renderiza como texto literal `[1.3.0]`, enquanto os vizinhos viram link para o diff.
 ```
 
-**Sugestão:** Acrescentar, entre a linha de `[Não lançado]` e a de `[1.2.1]`:  [1.3.0]: https://github.com/kaelsolutions/KS_CRM/compare/v1.2.1...v1.3.0
+**Sugestão:** Acrescentar, entre a linha de `[Não lançado]` e a de `[1.2.1]`:  [1.3.0]: https://github.com/KaelVic/KaelSolutions/compare/v1.2.1...v1.3.0
 
 **Vira teste:** tests/unit/changelog-links.test.ts — todo heading `## [X.Y.Z]` tem uma linha `[X.Y.Z]: https://…` correspondente. Sabotagem que reprova: apagar a definição de `[1.2.1]`.
 
@@ -4503,7 +4503,7 @@ v1.0.0 tinha 8 arquivos `.sh`, mas um deles é `_common.sh` (biblioteca comparti
 
 ### L337 · FALSA · gravidade alta · sobre-o-codigo
 
-> Imagem publicada em `ghcr.io/kaelsolutions/ks-crm` — a VPS não compila nada.
+> Imagem publicada em `ghcr.io/kaelvic/kaelsolutions` — a VPS não compila nada.
 
 **Mede com:**
 
@@ -4514,10 +4514,10 @@ git show v1.0.0:docker-compose.prod.yml | grep -nE '^  [a-z0-9_-]+:|image:|build
 **Deu:**
 
 ```
-Em v1.0.0: `app` (linha 19) tem `image: ${APP_IMAGE:-ghcr.io/kaelsolutions/ks-crm:latest}`; `worker` (linha 42) tem **`build:`** e NENHUM `image:`; `scheduler` (linha 112) é `alpine:3.20` com `apk add` no `command:`. Ou seja, na própria v1.0.0 a VPS compilava o worker. O mesmo arquivo admite isso na linha 22: "O worker … era compilado dentro do seu servidor no dia da instalação".
+Em v1.0.0: `app` (linha 19) tem `image: ${APP_IMAGE:-ghcr.io/kaelvic/kaelsolutions:latest}`; `worker` (linha 42) tem **`build:`** e NENHUM `image:`; `scheduler` (linha 112) é `alpine:3.20` com `apk add` no `command:`. Ou seja, na própria v1.0.0 a VPS compilava o worker. O mesmo arquivo admite isso na linha 22: "O worker … era compilado dentro do seu servidor no dia da instalação".
 ```
 
-**Sugestão:** - Imagem publicada em `ghcr.io/kaelsolutions/ks-crm` — a VPS não compila **o app**. (O worker ainda era compilado no seu servidor nesta versão; isso só foi corrigido na 1.3.0.)
+**Sugestão:** - Imagem publicada em `ghcr.io/kaelvic/kaelsolutions` — a VPS não compila **o app**. (O worker ainda era compilado no seu servidor nesta versão; isso só foi corrigido na 1.3.0.)
 
 **Vira teste:** tests/unit/packaging-sem-build-only.test.ts (se ainda não existir com este alcance) — todo serviço de `docker-compose.prod.yml` declara `image:`; serviço com `build:` e sem `image:` reprova. Sabotagem que reprova: remover o `image:` do `worker`.
 
@@ -4561,7 +4561,7 @@ v1.0.0: 56 arquivos (o número da frase confere na tag). HEAD: 103 arquivos, 682
 
 ### L349 · FALSA · gravidade media · ponteiro
 
-> [Não lançado]: https://github.com/kaelsolutions/KS_CRM/compare/v1.2.1...HEAD
+> [Não lançado]: https://github.com/KaelVic/KaelSolutions/compare/v1.2.1...HEAD
 
 **Mede com:**
 
@@ -4575,7 +4575,7 @@ grep -n '^\[' CHANGELOG.md ; git tag --list | sort -V | tail -3
 Definições presentes: Não lançado (v1.2.1...HEAD), 1.2.1, 1.2.0, 1.1.0, 1.0.0. Tags existentes: v1.2.0, v1.2.1, **v1.3.0**. O comparador de "Não lançado" ainda parte da v1.2.1, então o link mostra a 1.3.0 inteira como se fosse trabalho não lançado.
 ```
 
-**Sugestão:** [Não lançado]: https://github.com/kaelsolutions/KS_CRM/compare/v1.3.0...HEAD
+**Sugestão:** [Não lançado]: https://github.com/KaelVic/KaelSolutions/compare/v1.3.0...HEAD
 
 **Vira teste:** tests/unit/changelog-links.test.ts — a definição de `[Não lançado]` deve comparar contra a MAIOR tag existente (`git tag --sort=-v:refname | head -1`). Sabotagem que reprova: publicar uma tag nova sem atualizar a linha.
 

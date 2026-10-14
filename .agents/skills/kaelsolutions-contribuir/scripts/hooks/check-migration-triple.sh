@@ -97,7 +97,7 @@ fi
 [ -z "$novas" ] && exit 0
 
 if [ "$aviso_fork" = 1 ]; then
-  echo "pre-commit AVISO: NNNN/timestamp NÃO MEDIDOS contra a main do PRODUTO: nenhum remoto aponta para KaelVic/KaelSolutions (a base é a origin/main do seu fork, que pode estar atrás). Corrija com: git remote add upstream https://github.com/kaelsolutions/KS_CRM.git && git fetch upstream (#1273)" >&2
+  echo "pre-commit AVISO: NNNN/timestamp NÃO MEDIDOS contra a main do PRODUTO: nenhum remoto aponta para KaelVic/KaelSolutions (a base é a origin/main do seu fork, que pode estar atrás). Corrija com: git remote add upstream https://github.com/KaelVic/KaelSolutions.git && git fetch upstream (#1273)" >&2
 fi
 
 staged="$(git diff --cached --name-only)"

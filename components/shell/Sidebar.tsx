@@ -11,7 +11,6 @@ import { ConnectionHealthDot } from "@/components/connections/ConnectionHealthDo
 import { ContadorDeCasos } from "@/components/shell/ContadorDeCasos";
 import { ContadorDaFila } from "@/components/shell/ContadorDaFila";
 import { VersionFooter } from "@/components/shell/VersionFooter";
-import { LogotipoDoProduto, SimboloDoProduto } from "@/components/branding/MarcaDoProduto";
 import { marcaEhADoProduto } from "@/lib/branding";
 import { useMarcaDaInstalacao } from "@/lib/branding/contexto";
 import { GRUPO_NO_RODAPE, sidebarGroups } from "@/lib/navigation/registry";
@@ -128,15 +127,64 @@ export function SidebarContent({
   return (
     <>
       <div
+        data-sidebar-brand-row
         className={cn(
           "flex h-16 items-center border-b border-border/60 px-3.5 transition-all duration-200",
           collapsed ? "justify-center px-2" : "justify-between",
         )}
       >
-        {!collapsed ? (
+        {(logo || logoEscuro) && !collapsed ? (
+          <div
+            className={cn(
+              "min-w-0 rounded-md",
+              !logoEscuro && "dark:bg-white dark:px-2 dark:py-1 dark:shadow-sm",
+            )}
+          >
+            {logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={logo}
+                alt={nome}
+                className={cn(
+                  "h-7 w-auto max-w-[min(10rem,100%)] object-contain",
+                  logoEscuro && "dark:hidden",
+                )}
+              />
+            ) : (
+              <span className="block min-w-0 truncate dark:hidden" title={nome}>
+                {nome}
+              </span>
+            )}
+            {logoEscuro ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={logoEscuro}
+                alt={nome}
+                className="hidden h-7 w-auto max-w-[min(10rem,100%)] object-contain dark:block"
+              />
+            ) : null}
+          </div>
+        ) : !marcaDoProduto ? (
+          <>
+            <span
+              className={cn(
+                "min-w-0 truncate font-semibold tracking-tight",
+                collapsed && "sr-only",
+              )}
+              title={nome}
+            >
+              {nome}
+            </span>
+            {collapsed && (
+              <span aria-hidden className="text-lg font-bold text-primary">
+                {[...nome][0]?.toUpperCase() ?? brand.initial}
+              </span>
+            )}
+          </>
+        ) : !collapsed ? (
           <div className="flex min-w-0 items-center gap-2.5">
             {/* Ícone tecnológico moderno em vetor SVG (centelha / IA inteligente) */}
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-sky-400 text-white shadow-md shadow-cyan-500/25 ring-1 ring-cyan-400/40">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-sky-400 text-white shadow-md ring-1 shadow-cyan-500/25 ring-cyan-400/40">
               <svg
                 className="h-5 w-5"
                 viewBox="0 0 24 24"
@@ -145,7 +193,8 @@ export function SidebarContent({
                 strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                aria-hidden
+                role="img"
+                aria-label={nome}
               >
                 <path
                   d="M12 2L14.4 7.6L20 10L14.4 12.4L12 18L9.6 12.4L4 10L9.6 7.6L12 2Z"
@@ -164,21 +213,21 @@ export function SidebarContent({
             </div>
             <div className="flex min-w-0 flex-col">
               <div className="flex items-center gap-1">
-                <span className="text-[13px] font-bold tracking-tight text-foreground font-display leading-snug">
+                <span className="font-display text-[13px] leading-snug font-bold tracking-tight text-foreground">
                   KS Atendimento
                 </span>
-                <span className="rounded bg-cyan-500/10 px-1 py-0.5 text-[9px] font-bold text-cyan-600 dark:text-cyan-400 leading-none">
+                <span className="rounded-md bg-cyan-500/10 px-1 py-0.5 text-[9px] leading-none font-bold text-cyan-700 dark:text-cyan-400">
                   IA
                 </span>
               </div>
-              <span className="text-[10px] font-medium text-muted-foreground/80 leading-snug">
+              <span className="text-[10px] leading-snug font-medium text-muted-foreground">
                 by KaelSolutions
               </span>
             </div>
           </div>
         ) : (
           <div
-            className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-sky-400 text-white shadow-md shadow-cyan-500/25 ring-1 ring-cyan-400/40"
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-sky-400 text-white shadow-md ring-1 shadow-cyan-500/25 ring-cyan-400/40"
             title="KS Atendimento IA by KaelSolutions"
           >
             <svg
@@ -189,7 +238,8 @@ export function SidebarContent({
               strokeWidth="2.2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              aria-hidden
+              role="img"
+              aria-label={nome}
             >
               <path
                 d="M12 2L14.4 7.6L20 10L14.4 12.4L12 18L9.6 12.4L4 10L9.6 7.6L12 2Z"
@@ -292,14 +342,14 @@ export function SidebarContent({
                     type="button"
                     onClick={() => toggleGrupo(group.id)}
                     aria-expanded={aberto}
-                    className="flex w-full items-center justify-between rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/75 transition-colors hover:bg-accent/40 hover:text-foreground"
+                    className="flex w-full items-center justify-between rounded-md px-2.5 py-1 text-[11px] font-semibold tracking-wider text-muted-foreground uppercase transition-colors hover:bg-accent/40 hover:text-foreground"
                   >
                     {t(group.label)}
                     <CaretDown
                       size={11}
                       weight="bold"
                       className={cn(
-                        "shrink-0 text-muted-foreground/60 transition-transform",
+                        "shrink-0 text-muted-foreground transition-transform",
                         !aberto && "-rotate-90",
                       )}
                       aria-hidden
@@ -326,8 +376,9 @@ export function SidebarContent({
                           className={cn(
                             "group relative flex items-center gap-3 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-fast",
                             isActive
-                              ? "bg-cyan-500/10 text-cyan-900 dark:text-cyan-200 font-semibold shadow-xs ring-1 ring-cyan-500/25 before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:rounded-r-full before:bg-cyan-500"
+                              ? "bg-cyan-500/10 font-semibold text-cyan-900 shadow-xs ring-1 ring-cyan-500/25 before:absolute before:top-1.5 before:bottom-1.5 before:left-0 before:w-1 before:rounded-r-full before:bg-cyan-500 dark:text-cyan-200"
                               : "text-muted-foreground hover:bg-muted/70 hover:text-foreground",
+                            !collapsed && "md:py-1",
                             collapsed && "justify-center px-2 py-2 before:hidden",
                           )}
                         >
@@ -336,7 +387,9 @@ export function SidebarContent({
                             weight={isActive ? "fill" : "regular"}
                             className={cn(
                               "shrink-0 transition-colors",
-                              isActive ? "text-cyan-600 dark:text-cyan-400" : "text-muted-foreground group-hover:text-foreground",
+                              isActive
+                                ? "text-cyan-600 dark:text-cyan-400"
+                                : "text-muted-foreground group-hover:text-foreground",
                             )}
                             aria-hidden
                           />
@@ -362,8 +415,9 @@ export function SidebarContent({
                         className={cn(
                           "group flex items-center gap-3 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-fast",
                           pathname === group.hub.href
-                            ? "bg-cyan-500/10 text-cyan-900 dark:text-cyan-200 font-semibold shadow-xs ring-1 ring-cyan-500/25"
+                            ? "bg-cyan-500/10 font-semibold text-cyan-900 shadow-xs ring-1 ring-cyan-500/25 dark:text-cyan-200"
                             : "text-muted-foreground hover:bg-muted/70 hover:text-foreground",
+                          !collapsed && "md:py-1",
                           collapsed && "justify-center px-2 py-2",
                         )}
                       >
@@ -371,7 +425,9 @@ export function SidebarContent({
                           size={18}
                           className={cn(
                             "shrink-0 transition-colors",
-                            pathname === group.hub.href ? "text-cyan-600 dark:text-cyan-400" : "text-muted-foreground group-hover:text-foreground",
+                            pathname === group.hub.href
+                              ? "text-cyan-600 dark:text-cyan-400"
+                              : "text-muted-foreground group-hover:text-foreground",
                           )}
                           aria-hidden
                         />
@@ -395,7 +451,7 @@ export function SidebarContent({
             className={cn(
               "group relative mb-1 flex items-center gap-3 rounded-lg px-3 py-1.5 text-sm font-medium transition-all duration-fast",
               pathname.startsWith(rodape.href)
-                ? "bg-cyan-500/10 text-cyan-900 dark:text-cyan-200 font-semibold shadow-xs ring-1 ring-cyan-500/25 before:absolute before:left-0 before:top-1.5 before:bottom-1.5 before:w-1 before:rounded-r-full before:bg-cyan-500"
+                ? "bg-cyan-500/10 font-semibold text-cyan-900 shadow-xs ring-1 ring-cyan-500/25 before:absolute before:top-1.5 before:bottom-1.5 before:left-0 before:w-1 before:rounded-r-full before:bg-cyan-500 dark:text-cyan-200"
                 : "text-muted-foreground hover:bg-muted/70 hover:text-foreground",
               collapsed && "justify-center px-2 py-2 before:hidden",
             )}
@@ -404,7 +460,9 @@ export function SidebarContent({
               size={18}
               className={cn(
                 "shrink-0 transition-colors",
-                pathname.startsWith(rodape.href) ? "text-cyan-600 dark:text-cyan-400" : "text-muted-foreground group-hover:text-foreground",
+                pathname.startsWith(rodape.href)
+                  ? "text-cyan-600 dark:text-cyan-400"
+                  : "text-muted-foreground group-hover:text-foreground",
               )}
               aria-hidden
             />
@@ -472,7 +530,7 @@ export function Sidebar({ collapsed }: { collapsed: boolean }) {
   return (
     <aside
       className={cn(
-        "sticky top-0 z-30 flex h-dvh shrink-0 flex-col border-r border-border/70 bg-card/95 backdrop-blur-xs shadow-[1px_0_12px_rgba(0,0,0,0.03)] transition-[width] duration-base",
+        "sticky top-0 z-30 flex h-dvh shrink-0 flex-col border-r border-border/70 bg-card/95 shadow-[1px_0_12px_rgba(0,0,0,0.03)] backdrop-blur-xs transition-[width] duration-base",
         collapsed ? "w-16" : "w-60",
       )}
     >

@@ -1,6 +1,6 @@
 # Pré-go-live do WhatsApp
 
-Contrato implementado na issue [#573](https://github.com/kaelsolutions/KS_CRM/issues/573).
+Contrato implementado na issue [#573](https://github.com/KaelVic/KaelSolutions/issues/573).
 Estado: **CONFIRMADO por código e testes**, não um simulador de mensagens.
 
 ## Comportamento

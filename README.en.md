@@ -16,7 +16,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript)](https://www.typescriptlang.org)
 [![Supabase](https://img.shields.io/badge/Supabase-Postgres%2BAuth%2BStorage-3ecf8e?logo=supabase)](https://supabase.com)
 [![Self-hosted](https://img.shields.io/badge/self--hosted-one%20command-orange)](hostgator-setup-kit/)
-[![CI](https://github.com/kaelsolutions/KS_CRM/actions/workflows/ci.yml/badge.svg)](https://github.com/kaelsolutions/KS_CRM/actions/workflows/ci.yml)
+[![CI](https://github.com/KaelVic/KaelSolutions/actions/workflows/ci.yml/badge.svg)](https://github.com/KaelVic/KaelSolutions/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 [**⚡ Install**](#-install-on-your-vps-the-main-path) · [**🔄 Update**](#-updating) · [**🧭 Vision**](VISION.md) · [**🏗️ Architecture**](ARCHITECTURE.md) · [**🤝 Contributing**](CONTRIBUTING.en.md) · [**🗺️ Roadmap**](#%EF%B8%8F-roadmap)
@@ -72,7 +72,7 @@ That is not a freeze: the terminal is hiding your password. Type (or paste) it a
 Once inside the VPS:
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 bash hostgator-setup-kit/install.sh
 ```
@@ -302,7 +302,7 @@ Details: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 > This section is for people who will change the code.
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 
 nvm use                     # Node 22
@@ -439,9 +439,9 @@ Two required gates do **not** fit there and only run in CI: `e2e` (needs a local
 
 ## 🐛 Reporting bugs
 
-Open an [issue](https://github.com/kaelsolutions/KS_CRM/issues/new/choose) — the template asks for what we need (environment, `/api/v1/health`, steps). Running `bash hostgator-setup-kit/healthcheck.sh` and pasting the output helps a lot.
+Open an [issue](https://github.com/KaelVic/KaelSolutions/issues/new/choose) — the template asks for what we need (environment, `/api/v1/health`, steps). Running `bash hostgator-setup-kit/healthcheck.sh` and pasting the output helps a lot.
 
-For **security vulnerabilities**, **do NOT open a public issue** — use [private vulnerability reporting](https://github.com/kaelsolutions/KS_CRM/security/advisories/new). Details in [`SECURITY.md`](SECURITY.md).
+For **security vulnerabilities**, **do NOT open a public issue** — use [private vulnerability reporting](https://github.com/KaelVic/KaelSolutions/security/advisories/new). Details in [`SECURITY.md`](SECURITY.md).
 
 ---
 
@@ -472,8 +472,8 @@ For **security vulnerabilities**, **do NOT open a public issue** — use [privat
 
 ## 💬 Community
 
-- **Discussions:** [GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions)
-- **Issues:** [GitHub Issues](https://github.com/kaelsolutions/KS_CRM/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/KaelVic/KaelSolutions/discussions)
+- **Issues:** [GitHub Issues](https://github.com/KaelVic/KaelSolutions/issues)
 - **Instagram:** [@KaelVic](https://www.instagram.com/KaelVic)
 - **YouTube:** [youtube.com/@KaelVic](https://www.youtube.com/@KaelVic)
 

@@ -23,11 +23,15 @@ export function SearchTrigger() {
         onClick={() => setOpen(true)}
       >
         <span className="flex items-center gap-2">
-          <MagnifyingGlass size={14} className="text-muted-foreground/70 transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400" aria-hidden />
-          <span className="hidden md:inline font-normal">{t("Buscar conversas, contatos...")}</span>
-          <span className="md:hidden font-normal">{t("Buscar...")}</span>
+          <MagnifyingGlass
+            size={14}
+            className="text-muted-foreground transition-colors group-hover:text-cyan-600 dark:group-hover:text-cyan-400"
+            aria-hidden
+          />
+          <span className="hidden font-normal md:inline">{t("Buscar conversas, contatos...")}</span>
+          <span className="font-normal md:hidden">{t("Buscar...")}</span>
         </span>
-        <kbd className="ml-2 hidden items-center gap-0.5 rounded-md border border-border/60 bg-background/80 px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground/90 shadow-2xs md:inline-flex">
+        <kbd className="ml-2 hidden items-center gap-0.5 rounded-md border border-border/60 bg-background/80 px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground shadow-2xs md:inline-flex">
           <span className="text-[11px] leading-none">⌘</span>K
         </kbd>
       </Button>

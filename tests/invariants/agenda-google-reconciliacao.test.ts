@@ -74,7 +74,8 @@ async function asUser(user: string, sql: string, values: unknown[], session?: st
 it("reserva original conserva tupla e novo claim não aceita token anterior", async () => {
   const f = await fixture();
   const a = appointmentSnapshotSchema.parse(await app(f.id, "claim"));
-  expect(a.google_event_id).toBe(`kaelsolutionsapp${f.id.replaceAll("-", "")}`);
+  // O prefixo já persistido é protocolo: a marca não renomeia eventos externos.
+    expect(a.google_event_id).toBe(`deskcommapp${f.id.replaceAll("-", "")}`);
   expect(a.google_pending_write).toEqual({ reservation: true });
   expect(await app(f.id, "claim")).toBeNull();
   await pool.query(

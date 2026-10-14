@@ -69,8 +69,19 @@ fi
 if [ -z "$release" ]; then
   release="$(cd "$ROOT" && bash -c 'source "$1/_common.sh" >/dev/null 2>&1; ultima_release_estavel' _ "$KIT" || true)"
 fi
-case "$release" in
-  v[0-9]*) ;;
+# Um fork recém-publicado ainda não possui clientes em releases anteriores.
+# Confirma a lista vazia pela API; falha de rede/autorização nunca vira dispensa.
+sem_release=0
+if [ -z "$release" ]; then
+  origem="$(git -C "$ROOT" config --get remote.origin.url)"
+  slug="$(printf '%s' "$origem" | sed -E 's#^git@github.com:#https://github.com/#; s#^https?://github.com/##; s#\.git$##')"
+  publicadas="$(curl -fsSL --max-time 20 -H 'Accept: application/vnd.github+json' "https://api.github.com/repos/$slug/releases?per_page=1" 2>/dev/null)" || publicadas=""
+  if [ "$(printf '%s' "$publicadas" | tr -d '[:space:]')" = '[]' ]; then
+    sem_release=1
+  fi
+fi
+case "$release:$sem_release" in
+  v[0-9]*:0 | :1) ;;
   *) echo "FATAL: não consegui saber qual é a última release publicada (sem rede? API fora?)." >&2
      echo "       Diga qual com CONFERENCIA_KIT_RELEASE=vX.Y.Z e rode de novo." >&2
      exit 1 ;;
@@ -139,6 +150,11 @@ conferir() {
 
 falhas=0
 conferir "update.sh deste checkout" "$KIT/update.sh" || falhas=$((falhas + 1))
+if [ "$sem_release" -eq 1 ]; then
+  echo "    ✓ repositório sem releases publicadas: nenhuma versão anterior instalada; checkout conferido"
+  [ "$falhas" -eq 0 ] || exit 1
+  exit 0
+fi
 conferir "update.sh da última release ($release)" "$(update_sh_da "$release")" || falhas=$((falhas + 1))
 if [ "$release" != "$ANTES_DO_FILTRO" ]; then
   conferir "update.sh da $ANTES_DO_FILTRO (sem filtro por tabela)" "$(update_sh_da "$ANTES_DO_FILTRO")" || falhas=$((falhas + 1))

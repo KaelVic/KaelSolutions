@@ -38,7 +38,12 @@ vi.mock("@/lib/channels/zernio/credentials", async (orig) => ({
 const ORG = "11111111-1111-1111-1111-111111111111";
 const LEAD = "22222222-2222-2222-2222-222222222222";
 const CONTATO = "33333333-3333-3333-3333-333333333333";
-const CREDS = { accountId: "ACC", apiKey: "k", baseUrl: "https://z.test/api", source: "session" as const };
+const CREDS = {
+  accountId: "ACC",
+  apiKey: "k",
+  baseUrl: "https://z.test/api",
+  source: "session" as const,
+};
 
 const VENDA = {
   organizationId: ORG,
@@ -62,9 +67,9 @@ beforeEach(() => {
 
 describe("o envio pelo canal (o adapter)", () => {
   it("manda a venda em UNIDADES, com conversa, telefone e id de deduplicação", async () => {
-    const f = vi.spyOn(globalThis, "fetch").mockResolvedValue(
-      resposta({ eventsReceived: 1, eventsFailed: 0, traceId: "T1" }),
-    );
+    const f = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0, traceId: "T1" }));
 
     const r = await zernioReportConversion(VENDA);
 
@@ -86,7 +91,12 @@ describe("o envio pelo canal (o adapter)", () => {
 
   it("200 com eventsFailed é RECUSA, não sucesso", async () => {
     vi.spyOn(globalThis, "fetch").mockResolvedValue(
-      resposta({ eventsReceived: 0, eventsFailed: 1, failures: [{ message: "no ctwa_clid" }], traceId: "T2" }),
+      resposta({
+        eventsReceived: 0,
+        eventsFailed: 1,
+        failures: [{ message: "no ctwa_clid" }],
+        traceId: "T2",
+      }),
     );
     expect(await zernioReportConversion(VENDA)).toEqual({
       outcome: "rejected",
@@ -96,7 +106,10 @@ describe("o envio pelo canal (o adapter)", () => {
 
   it("429 e 5xx esperam; o Retry-After manda", async () => {
     vi.spyOn(globalThis, "fetch").mockResolvedValueOnce(resposta({}, 429, { "retry-after": "30" }));
-    expect(await zernioReportConversion(VENDA)).toMatchObject({ outcome: "retry", retryInMs: 30_000 });
+    expect(await zernioReportConversion(VENDA)).toMatchObject({
+      outcome: "retry",
+      retryInMs: 30_000,
+    });
 
     vi.spyOn(globalThis, "fetch").mockResolvedValueOnce(resposta({}, 503));
     expect(await zernioReportConversion(VENDA)).toMatchObject({ outcome: "retry" });
@@ -116,7 +129,9 @@ describe("o envio pelo canal (o adapter)", () => {
   });
 
   it("evento de etapa sem valor sai sem `value` e sem `currency` — zero seria mentira", async () => {
-    const f = vi.spyOn(globalThis, "fetch").mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0 }));
+    const f = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0 }));
     await zernioReportConversion({ ...VENDA, event: "InitiateCheckout", valueCents: null });
     const corpo = JSON.parse(f.mock.calls[0]![1]?.body as string);
     expect(corpo.eventName).toBe("InitiateCheckout");
@@ -125,7 +140,9 @@ describe("o envio pelo canal (o adapter)", () => {
   });
 
   it("sem conversa conhecida, manda só o telefone", async () => {
-    const f = vi.spyOn(globalThis, "fetch").mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0 }));
+    const f = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0 }));
     await zernioReportConversion({ ...VENDA, providerConversationId: null });
     const corpo = JSON.parse(f.mock.calls[0]![1]?.body as string);
     expect(corpo).not.toHaveProperty("conversationId");
@@ -135,7 +152,10 @@ describe("o envio pelo canal (o adapter)", () => {
   it("sem credencial não chama a rede", async () => {
     vi.mocked(resolveZernioCreds).mockResolvedValue(null);
     const f = vi.spyOn(globalThis, "fetch");
-    expect(await zernioReportConversion(VENDA)).toEqual({ outcome: "rejected", detail: "zernio_not_configured" });
+    expect(await zernioReportConversion(VENDA)).toEqual({
+      outcome: "rejected",
+      detail: "zernio_not_configured",
+    });
     expect(f).not.toHaveBeenCalled();
   });
 });
@@ -178,7 +198,9 @@ function fakeAdmin(t: {
           source_metadata: { ad_platform: "meta_ads", ad_source_id: "CTWA_X" },
         },
         channel_sessions: t.sessao,
-        organizations: { settings: { conversions: { report_via_channel: t.vendaPeloCanal ?? true } } },
+        organizations: {
+          settings: { conversions: { report_via_channel: t.vendaPeloCanal ?? true } },
+        },
         ad_platform_connections:
           conexao === "ausente"
             ? null
@@ -274,7 +296,9 @@ describe("o handler escolhe UM caminho", () => {
     vi.mocked(createAdminClient).mockReturnValue(
       fakeAdmin({ sessao: CANAL_COM_PONTE, vendaPeloCanal: true }) as never,
     );
-    const f = vi.spyOn(globalThis, "fetch").mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0 }));
+    const f = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValue(resposta({ eventsReceived: 1, eventsFailed: 0 }));
 
     const r = await conversaoDeVendaHandler.handle(evento);
 
@@ -289,7 +313,11 @@ describe("o handler escolhe UM caminho", () => {
       conversationId: "CONV1",
       phoneE164: "5511988880000",
     });
-    expect(gravados.at(-1)).toMatchObject({ status: "sent", platform: "meta_ads", event_name: "Purchase" });
+    expect(gravados.at(-1)).toMatchObject({
+      status: "sent",
+      platform: "meta_ads",
+      event_name: "Purchase",
+    });
   });
 
   it("com a conexão direta ligada, a venda segue por ela — UMA vez, e o canal não é chamado", async () => {
@@ -396,6 +424,9 @@ const entrouNaEtapa: EventRow = {
 
 describe("o evento de ETAPA da Meta também sai pelo canal", () => {
   beforeEach(() => {
+    vi.spyOn(Date, "now").mockReturnValue(Date.parse("2026-10-06T17:00:00.000Z"));
+  });
+  beforeEach(() => {
     gravados.length = 0;
     tabelasLidas.length = 0;
   });
@@ -435,7 +466,11 @@ describe("o evento de ETAPA da Meta também sai pelo canal", () => {
 
   it("com a chave DESLIGADA, a etapa fica na pendência de sempre e nada sai", async () => {
     vi.mocked(createAdminClient).mockReturnValue(
-      fakeAdmin({ sessao: CANAL_COM_PONTE, vendaPeloCanal: false, extras: regraDaEtapa() }) as never,
+      fakeAdmin({
+        sessao: CANAL_COM_PONTE,
+        vendaPeloCanal: false,
+        extras: regraDaEtapa(),
+      }) as never,
     );
     const f = vi.spyOn(globalThis, "fetch");
 

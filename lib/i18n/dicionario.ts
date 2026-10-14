@@ -37,6 +37,9 @@ import type { Idioma } from "./idiomas";
 type Traducoes = Record<string, Partial<Record<Exclude<Idioma, "pt-BR">, string>>>;
 
 export const DICIONARIO: Traducoes = {
+  "Acesse seu painel inteligente de atendimento": {"es":"Accede a tu panel inteligente de atención"},
+  "Buscar conversas, contatos...": {"es":"Buscar conversaciones, contactos..."},
+  "A continuação de um negócio ganho só nasce em OUTRO funil. Aponte esta ação para o funil de pós-venda — nada foi movido.": {"es":"La continuación de un negocio ganado solo nace en OTRO embudo. Dirige esta acción al embudo de posventa: no se movió nada."},
   "Canal para enviar os lembretes": { es: "Canal para enviar los recordatorios" },
   "Automático — conversa da reserva ou único canal disponível": { es: "Automático — conversación de la reserva o único canal disponible" },
   "Canal configurado indisponível — escolha outro": { es: "Canal configurado no disponible — elige otro" },

@@ -225,9 +225,9 @@ printf -- '-- apêndice 0412\n' >> "$produto/supabase/baseline.sql"
 printf '| `20260103000000` | `0412_versao_da_main` |\n' >> "$produto/supabase/migrations/MANIFEST.md"
 git -C "$produto" add -A; git -C "$produto" commit -q -m "0412 na main"
 merge="$TMP/c2-merge"; clonar "$merge" "alguem@fork.dev"
-cfg "$merge" remote.upstream.url "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$merge" remote.upstream.url "https://github.com/KaelVic/KaelSolutions.git"
 cfg "$merge" remote.upstream.fetch "+refs/heads/*:refs/remotes/upstream/*"
-cfg "$merge" "url.$produto.insteadOf" "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$merge" "url.$produto.insteadOf" "https://github.com/KaelVic/KaelSolutions.git"
 cd "$merge" || exit 1; git fetch -q upstream; git switch -q -c fix/traz-a-main
 git rev-parse -q --verify refs/remotes/upstream/velha >/dev/null || falha "2-quater" "a branch velha do principal não chegou: o caso não mede a colisão"
 git merge -q --no-ff --no-commit upstream/main >/dev/null 2>&1
@@ -328,9 +328,9 @@ assert_contains "$saida" "você está na 'main'" "na main, manda abrir branch"
 # o clone precisa de um remoto com a URL do principal — o mesmo preparo do 2-quater.
 echo "5-bis. o 'próximo NNNN' do pré-voo não aponta para o número que a branch já commitou"
 clone="$TMP/c5-bis"; clonar "$clone" "alguem@fork.dev"
-cfg "$clone" remote.produto.url "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$clone" remote.produto.url "https://github.com/KaelVic/KaelSolutions.git"
 cfg "$clone" remote.produto.fetch "+refs/heads/*:refs/remotes/produto/*"
-cfg "$clone" "url.$principal.insteadOf" "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$clone" "url.$principal.insteadOf" "https://github.com/KaelVic/KaelSolutions.git"
 git -C "$clone" fetch -q produto
 git -C "$clone" switch -q -c fix/minha
 printf 'select 2;\n' > "$clone/supabase/migrations/20260920120000_0201_minha.sql"
@@ -348,9 +348,9 @@ assert_not_contains "$saida" "próximo NNNN medido em produto/main ∪ outras re
 # com o checkout NO PR (a cabeça é o HEAD); o modo do §4 é o 5-quater.
 echo "5-ter. o complemento.sh acusa as duas migrations de mesmo NNNN dentro do próprio PR"
 clone="$TMP/c5-ter"; clonar "$clone" "alguem@fork.dev"
-cfg "$clone" remote.produto.url "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$clone" remote.produto.url "https://github.com/KaelVic/KaelSolutions.git"
 cfg "$clone" remote.produto.fetch "+refs/heads/*:refs/remotes/produto/*"
-cfg "$clone" "url.$principal.insteadOf" "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$clone" "url.$principal.insteadOf" "https://github.com/KaelVic/KaelSolutions.git"
 git -C "$clone" fetch -q produto
 git -C "$clone" switch -q -c tri/1780
 printf 'select 3;\n' > "$clone/supabase/migrations/20260928000000_0201_a.sql"
@@ -405,9 +405,9 @@ pr_sem_checkout() {
   git -C "$clone" switch -q main; git -C "$clone" branch -q -D "tmp/$n"
 }
 clone="$TMP/c5-quater"; clonar "$clone" "alguem@fork.dev"
-cfg "$clone" remote.produto.url "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$clone" remote.produto.url "https://github.com/KaelVic/KaelSolutions.git"
 cfg "$clone" remote.produto.fetch "+refs/heads/*:refs/remotes/produto/*"
-cfg "$clone" "url.$principal.insteadOf" "https://github.com/kaelsolutions/KS_CRM.git"
+cfg "$clone" "url.$principal.insteadOf" "https://github.com/KaelVic/KaelSolutions.git"
 git -C "$clone" fetch -q produto
 pr_sem_checkout 1781 20260928000000_0201_a.sql 20260928010000_0201_b.sql
 pr_sem_checkout 1782 20260928000000_0201_so.sql
@@ -484,7 +484,7 @@ for sh in bash zsh; do
   passo0 "$cmd" "$sem_guias" "$antigo/app"
   if [ "$code" != 0 ] && [ -z "$out" ]; then ok "($sh) clone sem o script, sem instalação global: sai com erro e sem resposta inventada"; else falha "($sh) clone sem o script, sem instalação global: sai com erro e sem resposta inventada" "code=$code out=$out"; fi
   assert_contains "$err" "^NÃO MEDIDO — não achei o quem-sou.sh no clone .*c7-antigo" "($sh) e o erro diz o que não achou e onde procurou"
-  assert_contains "$err" "comando de uma linha do README (https://github.com/kaelsolutions/KS_CRM#readme) e rode de novo" "($sh) e diz como sair dali"
+  assert_contains "$err" "comando de uma linha do README (https://github.com/KaelVic/KaelSolutions#readme) e rode de novo" "($sh) e diz como sair dali"
   passo0 "$cmd" "$sem_guias" "$fora"
   if [ "$code" != 0 ] && [ -z "$out" ]; then ok "($sh) fora de clone, sem instalação global: sai com erro e sem resposta inventada"; else falha "($sh) fora de clone, sem instalação global: sai com erro e sem resposta inventada" "code=$code out=$out"; fi
   assert_contains "$err" "^NÃO MEDIDO — não achei o quem-sou.sh nem nas pastas globais" "($sh) e o erro não finge que havia clone"

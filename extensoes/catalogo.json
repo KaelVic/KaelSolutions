@@ -27,10 +27,10 @@
         "navigation.inbox",
         "navigation.kanban"
       ],
-      "sha256": "54e78e246a2c7a9e788cfafe4347c66e7bd38e30a5daf80c6515a177acd94174",
-      "byte_length": 3928,
+      "sha256": "e2722786dadc334261672db8f38763a4664d4d35196f65f31057437854f1ecd5",
+      "byte_length": 3933,
       "publisher_label": "KaelSolutions",
-      "repository": "https://github.com/kaelsolutions/KS_CRM",
+      "repository": "https://github.com/KaelVic/KaelSolutions",
       "tags": [
         "ecommerce",
         "vendas",
@@ -63,10 +63,10 @@
         "navigation.tasks",
         "navigation.contacts"
       ],
-      "sha256": "a501e34fbeee4dbe5beaee0249f6440602edee1975638f0c4ad69480903ba4ad",
-      "byte_length": 3323,
+      "sha256": "398f2928e9ebdae7bf0144c767a5ee1b96ba88c6719855a58e3827fb7b6095c7",
+      "byte_length": 3328,
       "publisher_label": "KaelSolutions",
-      "repository": "https://github.com/kaelsolutions/KS_CRM",
+      "repository": "https://github.com/KaelVic/KaelSolutions",
       "tags": [
         "equipe",
         "treinamento"
@@ -98,10 +98,10 @@
         "navigation.inbox",
         "navigation.agenda"
       ],
-      "sha256": "fb65a77b8420899b16b059ffd954b597864df23b2f1827bcd11913e56f56cc3e",
-      "byte_length": 3523,
+      "sha256": "1844c7a449eed3ba22fbeef19a9d1aab8254ab146fc4713199db2d37fcf03c9f",
+      "byte_length": 3528,
       "publisher_label": "KaelSolutions",
-      "repository": "https://github.com/kaelsolutions/KS_CRM",
+      "repository": "https://github.com/KaelVic/KaelSolutions",
       "tags": [
         "clinica",
         "retorno",
@@ -110,5 +110,5 @@
       "published_at": "2026-09-18"
     }
   ],
-  "revision": 1
+  "revision": 2
 }

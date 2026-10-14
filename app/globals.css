@@ -378,7 +378,7 @@
 
   /* Text (dark) */
   --color-text: #f5f4ef;
-  --color-text-muted: #8e8b7f;
+  --color-text-muted: #918e82;
   --color-text-subtle: #605e54;
 
   /* Borders (dark) */
@@ -590,7 +590,8 @@
 
   /* Tipografia */
   --font-sans:
-    var(--font-inter), var(--font-atkinson), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    var(--font-inter), var(--font-atkinson), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Espaçamento. Os valores são px LITERAIS (`--space-6` = 24px), não rem — e
@@ -726,7 +727,6 @@
 }
 
 @layer base {
-
   /* O preflight do v4 não pinta mais borda por padrão (`border: 0 solid`, cor
      = `currentColor`), então os ~300 `class="border"` sem cor desta base
      dependem inteiramente desta regra. Ela já existia no v3 pelo mesmo motivo;
@@ -1115,7 +1115,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   /* O destino é o MESMO — só chega sem o percurso. Esconder a coluna, ou
      entregá-la por um caminho diferente, faria de "movimento reduzido" uma
      versão pior do produto em vez de uma versão calma dele. */
@@ -1522,10 +1521,12 @@
 .ds-esqueleto {
   --ds-esqueleto-corpo: var(--color-neutral-400);
   --ds-esqueleto-brilho: var(--color-neutral-500);
-  background-image: linear-gradient(90deg,
-      var(--ds-esqueleto-corpo) 0%,
-      var(--ds-esqueleto-brilho) 50%,
-      var(--ds-esqueleto-corpo) 100%);
+  background-image: linear-gradient(
+    90deg,
+    var(--ds-esqueleto-corpo) 0%,
+    var(--ds-esqueleto-brilho) 50%,
+    var(--ds-esqueleto-corpo) 100%
+  );
   background-size: 200% 100%;
   animation: ds-esqueleto 1.6s linear infinite;
 }
@@ -1568,7 +1569,6 @@
    `iteration-count` deixaria a animação repetindo em 0.01ms, o que é pior que
    parada — vira cintilação. */
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
@@ -1636,8 +1636,12 @@
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
-  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-shadow:
+    0 1px 3px 0 rgba(15, 23, 42, 0.04),
+    0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
 [data-theme="dark"] .ks-card {

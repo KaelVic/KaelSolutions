@@ -12,9 +12,9 @@ coollabsio/sentinel:1.0.2
 darthsim/imgproxy:v3.31.4
 devlikeapro/waha:latest-2026.7.2
 envoyproxy/envoy:v1.39.1
-ghcr.io/kaelsolutions/ks-crm:1.76.0
-ghcr.io/KaelVic/kaelsolutions-scheduler:1.76.0
-ghcr.io/KaelVic/kaelsolutions-worker:1.76.0
+ghcr.io/kaelvic/kaelsolutions:1.76.0
+ghcr.io/kaelvic/kaelsolutions-scheduler:1.76.0
+ghcr.io/kaelvic/kaelsolutions-worker:1.76.0
 hiett/serverless-redis-http:<none>
 postgres:15-alpine
 postgrest/postgrest:v14.17
