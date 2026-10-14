@@ -48,7 +48,10 @@ function statusBadgeVariant(
   return "warning";
 }
 
-function statusBadgeLabel(status: AutomationRuleRunRow["status"], t: (texto: string) => string): string {
+function statusBadgeLabel(
+  status: AutomationRuleRunRow["status"],
+  t: (texto: string) => string,
+): string {
   if (status === "success") return t("Sucesso");
   if (status === "failed") return t("Falhou");
   // "Aguardando envio", e não "Aguardando horário": desde que o agregador passou
@@ -98,15 +101,20 @@ const MOTIVO_DA_PARADA: Record<string, string> = {
     "A pessoa escolhida como responsável não pode atender — o papel dela é só de visualização. Escolha um atendente.",
   missing_input:
     "A ação não recebeu o que precisava (o lead do evento ou a pessoa configurada). Abra a automação e revise.",
-  no_tags: "Esta ação não tem nenhuma etiqueta escolhida. Abra a automação e escolha pelo menos uma.",
+  no_tags:
+    "Esta ação não tem nenhuma etiqueta escolhida. Abra a automação e escolha pelo menos uma.",
   no_target: "O evento que disparou a regra não trouxe um lead nem um contato para etiquetar.",
   no_lead_or_contact: "O evento que disparou a regra não trouxe um lead para criar ou mover.",
-  cross_pipeline_move_not_allowed: "Mover um lead para outro funil está desligado nesta organização.",
+  cross_pipeline_move_not_allowed:
+    "Mover um lead para outro funil está desligado nesta organização.",
+  continuacao_exige_outro_funil:
+    "A continuação de um negócio ganho só nasce em OUTRO funil. Aponte esta ação para o funil de pós-venda — nada foi movido.",
   lead_already_transferred_in_event:
     "Outra regra deste mesmo evento já levou o lead para outro funil. Vale a primeira regra; esta não transfere de novo.",
   flow_not_active:
     "O funil escolhido não está ativo, então a inscrição não foi feita. Ative o funil ou escolha outro na automação.",
-  live_enrollment_exists: "O contato já está em um funil ativo — esta ação não inscreve duas vezes.",
+  live_enrollment_exists:
+    "O contato já está em um funil ativo — esta ação não inscreve duas vezes.",
   consent_declined: "O contato não autorizou o recebimento de mensagens de marketing.",
   fora_do_pre_go_live:
     "O número deste canal ainda não entrou no pré-go-live, então a mensagem escrita pela IA não sai por ele.",
@@ -165,9 +173,12 @@ const MOTIVO_DA_PARADA: Record<string, string> = {
   ai_decide_interruptor_ilegivel:
     "A ação não rodou: não deu para ler agora o interruptor da IA desta empresa, então o modelo não foi consultado e nada foi executado. As próximas execuções tentam de novo.",
   /* vêm do decider (lib/automation/decider.ts) pelo mesmo `decisao.motivo`. */
-  resposta_vazia: "A IA não devolveu nenhuma escolha entre as opções desta ação. Tente de novo ou corrija a instrução.",
-  sem_json: "A IA respondeu fora do formato esperado e nada foi executado. Tente de novo em alguns minutos.",
-  escolha_ausente: "A IA respondeu sem dizer qual opção escolher, então nada foi executado. Tente de novo ou corrija a instrução.",
+  resposta_vazia:
+    "A IA não devolveu nenhuma escolha entre as opções desta ação. Tente de novo ou corrija a instrução.",
+  sem_json:
+    "A IA respondeu fora do formato esperado e nada foi executado. Tente de novo em alguns minutos.",
+  escolha_ausente:
+    "A IA respondeu sem dizer qual opção escolher, então nada foi executado. Tente de novo ou corrija a instrução.",
 };
 
 function explicacaoDe(
@@ -228,7 +239,13 @@ function horarioDeRetorno(action: AutomationRuleRunActionResult, idioma: string)
   return quando.toLocaleString(idioma, { dateStyle: "short", timeStyle: "short" });
 }
 
-function ActionLine({ action, run }: { action: AutomationRuleRunActionResult; run: AutomationRuleRunRow }) {
+function ActionLine({
+  action,
+  run,
+}: {
+  action: AutomationRuleRunActionResult;
+  run: AutomationRuleRunRow;
+}) {
   const tagDoIdioma = useTagDeIdioma();
   const t = useT();
   const resend = useResendAutomationRun();
@@ -265,7 +282,7 @@ function ActionLine({ action, run }: { action: AutomationRuleRunActionResult; ru
         // comprido empurre o botão "Reenviar" pra fora da tela.
         <div className="ml-6 flex flex-wrap items-center justify-between gap-2 rounded-sm bg-muted px-2 py-1.5">
           <div className="min-w-0 space-y-0.5">
-            <p className="break-words text-xs text-muted-foreground">
+            <p className="text-xs break-words text-muted-foreground">
               {/* A frase ANTES do código cru. `action.error` já é texto de gente
                   nas falhas de envio (desfechoDoEnvio traduz), mas nas falhas da
                   IA ele é o código (`sem_agente_publicado`) — e é para esses que
@@ -276,7 +293,7 @@ function ActionLine({ action, run }: { action: AutomationRuleRunActionResult; ru
             {detalheTecnico ? (
               // Subordinado à frase, e não no lugar dela: ver a decisão escrita
               // em `detalheTecnicoDe`.
-              <p className="break-words text-[11px] text-muted-foreground">
+              <p className="text-[11px] break-words text-muted-foreground">
                 {t("Detalhe técnico:")} {detalheTecnico}
               </p>
             ) : null}
@@ -302,12 +319,12 @@ function ActionLine({ action, run }: { action: AutomationRuleRunActionResult; ru
         // Pular e adiar também precisam de razão visível: o ícone sozinho fazia
         // "não fiz nada" parecer "fiz e deu certo, só sem alarde".
         <div className="ml-6 rounded-sm bg-muted px-2 py-1.5">
-          <p className="break-words text-xs text-muted-foreground">
+          <p className="text-xs break-words text-muted-foreground">
             {explicacao}
             {retorno ? ` ${t("Nova tentativa em")} ${retorno}.` : null}
           </p>
           {detalheTecnico ? (
-            <p className="break-words text-[11px] text-muted-foreground">
+            <p className="text-[11px] break-words text-muted-foreground">
               {t("Detalhe técnico:")} {detalheTecnico}
             </p>
           ) : null}
@@ -361,9 +378,13 @@ export function ActivityTab() {
                   <CardTitle className="truncate text-sm">
                     {run.automation_rules?.name ?? t("Automação removida")}
                   </CardTitle>
-                  <Badge variant={statusBadgeVariant(run.status)}>{statusBadgeLabel(run.status, t)}</Badge>
+                  <Badge variant={statusBadgeVariant(run.status)}>
+                    {statusBadgeLabel(run.status, t)}
+                  </Badge>
                 </div>
-                <p className="text-xs text-muted-foreground">{relativeCreatedAt(run.created_at, localeDaData)}</p>
+                <p className="text-xs text-muted-foreground">
+                  {relativeCreatedAt(run.created_at, localeDaData)}
+                </p>
               </CardHeader>
               <CardContent className="space-y-2">
                 {run.actions_result.map((action, idx) => (

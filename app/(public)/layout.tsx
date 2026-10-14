@@ -1,5 +1,3 @@
-import { LogotipoDoProduto } from "@/components/branding/MarcaDoProduto";
-import { marcaEhADoProduto } from "@/lib/branding";
 import { marcaDaSaida } from "@/lib/branding/saida";
 import { createClient } from "@/lib/supabase/server";
 import { IdiomaProvider } from "@/lib/i18n/IdiomaProvider";
@@ -66,7 +64,12 @@ export default async function PublicLayout({ children }: { children: React.React
         <div className="pointer-events-none absolute -right-40 -bottom-40 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="relative w-full max-w-md">
           {(marca.logoUrl || marca.logoDarkUrl) && (
-            <div className="mb-6 flex justify-center">
+            <div
+              className={
+                "mb-6 flex justify-center rounded-md" +
+                (!marca.logoDarkUrl ? " dark:bg-white dark:p-2" : "")
+              }
+            >
               {marca.logoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img

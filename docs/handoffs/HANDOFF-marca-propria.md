@@ -108,7 +108,7 @@ de um agente que rodou o cálculo — e está marcado de propósito.
 
 | Defeito | Evidência | Fase que conserta |
 |---|---|---|
-| **Gate de marca verde enquanto a marca vaza** — `/KaelSolutions/` case-**sensitive** | `tests/unit/branding.test.ts:90`; passam `support@kaelsolutions.com` (`app/account-suspended/page.tsx:17`), `suporte@kaelsolutions.com` (`app/app/settings/billing/page.tsx:26`), `kaelsolutions-recovery-codes.txt` (`components/auth/RecoveryCodesPanel.tsx:34`) | 1 |
+| **Gate de marca verde enquanto a marca vaza** — `/KaelSolutions/` case-**sensitive** | `tests/unit/branding.test.ts:90`; passam `operador@example.invalid` (`app/account-suspended/page.tsx:17`), `operador@example.invalid` (`app/app/settings/billing/page.tsx:26`), `kaelsolutions-recovery-codes.txt` (`components/auth/RecoveryCodesPanel.tsx:34`) | 1 |
 | **Colisão de cor Δ=0,0° no tema escuro** — `--color-success` é a mesma string de `--color-accent-400` | `app/globals.css:167` e `:193`, ambos `#82a077` | 1 |
 | **Corrida no `settings` jsonb** — SELECT→spread→UPDATE sem `.select()`; `visibility_mode` mora no mesmo jsonb | quem ainda faz assim: `git grep -n "update({ settings" -- app lib workers` (o `updateTenant.ts`, citado aqui até o PR #1209, deixou de escrever `settings`) | 3 |
 | **`[data-theme="light"]` não existe** — `:root` casa só `<html>`, então tema claro não é escopável em subárvore | `grep -c 'data-theme="light"' app/globals.css` = 0 | 1 |
@@ -225,7 +225,7 @@ está **verde**: toda spec do disco está declarada em alguma das três listas.
 
 ## Uma armadilha da suíte e2e que vale além deste épico
 
-`scripts/seed-e2e-system-update.ts:52-68` **promove `e2e-admin@kaelsolutions.test` a
+`scripts/seed-e2e-system-update.ts:52-68` **promove `operador@example.invalid` a
 `platform_admin`** — insere, e reativa se estiver revogado. **Nenhum seed do repo
 revoga**: o único `revoked_at` que existe é em `seed-e2e-agente-mcp.ts`, sobre tokens de
 API. Como as duas partes do job `e2e` compartilham o mesmo banco sem reset, **toda a
@@ -233,7 +233,7 @@ parte 2 roda com esse admin já promovido**.
 
 Consequência para qualquer spec que queira provar comportamento de **admin de tenant**:
 usar o `e2e-admin` mede o produto errado e passa verde. Por isso a Fase 3 cria
-`e2e-marca-admin@kaelsolutions.test`, sem linha em `platform_admins`, e a spec **afirma a
+`operador@example.invalid`, sem linha em `platform_admins`, e a spec **afirma a
 precondição** (zero linhas ativas) antes de medir — senão verde é resultado de
 instrumento morto.
 
@@ -477,7 +477,7 @@ da própria razão social, aí sim é campo novo, e a razão estará escrita aqu
 |---|---|
 | **Todo projeto Supabase do revendedor nasce chamado "KaelSolutions"** | `install.sh:918` usa `${APP_NAME:-KaelSolutions}`; `APP_NAME` só é coletado em `:1024` — **106 linhas depois** |
 | **O primeiro e-mail que o cliente do revendedor recebe diz o nome do nosso produto** | `supabase/templates/confirmation.html:4` e `recovery.html:4`; e **nenhum script sobe esses templates** — só `config.toml` (Supabase local) e um teste |
-| **A tela de dinheiro entrega nosso contato ao cliente do revendedor** | `lib/navigation/registry.ts:453` (porta de 1ª classe, "Billing") → `app/app/settings/billing/page.tsx:26` mostra `suporte@kaelsolutions.com` |
+| **A tela de dinheiro entrega nosso contato ao cliente do revendedor** | `lib/navigation/registry.ts:453` (porta de 1ª classe, "Billing") → `app/app/settings/billing/page.tsx:26` mostra `operador@example.invalid` |
 
 ---
 
@@ -759,7 +759,7 @@ Commits: `0513755c` (RPC atômica + invariante) · `032ba43a` (camada na pilha) 
 
 ### O que a tela mediu, com admin de tenant PURO
 
-**A precondição falhou primeiro, e era a armadilha prevista:** `e2e-admin@kaelsolutions.test`
+**A precondição falhou primeiro, e era a armadilha prevista:** `operador@example.invalid`
 **era** `platform_admin` (`seed-e2e-system-update.ts:52-68` promove e nada revoga). Medi
 `count = 1`, revoguei, reafirmei `count = 0`, e só então testei. Sem isso o teste teria
 passado verde medindo o produto errado.
@@ -798,7 +798,7 @@ depender de um login que o ambiente não estava entregando.
 **Isto é falso, e agir sobre ele levaria a mexer no gate de MFA sem defeito nenhum.**
 
 1. `lib/auth/server.ts:160` — `requiresMfa(role, isPlatformAdmin)` é
-   `isPlatformAdmin || role === "admin"`. `e2e-admin@kaelsolutions.test` tem role de
+   `isPlatformAdmin || role === "admin"`. `operador@example.invalid` tem role de
    **tenant** `admin`, então a exigência continua de pé com ou sem a promoção.
    `platform_admins.mfa_required` é uma coluna da tabela; não é ela que o produto lê
    nesse caminho.
@@ -812,16 +812,16 @@ Antes de tocar em código por causa deste sintoma, **meça**:
 
 ```sql
 select count(*) from auth.mfa_factors
- where user_id = (select id from auth.users where email = 'e2e-admin@kaelsolutions.test')
+ where user_id = (select id from auth.users where email = 'operador@example.invalid')
    and status = 'verified';
 ```
 
 ### Estado deixado no banco local (compartilhado)
 
-- `e2e-admin@kaelsolutions.test` segue **revogado** de `platform_admins`. É o estado correto do
+- `operador@example.invalid` segue **revogado** de `platform_admins`. É o estado correto do
   seed base. ⚠️ **Atualizado na Onda 1:** a frase "quem precisa dele promovido é
   `seed-e2e-system-update.ts`, que repromove ao rodar" **deixou de valer** — esse seed
-  agora promove o `e2e-dono@kaelsolutions.test` e **revoga** o `e2e-admin` a cada execução.
+  agora promove o `operador@example.invalid` e **revoga** o `e2e-admin` a cada execução.
   Rodá-lo é o conserto de um banco contaminado, não a recontaminação.
 - A marca da org de teste (`E2E Test Org`) ficou gravada com `#b3261e`.
 

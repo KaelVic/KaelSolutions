@@ -1,4 +1,8 @@
-# Correções de instalação e paridade do fork
+---
+impacto: nada_mudou
+secao: corrigido
+titulo: Instalação na VPS usa o repositório e as imagens corretos, com atendimento e isolamento de tarefas corrigidos
+---
 
 Corrige as URLs de clone e a procedência OCI para o repositório publicado, e alinha os nomes e o namespace minúsculo das imagens do Compose com a publicação no GHCR.
 

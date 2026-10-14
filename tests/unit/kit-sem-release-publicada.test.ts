@@ -11,9 +11,9 @@ function conferir(api: string, regraAusente = false) {
   stub("git", "printf 'https://github.com/revenda/crm.git\\n'");
   stub("curl", api);
   const baseline = readFileSync("supabase/baseline.sql", "utf8");
-  const regras = [...baseline.matchAll(/^CREATE POLICY "([^"]+)" ON "public"\."([^"]+)"/gm)].map(
-    (m) => m[1] + "|" + m[2],
-  );
+  const regras = [
+    ...baseline.matchAll(/create\s+policy\s+"?([^"\s]+)"?\s+on\s+"?public"?\."?([^"\s;]+)"?/gim),
+  ].map((m) => m[1] + "|" + m[2]);
   const tabelas = [...new Set(regras.map((r) => r.split("|")[1]))].join("\n");
   stub(
     "docker",
@@ -23,9 +23,29 @@ function conferir(api: string, regraAusente = false) {
       (regraAusente ? "" : regras.join("\n")) +
       "';; esac",
   );
+  const ambiente = path.join(bin, "ambiente.sh");
+  writeFileSync(
+    ambiente,
+    ["git", "curl", "docker"]
+      .map(
+        (nome) =>
+          nome +
+          "() {\n" +
+          readFileSync(path.join(bin, nome), "utf8").replace(/^#![^\n]*\n/, "") +
+          "\n}\n",
+      )
+      .join("\n"),
+  );
+  const caminhoBash = ambiente
+    .replace(/\\/g, "/")
+    .replace(/^([A-Za-z]):/, (_, drive: string) => "/" + drive.toLowerCase());
   try {
+    const bash =
+      process.platform === "win32"
+        ? path.join(process.env.ProgramFiles ?? "C:/Program Files", "Git/bin/bash.exe")
+        : "bash";
     return execFileSync(
-      "bash",
+      bash,
       ["scripts/conferir-isolamento-do-kit.sh", "container-teste", "postgres"],
       {
         cwd: process.cwd(),
@@ -34,6 +54,7 @@ function conferir(api: string, regraAusente = false) {
         env: {
           ...process.env,
           PATH: `${bin}${path.delimiter}${process.env.PATH}`,
+          BASH_ENV: caminhoBash,
           GH_TOKEN: "",
           CONFERENCIA_KIT_RELEASE: "",
           KAELSOLUTIONS_RELEASES_LATEST_URL: "",
