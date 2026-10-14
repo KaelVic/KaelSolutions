@@ -78,17 +78,18 @@ export default async function PublicLayout({ children }: { children: React.React
                   alt={marca.nome}
                   className={
                     marca.logoDarkUrl
-                      ? "h-10 w-auto max-w-full object-contain dark:hidden"
-                      : "h-10 w-auto max-w-full object-contain"
+                      ? "h-auto max-h-20 w-auto max-w-48 object-contain dark:hidden"
+                      : "h-auto max-h-20 w-auto max-w-48 object-contain"
                   }
                 />
               ) : null}
               {marca.logoDarkUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
+                  data-testid="logo-escuro-da-fachada"
                   src={marca.logoDarkUrl}
                   alt={marca.nome}
-                  className="hidden h-10 w-auto max-w-full object-contain dark:block"
+                  className="hidden h-auto max-h-20 w-auto max-w-48 object-contain dark:block"
                 />
               ) : null}
             </div>

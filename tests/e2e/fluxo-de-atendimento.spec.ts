@@ -246,7 +246,8 @@ test("liga o módulo, cria um roteiro pela tela, o cliente responde pelo WhatsAp
       });
 
       // Fecha o painel antes de ligar as caixas, como faz a jornada do follow-up.
-      await page.locator(".react-flow__pane").click({ position: { x: 20, y: 20 } });
+      // O cabeçalho fixo pode encobrir o topo do canvas depois de editar o painel.
+      await page.locator(".react-flow__pane").click({ position: { x: 20, y: 120 } });
       await expect(page.getByTestId("node-config-sheet")).toHaveCount(0);
       await conectar(page, inicio, cpf);
       await conectar(page, cpf, modelo);

@@ -309,9 +309,9 @@ async function subir(page: Page, escopo: Escopo, arquivo: {
  */
 async function removerLogoSeHouver(page: Page, tela: string, escopo: Escopo): Promise<void> {
   await page.goto(tela);
-  const remover = page
-    .locator(`[data-campo-de-logo='${escopo}']`)
-    .getByRole("button", { name: /^remover$/i });
+  const campo = page.locator(`[data-campo-de-logo='${escopo}'][data-hidratado]`);
+  await expect(campo).toBeVisible({ timeout: 15_000 });
+  const remover = campo.getByRole("button", { name: /^remover$/i });
   if ((await remover.count()) === 0) return;
   await remover.click();
   await expect(page.getByText(/logo removido/i)).toBeVisible({ timeout: 15_000 });
