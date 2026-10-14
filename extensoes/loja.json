@@ -1,0 +1,31 @@
+{
+  "kaelsolutions/retorno-de-paciente": {
+    "publisher_label": "KaelSolutions",
+    "repository": "https://github.com/kaelsolutions/KS_CRM",
+    "tags": [
+      "clinica",
+      "retorno",
+      "agenda"
+    ],
+    "published_at": "2026-09-18"
+  },
+  "kaelsolutions/carrinho-abandonado": {
+    "publisher_label": "KaelSolutions",
+    "repository": "https://github.com/kaelsolutions/KS_CRM",
+    "tags": [
+      "ecommerce",
+      "vendas",
+      "recuperacao"
+    ],
+    "published_at": "2026-09-18"
+  },
+  "kaelsolutions/primeira-semana": {
+    "publisher_label": "KaelSolutions",
+    "repository": "https://github.com/kaelsolutions/KS_CRM",
+    "tags": [
+      "equipe",
+      "treinamento"
+    ],
+    "published_at": "2026-09-18"
+  }
+}

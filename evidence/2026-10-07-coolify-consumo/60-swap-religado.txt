@@ -1,0 +1,7 @@
+2026-10-07T18:50:13Z
+NAME      TYPE SIZE USED PRIO
+/swapfile file   4G   0B   -2
+1
+fstab mtime 2026-10-07 10:46:10.047929602 -0300
+# kaelsolutions:/root/pr4/kaelsolutions:drain
+# kaelsolutions:/root/pr4/kaelsolutions:agent

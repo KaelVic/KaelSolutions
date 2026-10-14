@@ -1,0 +1,4 @@
+2
+* * * * * curl -fsS -H @"/root/pr4/kaelsolutions/.env.cron-drain" "https://<ip-da-vps>.sslip.io/api/v1/cron/event-log-drain" >/dev/null 2>&1 # kaelsolutions:/root/pr4/kaelsolutions:drain
+*/5 * * * * cd /root/pr4/kaelsolutions && bash hostgator-setup-kit/agent.sh >/dev/null 2>&1 # kaelsolutions:/root/pr4/kaelsolutions:agent
+{"data":{"scanned":0,"done":0,"retried":0,"failed":0,"dead":

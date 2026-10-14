@@ -1,0 +1,26 @@
+coolify	631 MiB
+coolify-db	112 MiB
+coolify-proxy	123 MiB
+coolify-realtime	91 MiB
+coolify-redis	20 MiB
+coolify-sentinel	20 MiB
+kaelsolutions-app-1	285 MiB
+kaelsolutions-redis-1	12 MiB
+kaelsolutions-scheduler-1	30 MiB
+kaelsolutions-srh-1	104 MiB
+kaelsolutions-supabase-api-gw-1	94 MiB
+kaelsolutions-supabase-auth-1	38 MiB
+kaelsolutions-supabase-db-1	349 MiB
+kaelsolutions-supabase-functions-1	109 MiB
+kaelsolutions-supabase-imgproxy-1	104 MiB
+kaelsolutions-supabase-meta-1	183 MiB
+kaelsolutions-supabase-realtime-1	252 MiB
+kaelsolutions-supabase-rest-1	57 MiB
+kaelsolutions-supabase-storage-1	284 MiB
+kaelsolutions-supabase-studio-1	294 MiB
+kaelsolutions-supabase-supavisor-1	342 MiB
+kaelsolutions-waha-1	570 MiB
+kaelsolutions-worker-1	398 MiB
+               total        used        free      shared  buff/cache   available
+Mem:            7940        2752        3035         374        2152        4510
+Swap:              0           0           0

@@ -1,0 +1,59 @@
+APP_IMAGE="ghcr.io/kaelsolutions/ks-crm:1.76.0"
+WORKER_IMAGE="ghcr.io/melgarafael/kaelsolutions-worker:1.76.0"
+SCHEDULER_IMAGE="ghcr.io/melgarafael/kaelsolutions-scheduler:1.76.0"
+DOMAIN="<ip-da-vps>.sslip.io"
+REVERSE_PROXY="traefik"
+TRAEFIK_NETWORK="coolify"
+TRAEFIK_ENTRYPOINT_HTTP="http"
+TRAEFIK_ENTRYPOINT="https"
+TRAEFIK_CERTRESOLVER="letsencrypt"
+NEXT_PUBLIC_SUPABASE_URL="https://<ip-da-vps>.sslip.io"
+SINGLE_SERVER="1"
+SINGLE_SERVER_NETWORK="kaelsolutions_supabase"
+PSQL_DOCKER_NETWORK="kaelsolutions_supabase"
+SUPABASE_INTERNAL_URL="http://127.0.0.1:8001"
+SUPABASE_PUBLIC_URL=https://<ip-da-vps>.sslip.io
+API_EXTERNAL_URL=https://<ip-da-vps>.sslip.io/auth/v1
+SITE_URL=https://<ip-da-vps>.sslip.io
+ENABLE_EMAIL_AUTOCONFIRM=false
+SINGLE_SERVER_NETWORK=kaelsolutions_supabase
+TRAEFIK_ENABLE=true
+TRAEFIK_HOST=<ip-da-vps>.sslip.io
+TRAEFIK_ENTRYPOINT=https
+TRAEFIK_CERTRESOLVER=letsencrypt
+TRAEFIK_NETWORK=coolify
+COMPOSE_FILE=docker-compose.yml:docker-compose.kaelsolutions.yml:docker-compose.kaelsolutions-traefik.yml
+COMPOSE_PROJECT_NAME=kaelsolutions-supabase
+API_GW_HTTP_PORT=8001
+600 .env
+700 .runtime
+600 .runtime/supabase/.env
+600 .runtime/admin-credentials
+coolify kaelsolutions-supabase_default kaelsolutions_supabase |coolify|https|8000/tcp->127.0.0.1:8001 
+coolify kaelsolutions_internal kaelsolutions_supabase |coolify
+0
+coolify-db Up 21 hours (healthy)
+coolify-proxy Up 20 hours (healthy)
+coolify-realtime Up 21 hours (healthy)
+coolify-redis Up 21 hours (healthy)
+coolify-sentinel Up 8 hours (healthy)
+coolify Up 21 hours (healthy)
+kaelsolutions-app-1 Up 35 seconds (healthy)
+kaelsolutions-redis-1 Up About a minute (healthy)
+kaelsolutions-scheduler-1 Up 30 seconds (healthy)
+kaelsolutions-srh-1 Up 35 seconds
+kaelsolutions-supabase-api-gw-1 Up About a minute (healthy)
+kaelsolutions-supabase-auth-1 Up About a minute (healthy)
+kaelsolutions-supabase-db-1 Up About a minute (healthy)
+kaelsolutions-supabase-functions-1 Up About a minute (healthy)
+kaelsolutions-supabase-imgproxy-1 Up About a minute (healthy)
+kaelsolutions-supabase-meta-1 Up About a minute (healthy)
+kaelsolutions-supabase-realtime-1 Up About a minute (healthy)
+kaelsolutions-supabase-rest-1 Up About a minute (healthy)
+kaelsolutions-supabase-storage-1 Up About a minute (healthy)
+kaelsolutions-supabase-studio-1 Up About a minute (healthy)
+kaelsolutions-supabase-supavisor-1 Up About a minute (healthy)
+kaelsolutions-waha-1 Up About a minute
+kaelsolutions-worker-1 Up About a minute (healthy)
+kaelsolutions-test-db-116105 Up 27 seconds
+2

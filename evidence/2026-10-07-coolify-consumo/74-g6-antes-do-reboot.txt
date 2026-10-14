@@ -1,0 +1,6 @@
+Created symlink /etc/systemd/system/multi-user.target.wants/kaelsolutions-fecha-painel.service → /etc/systemd/system/kaelsolutions-fecha-painel.service.
+ipv4=3 ipv6=3 ativo=active
+-- antes do reboot
+conteineres=23
+coolify coolify-db coolify-proxy coolify-realtime coolify-redis coolify-sentinel kaelsolutions-app-1 kaelsolutions-redis-1 kaelsolutions-scheduler-1 kaelsolutions-srh-1 kaelsolutions-supabase-api-gw-1 kaelsolutions-supabase-auth-1 kaelsolutions-supabase-db-1 kaelsolutions-supabase-functions-1 kaelsolutions-supabase-imgproxy-1 kaelsolutions-supabase-meta-1 kaelsolutions-supabase-realtime-1 kaelsolutions-supabase-rest-1 kaelsolutions-supabase-storage-1 kaelsolutions-supabase-studio-1 kaelsolutions-supabase-supavisor-1 kaelsolutions-waha-1 kaelsolutions-worker-1 
+2026-09-30 14:25:05
