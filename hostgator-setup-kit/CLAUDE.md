@@ -14,7 +14,7 @@ cada um — vive em `.agents/skills/kaelsolutions-instalar/SKILL.md` na raiz do 
 Se você está vendo só esta pasta, clone o repositório (o instalador precisa dele de qualquer forma):
 
 ```bash
-git clone --depth 1 https://github.com/kaelsolutions/KS_CRM.git kaelsolutions
+git clone --depth 1 https://github.com/KaelVic/KaelSolutions.git kaelsolutions
 cd kaelsolutions
 cat .agents/skills/kaelsolutions-instalar/SKILL.md
 ```

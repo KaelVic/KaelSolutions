@@ -44,7 +44,7 @@ import { afterAll, beforeAll, describe, expect, it } from "vitest";
 const RAIZ = path.resolve(__dirname, "../..");
 const BIBLIOTECA = path.join(RAIZ, "scripts/migration-populacao.sh");
 /** A URL que a biblioteca reconhece como o repositório PRINCIPAL. */
-const URL_PRODUTO = "https://github.com/kaelsolutions/KS_CRM.git";
+const URL_PRODUTO = "https://github.com/KaelVic/KaelSolutions.git";
 /** O repositório do produto, como o `gh` o nomeia (`--repo`). */
 const REPO_PRODUTO = "KaelVic/KaelSolutions";
 

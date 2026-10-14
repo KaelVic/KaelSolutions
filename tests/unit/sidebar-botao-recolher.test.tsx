@@ -57,7 +57,7 @@ function comoPapel(role: ActiveOrg["role"]) {
 }
 
 function linhaDaLogo(): Element | null {
-  return document.querySelector(".h-14");
+  return document.querySelector("[data-sidebar-brand-row]");
 }
 
 function rodape(): Element | null {

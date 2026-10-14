@@ -91,7 +91,7 @@ cá. Registradores, passo a passo: `references/dominio-e-dns.md`.
 ### 5. Rodar o instalador — no modo interativo
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git kaelsolutions   # se ainda não clonou
+git clone https://github.com/KaelVic/KaelSolutions.git kaelsolutions   # se ainda não clonou
 cd kaelsolutions
 bash hostgator-setup-kit/install.sh
 ```

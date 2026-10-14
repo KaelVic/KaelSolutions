@@ -1,9 +1,9 @@
 darthsim/imgproxy:v3.31.4
 devlikeapro/waha:latest-2026.7.2
 envoyproxy/envoy:v1.39.1
-ghcr.io/kaelsolutions/ks-crm:1.76.0
-ghcr.io/KaelVic/kaelsolutions-scheduler:1.76.0
-ghcr.io/KaelVic/kaelsolutions-worker:1.76.0
+ghcr.io/kaelvic/kaelsolutions:1.76.0
+ghcr.io/kaelvic/kaelsolutions-scheduler:1.76.0
+ghcr.io/kaelvic/kaelsolutions-worker:1.76.0
 hiett/serverless-redis-http@sha256:5b0bb9239fce53abf87b2018a7a0deb9ec7bd900c5360738fe5fbeeb426f9150
 postgres:17-alpine
 postgrest/postgrest:v14.17

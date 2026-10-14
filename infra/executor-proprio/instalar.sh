@@ -154,6 +154,6 @@ systemctl enable --now kaelsolutions-executor-atualizar.timer
 
 echo
 echo "==> pronto: ${vagas} vaga(s) ligada(s)."
-echo "Confira em https://github.com/kaelsolutions/KS_CRM/settings/actions/runners"
+echo "Confira em https://github.com/KaelVic/KaelSolutions/settings/actions/runners"
 echo "(cada vaga aparece como kaelsolutions-vaga-N-<hora>, status Idle)."
 echo "Logs de uma vaga: journalctl -u kaelsolutions-vaga@1 -f"

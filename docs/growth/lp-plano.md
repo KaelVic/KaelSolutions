@@ -339,7 +339,7 @@ Imagem: a mesma tela em duas marcas diferentes, lado a lado.
 Bloco de código real, copiável:
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions/hostgator-setup-kit
 bash install.sh
 ```

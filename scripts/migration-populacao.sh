@@ -85,7 +85,7 @@ pop_main_do_produto() {
     # exato — `*/x` exige a barra — e isso devolvia vazio num clone cujo remoto
     # do produto estava certinho.
     case "$slug" in
-      KaelVic/kaelsolutions | */KaelVic/kaelsolutions)
+      kaelvic/kaelsolutions | */kaelvic/kaelsolutions)
         printf '%s/main\n' "$r"; return 0 ;;
     esac
   done
@@ -101,7 +101,7 @@ pop_repo_do_produto() {
     [ -n "$url" ] || continue
     slug="$(pop_slug_de "$url")"
     case "$slug" in
-      KaelVic/kaelsolutions | */KaelVic/kaelsolutions)
+      kaelvic/kaelsolutions | */kaelvic/kaelsolutions)
         printf 'KaelVic/KaelSolutions\n'; return 0 ;;
     esac
   done

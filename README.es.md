@@ -16,7 +16,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript)](https://www.typescriptlang.org)
 [![Supabase](https://img.shields.io/badge/Supabase-Postgres%2BAuth%2BStorage-3ecf8e?logo=supabase)](https://supabase.com)
 [![Self-hosted](https://img.shields.io/badge/self--hosted-1%20comando-orange)](hostgator-setup-kit/)
-[![CI](https://github.com/kaelsolutions/KS_CRM/actions/workflows/ci.yml/badge.svg)](https://github.com/kaelsolutions/KS_CRM/actions/workflows/ci.yml)
+[![CI](https://github.com/KaelVic/KaelSolutions/actions/workflows/ci.yml/badge.svg)](https://github.com/KaelVic/KaelSolutions/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 [**⚡ Instalar**](#-instalar-en-tu-vps-el-camino-principal) · [**🔄 Actualizar**](#-actualizar) · [**🧭 Visión**](VISION.md) · [**🏗️ Arquitectura**](ARCHITECTURE.md) · [**🤝 Contribuir**](CONTRIBUTING.md) · [**🗺️ Roadmap**](#%EF%B8%8F-roadmap)
@@ -73,7 +73,7 @@ presiona Enter.
 Ya dentro del VPS:
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 bash hostgator-setup-kit/install.sh
 ```
@@ -279,7 +279,7 @@ Detalles: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 > Esta sección es para quien va a tocar el código.
 
 ```bash
-git clone https://github.com/kaelsolutions/KS_CRM.git
+git clone https://github.com/KaelVic/KaelSolutions.git
 cd KaelSolutions
 
 nvm use                     # Node 22
@@ -391,9 +391,9 @@ Dos gates obligatorios **no** entran ahí y solo corren en CI: `e2e` (necesita u
 
 ## 🐛 Reportar bugs
 
-Abre un [issue](https://github.com/kaelsolutions/KS_CRM/issues/new/choose) — la plantilla pide lo que necesitamos (entorno, `/api/v1/health`, pasos). Correr `bash hostgator-setup-kit/healthcheck.sh` y pegar la salida ayuda mucho.
+Abre un [issue](https://github.com/KaelVic/KaelSolutions/issues/new/choose) — la plantilla pide lo que necesitamos (entorno, `/api/v1/health`, pasos). Correr `bash hostgator-setup-kit/healthcheck.sh` y pegar la salida ayuda mucho.
 
-Para **vulnerabilidades de seguridad**, **NO abras un issue público** — usa el [reporte privado de vulnerabilidades](https://github.com/kaelsolutions/KS_CRM/security/advisories/new). Detalles en [`SECURITY.md`](SECURITY.md).
+Para **vulnerabilidades de seguridad**, **NO abras un issue público** — usa el [reporte privado de vulnerabilidades](https://github.com/KaelVic/KaelSolutions/security/advisories/new). Detalles en [`SECURITY.md`](SECURITY.md).
 
 ---
 
@@ -424,8 +424,8 @@ Para **vulnerabilidades de seguridad**, **NO abras un issue público** — usa e
 
 ## 💬 Comunidad
 
-- **Discusiones:** [GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions)
-- **Issues:** [GitHub Issues](https://github.com/kaelsolutions/KS_CRM/issues)
+- **Discusiones:** [GitHub Discussions](https://github.com/KaelVic/KaelSolutions/discussions)
+- **Issues:** [GitHub Issues](https://github.com/KaelVic/KaelSolutions/issues)
 - **Instagram:** [@KaelVic](https://www.instagram.com/KaelVic)
 - **YouTube:** [youtube.com/@KaelVic](https://www.youtube.com/@KaelVic)
 

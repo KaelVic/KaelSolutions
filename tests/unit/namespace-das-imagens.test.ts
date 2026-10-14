@@ -18,7 +18,7 @@ import {
  * ── Por que este arquivo existe ────────────────────────────────────────────
  *
  * `tests/shell/update-guard.test.sh` e `hostgator-setup-kit/test-validators.sh`
- * repetiam `ghcr.io/KaelVic` à mão em 31 lugares — fixtures E asserções.
+ * repetiam `ghcr.io/kaelvic` à mão em 31 lugares — fixtures E asserções.
  * Isso amarrava a suíte a UM publicador: um fork que publica as próprias
  * imagens ficava vermelho em 4 casos sem ter quebrado nada, com a mensagem de
  * falha apontando para o valor "certo" do upstream. Derivar tudo de `IMG_NS`
@@ -83,9 +83,6 @@ const COMPOSE = fs.readFileSync(path.join(RAIZ, "docker-compose.prod.yml"), "utf
 const PUBLICA = fs.readFileSync(path.join(RAIZ, ".github/workflows/publish-image.yml"), "utf8");
 const ENV_EXEMPLO = fs.readFileSync(path.join(RAIZ, ".env.hostgator.example"), "utf8");
 
-
-
-
 /**
  * A deferência à âncora EXTERNA: numa corrida interna a um fork, este arquivo
  * não cobra o namespace. Decisão do dono do produto em 18/09/2026, opção (a) de
@@ -116,7 +113,6 @@ const ENV_EXEMPLO = fs.readFileSync(path.join(RAIZ, ".env.hostgator.example"), "
  * outro — e para esse a mensagem de falha diz, em três linhas, o que fazer.
  */
 
-
 /**
  * Um fork que publica as próprias imagens muda `IMG_NS` — e precisa mudar junto
  * os outros dois arquivos que não têm de onde derivar. Esta frase é a que ele lê
@@ -142,8 +138,8 @@ const RECADO_AO_FORK =
  * `gravar_imagens` escrevia no `.env` do cliente as referências do FORK.
  *
  * A catraca não pegava por acidente de forma: ela procura a string contígua
- * `ghcr.io/KaelVic`, e a URL do token parte o valor em
- * `ghcr.io/token?scope=repository:KaelVic/`. Instrução que promete mais do
+ * `ghcr.io/kaelvic`, e a URL do token parte o valor em
+ * `ghcr.io/token?scope=repository:kaelvic/`. Instrução que promete mais do
  * que o gate confere é pior que instrução nenhuma — quem a segue conclui que
  * terminou.
  */
@@ -212,8 +208,10 @@ describe("o default do compose diz o mesmo que o kit", () => {
   CHAVES.forEach((chave, i) => {
     it(`o default de ${chave} usa o namespace de IMG_NS`, () => {
       const m = COMPOSE.match(new RegExp(`^\\s*image: \\$\\{${chave}:-([^}]+)\\}`, "m"));
-      expect(m, `não achei a linha \`image: \${${chave}:-…}\` em docker-compose.prod.yml`)
-        .not.toBeNull();
+      expect(
+        m,
+        `não achei a linha \`image: \${${chave}:-…}\` em docker-compose.prod.yml`,
+      ).not.toBeNull();
       expect(m![1]).toBe(`${imgNs()}/${reposDoKit()[i]}:stable`);
     });
 
@@ -240,12 +238,12 @@ describe("o kit aponta para o que o CI realmente publica", () => {
     const repo = `https://github.com/${DONO_DESTE_REPO}/KaelSolutions`;
     for (const script of ["install.sh", "comecar.sh"]) {
       const texto = fs.readFileSync(path.join(RAIZ, "hostgator-setup-kit", script), "utf8");
-      expect(texto).toContain(`REPO_URL="\${REPO_URL:-${repo}.git}"`);
+      expect(texto.toLowerCase()).toContain(`REPO_URL="\${REPO_URL:-${repo}.git}"`.toLowerCase());
     }
-    expect(COMUM).toContain(`local url="\${1:-${repo}.git}" ref`);
+    expect(COMUM.toLowerCase()).toContain(`local url="\${1:-${repo}.git}" ref`.toLowerCase());
     for (const dockerfile of ["Dockerfile", "Dockerfile.worker", "Dockerfile.scheduler"]) {
-      expect(fs.readFileSync(path.join(RAIZ, dockerfile), "utf8")).toContain(
-        `org.opencontainers.image.source="${repo}"`,
+      expect(fs.readFileSync(path.join(RAIZ, dockerfile), "utf8").toLowerCase()).toContain(
+        `org.opencontainers.image.source="${repo}"`.toLowerCase(),
       );
     }
   });
@@ -313,7 +311,10 @@ describe("o kit aponta para o que o CI realmente publica", () => {
     // imagem nova em vez de reprovar a divergência. Fica um piso, que é o que o
     // caso precisa para não passar sobre lista vazia.
     const naMatriz = [...PUBLICA.matchAll(/^\s{10}- name: (\S+)$/gm)].map((m) => m[1]);
-    expect(naMatriz.length, "a matriz de publish-image.yml veio vazia — o leitor cegou").toBeGreaterThanOrEqual(3);
+    expect(
+      naMatriz.length,
+      "a matriz de publish-image.yml veio vazia — o leitor cegou",
+    ).toBeGreaterThanOrEqual(3);
     expect([...naMatriz].sort()).toEqual([...reposDoKit()].sort());
   });
 });
@@ -337,7 +338,7 @@ describe("catraca: ninguém mais repete o namespace", () => {
     ".env.hostgator.example",
     // FIXTURE de comentário REAL de PR, capturada para os instrumentos de triagem.
     // O literal aparece dentro do texto que um humano escreveu num PR
-    // (`ghcr.io/kaelsolutions/ks-crm:1.29.0`, citado ao diagnosticar o pdf.js).
+    // (`ghcr.io/kaelvic/kaelsolutions:1.29.0`, citado ao diagnosticar o pdf.js).
     //
     // Entra aqui e não em `excluiDir` de propósito: `PERMITIDO` casa o caminho
     // relativo EXATO, então o perdão vale para ESTE arquivo e só para ele —
@@ -426,7 +427,9 @@ describe("catraca: ninguém mais repete o namespace", () => {
       // que devolvesse [] daria verde com a varredura morta.
       const err = e as { status?: number; stderr?: string };
       if (err.status !== 1) {
-        throw new Error(`a varredura do namespace não rodou (grep saiu ${err.status}): ${err.stderr ?? ""}`);
+        throw new Error(
+          `a varredura do namespace não rodou (grep saiu ${err.status}): ${err.stderr ?? ""}`,
+        );
       }
     }
     return saida

@@ -63,8 +63,32 @@ export default async function PublicLayout({ children }: { children: React.React
         {/* Overlay sutil para profundidade e contraste com a arte 3D tecnológica */}
         <div className="pointer-events-none absolute inset-0 bg-slate-950/20 backdrop-blur-[1.5px]" />
         <div className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-cyan-500/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 -bottom-40 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="relative w-full max-w-md">
+          {(marca.logoUrl || marca.logoDarkUrl) && (
+            <div className="mb-6 flex justify-center">
+              {marca.logoUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={marca.logoUrl}
+                  alt={marca.nome}
+                  className={
+                    marca.logoDarkUrl
+                      ? "h-10 w-auto max-w-full object-contain dark:hidden"
+                      : "h-10 w-auto max-w-full rounded-md bg-white object-contain p-1"
+                  }
+                />
+              ) : null}
+              {marca.logoDarkUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={marca.logoDarkUrl}
+                  alt={marca.nome}
+                  className="hidden h-10 w-auto max-w-full object-contain dark:block"
+                />
+              ) : null}
+            </div>
+          )}
           {children}
         </div>
       </div>

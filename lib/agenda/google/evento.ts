@@ -57,7 +57,7 @@ import { instanteDaParede, primeiroInstanteDoDia } from "./tempo";
  * dali, todo evento criado antes da troca de marca deixaria de ser reconhecido.
  * O sintoma seria compromisso fantasma ocupando horário, sem erro nenhum.
  */
-export const SUFIXO_ICAL_UID = "kaelsolutions.com";
+export const SUFIXO_ICAL_UID = "kaelsolutions.app";
 
 /** Prefixo das `extendedProperties.private` que carregam a identidade do tenant. */
 export const PREFIXO_PROPRIEDADE = "kaelsolutions";

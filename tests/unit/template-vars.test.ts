@@ -1,14 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { faltouNomeDeContato, interpolateTemplate } from "@/lib/inbox/template-vars";
+import { faltouNomeDeContato, interpolateTemplate, MOTIVO_CURINGA_LITERAL, motivoDoCuringaLiteral } from "@/lib/inbox/template-vars";
 
 describe("interpolateTemplate", () => {
   it("substitui nome e primeiro_nome", () => {
-    expect(interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", { name: "Kael Victor" })).toBe(
-      "Oi Kael, tudo bem?",
+    expect(interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", { name: "Rafael Melgaço" })).toBe(
+      "Oi Rafael, tudo bem?",
     );
-    expect(interpolateTemplate("Falo com {{nome}}?", { name: "Kael Victor" })).toBe(
-      "Falo com Kael Victor?",
+    expect(interpolateTemplate("Falo com {{nome}}?", { name: "Rafael Melgaço" })).toBe(
+      "Falo com Rafael Melgaço?",
     );
   });
   it("tolera espaços e case nas chaves", () => {
@@ -26,12 +26,12 @@ describe("interpolateTemplate", () => {
     expect(
       interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", {
         name: null,
-        displayName: "Kael Victor",
+        displayName: "Rafael Melgaço",
       }),
-    ).toBe("Oi Kael, tudo bem?");
+    ).toBe("Oi Rafael, tudo bem?");
     expect(
-      interpolateTemplate("Falo com {{nome}}?", { name: null, displayName: "Kael Victor" }),
-    ).toBe("Falo com Kael Victor?");
+      interpolateTemplate("Falo com {{nome}}?", { name: null, displayName: "Rafael Melgaço" }),
+    ).toBe("Falo com Rafael Melgaço?");
   });
   it("name em branco → cai no displayName", () => {
     expect(
@@ -40,8 +40,8 @@ describe("interpolateTemplate", () => {
   });
   it("name preenchido vence o displayName", () => {
     expect(
-      interpolateTemplate("Oi {{nome}}", { name: "Kael Victor", displayName: "Cliente 5511" }),
-    ).toBe("Oi Kael Victor");
+      interpolateTemplate("Oi {{nome}}", { name: "Rafael Melgaço", displayName: "Cliente 5511" }),
+    ).toBe("Oi Rafael Melgaço");
   });
   it("displayName ausente ou em branco → mantém o literal", () => {
     expect(interpolateTemplate("Oi {{nome}}", { name: null, displayName: null })).toBe(
@@ -55,8 +55,8 @@ describe("interpolateTemplate", () => {
     // `\n` colado (caso de rótulo vindo do canal) viraria "primeiro nome" com
     // quebra de linha dentro do texto mandado ao cliente.
     expect(
-      interpolateTemplate("Oi {{primeiro_nome}}!", { name: null, displayName: "Kael\n Melgaço" }),
-    ).toBe("Oi Kael!");
+      interpolateTemplate("Oi {{primeiro_nome}}!", { name: null, displayName: "Rafael\n Melgaço" }),
+    ).toBe("Oi Rafael!");
   });
 });
 
@@ -83,16 +83,47 @@ describe("faltouNomeDeContato", () => {
   });
   it("false: displayName cobre a variável", () => {
     expect(
-      faltouNomeDeContato("Oi {{nome}}", { name: null, displayName: "Kael Victor" }),
+      faltouNomeDeContato("Oi {{nome}}", { name: null, displayName: "Rafael Melgaço" }),
     ).toBe(false);
   });
   it("false: nome preenchido cobre a variável", () => {
-    expect(faltouNomeDeContato("Oi {{nome}}", { name: "Kael" })).toBe(false);
+    expect(faltouNomeDeContato("Oi {{nome}}", { name: "Rafael" })).toBe(false);
   });
   it("false: variável desconhecida não é problema de nome", () => {
     expect(faltouNomeDeContato("Cupom {{codigo}}", { name: null })).toBe(false);
   });
   it("tolera espaços e case na chave", () => {
     expect(faltouNomeDeContato("Oi {{ Primeiro_Nome }}!", { name: null })).toBe(true);
+  });
+});
+
+describe("motivoDoCuringaLiteral (#2744)", () => {
+  // A decisão de barra/libera mora na FUNÇÃO PURA, e não só no componente: o
+  // repositório não tem `Composer.test.tsx`, e a lógica que barra o envio não
+  // pode depender de render para ser provada.
+  it("curinga de nome literal sobrevivente → o motivo fixo (barra a resposta)", () => {
+    expect(motivoDoCuringaLiteral("Oi {{nome}}, tudo bem?", { name: null })).toBe(
+      MOTIVO_CURINGA_LITERAL,
+    );
+    expect(
+      motivoDoCuringaLiteral("Oi {{primeiro_nome}}!", { name: "", displayName: null }),
+    ).toBe(MOTIVO_CURINGA_LITERAL);
+  });
+  it("contato COM nome → null: nada barrado, o curinga resolve", () => {
+    expect(motivoDoCuringaLiteral("Oi {{nome}}", { name: "Rafael" })).toBeNull();
+    expect(
+      motivoDoCuringaLiteral("Oi {{nome}}", { name: null, displayName: "Rafael Melgaço" }),
+    ).toBeNull();
+  });
+  it("nome técnico (Contato …@lid) não cobre a variável → motivo (barra)", () => {
+    expect(
+      motivoDoCuringaLiteral("Oi {{primeiro_nome}}!", {
+        name: null,
+        displayName: "Contato 543134@lid",
+      }),
+    ).toBe(MOTIVO_CURINGA_LITERAL);
+  });
+  it("chave desconhecida → null: `{{codigo}}` cru não é problema de nome", () => {
+    expect(motivoDoCuringaLiteral("Cupom {{codigo}}", { name: null })).toBeNull();
   });
 });

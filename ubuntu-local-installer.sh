@@ -37,7 +37,7 @@ fi
 # Se não estivermos na raiz do projeto, clona e entra nele.
 if [ ! -f "package.json" ]; then
   step "Clonando o repositório KaelSolutions..."
-  git clone https://github.com/kaelsolutions/KS_CRM.git
+  git clone https://github.com/KaelVic/KaelSolutions.git
   cd KaelSolutions
 fi
 

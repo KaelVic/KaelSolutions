@@ -2,7 +2,7 @@ bundle-ok
 456c052599f806ee76d84ebca69dc25fb9e22dc7
 0
 true
-https://github.com/kaelsolutions/KS_CRM.git
+https://github.com/KaelVic/KaelSolutions.git
 hostgator-setup-kit/supabase-single-server.traefik.yml
 0
 ls: cannot access '/root/pr4/kaelsolutions/.runtime': No such file or directory

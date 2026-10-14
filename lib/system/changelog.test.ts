@@ -26,8 +26,8 @@ Se você usa número próprio no WhatsApp, reconecte depois de atualizar.
 
 Primeira versão marcada do KaelSolutions.
 
-[Não lançado]: https://github.com/kaelsolutions/KS_CRM/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/kaelsolutions/KS_CRM/releases/tag/v1.0.0
+[Não lançado]: https://github.com/KaelVic/KaelSolutions/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/KaelVic/KaelSolutions/releases/tag/v1.0.0
 `;
 
 describe("extractChangelogSection", () => {

@@ -631,4 +631,4 @@ Bem-vindo ao KaelSolutions. 🛠️
 
 ---
 
-> **Achou um erro neste guia?** Abra uma [issue](https://github.com/kaelsolutions/KS_CRM/issues) ou mande um PR — esse doc vive da contribuição da comunidade.
+> **Achou um erro neste guia?** Abra uma [issue](https://github.com/KaelVic/KaelSolutions/issues) ou mande um PR — esse doc vive da contribuição da comunidade.

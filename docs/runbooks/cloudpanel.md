@@ -58,7 +58,7 @@ CRM que abre a tela de login e não deixa ninguém entrar.
 
 ```bash
 cd /var/www
-git clone https://github.com/kaelsolutions/KS_CRM.git KaelSolutions
+git clone https://github.com/KaelVic/KaelSolutions.git KaelSolutions
 cd /var/www/KaelSolutions
 cp .env.hostgator.example .env
 nano .env
