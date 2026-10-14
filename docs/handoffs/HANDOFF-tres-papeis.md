@@ -6,7 +6,7 @@
 > Contrato: [`docs/specs/16-spec-tres-papeis-do-agente.md`](../../docs/specs/16-spec-tres-papeis-do-agente.md)
 > Doutrina: [`docs/doctrine/separacao-fala-e-operacao.md`](../../docs/doctrine/separacao-fala-e-operacao.md)
 > Branch: `feat/tres-papeis-do-agente` · Base: `origin/main` = `0a85d251`
-> **Worktree dedicado:** `/Users/rafaelmelgaco/KaelSolutions-tres-papeis` — a árvore principal foi
+> **Worktree dedicado:** `/Users/kaelvic/KaelSolutions-tres-papeis` — a árvore principal foi
 > trocada por outra sessão duas vezes no meio do trabalho, e o worktree acabou com a disputa.
 > Ele **não tem `.env.local`**, e isso é uma proteção, não um detalhe (ver Passo 5 abaixo).
 
@@ -202,7 +202,7 @@ teste **no banco de produção**. Não rodei.
 
 Isto não é específico deste épico: vale para **qualquer** sessão que rode e2e nesta máquina agora.
 
-Saídas possíveis (decisão do Rafael, é config dele):
+Saídas possíveis (decisão do Kael, é config dele):
 1. `.env.e2e` apontando para o local, carregado pelo `webServer` do Playwright — conserta para todo
    mundo e é o que a doutrina de QA Visual pressupõe;
 2. apontar `.env.local` para o local enquanto se testa (manual, esquecível — foi o que já mordeu

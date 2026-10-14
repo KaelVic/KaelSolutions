@@ -10,7 +10,7 @@ import {
 describe("profileSchema", () => {
   it("accepts pt-BR locale + valid timezone", () => {
     const r = profileSchema.safeParse({
-      full_name: "Rafael",
+      full_name: "Kael",
       locale: "pt-BR",
       timezone: "America/Sao_Paulo",
       avatar_url: null,

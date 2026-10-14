@@ -5,7 +5,7 @@ escopo: transversal
 version: 0.1
 status: em revisão
 date: 2026-04-28
-owner: Rafael Melgaço (DevOps/SRE)
+owner: Kael Victor (DevOps/SRE)
 referencias:
   - docs/prd/00-prd-master.md
   - docs/prd/01-prd-platform-base.md

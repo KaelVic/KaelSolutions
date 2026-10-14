@@ -1,4 +1,4 @@
 
-> kaelsolutions@0.1.0 typecheck /Users/rafaelmelgaco/KaelSolutions-canais
+> kaelsolutions@0.1.0 typecheck /Users/kaelvic/KaelSolutions-canais
 > tsc --noEmit
 

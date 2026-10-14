@@ -1411,11 +1411,11 @@ Prove os três caminhos novos com dados reais, em ordem:
 2. **Funil** — faça o agente avançar de estágio numa conversa real e confirme que o card **andou** no board do tenant. Depois prove a contra-prova: um pipeline sem `agent_stage_hint` para aquele passo mantém o card parado e o painel passa a listar a lacuna.
 3. **Painel** — abra a tela e confirme que os números dos passos 1 e 2 aparecem lá.
 
-> **Ambiente compartilhado:** antes de provar, inventarie workers e dev servers vivos e a idade do código que eles rodam (`healthz` na 8787 é exclusivo — dois workers competem pela mesma fila). Rafael roda testes e gravações em paralelo: coordene, não dispute.
+> **Ambiente compartilhado:** antes de provar, inventarie workers e dev servers vivos e a idade do código que eles rodam (`healthz` na 8787 é exclusivo — dois workers competem pela mesma fila). Kael roda testes e gravações em paralelo: coordene, não dispute.
 
 - [ ] **Step 3: Limpar o ambiente**
 
-Remova todo dado de teste criado (regras, skills, roteadores, buscas sintéticas) e confirme a contagem zerada. Nunca deixe artefato de teste no agente de produção do Rafael.
+Remova todo dado de teste criado (regras, skills, roteadores, buscas sintéticas) e confirme a contagem zerada. Nunca deixe artefato de teste no agente de produção do Kael.
 
 - [ ] **Step 4: Alimentar o handoff**
 

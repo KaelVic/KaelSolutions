@@ -18,7 +18,7 @@ import {
  * ── Por que este arquivo existe ────────────────────────────────────────────
  *
  * `tests/shell/update-guard.test.sh` e `hostgator-setup-kit/test-validators.sh`
- * repetiam `ghcr.io/melgarafael` à mão em 31 lugares — fixtures E asserções.
+ * repetiam `ghcr.io/KaelVic` à mão em 31 lugares — fixtures E asserções.
  * Isso amarrava a suíte a UM publicador: um fork que publica as próprias
  * imagens ficava vermelho em 4 casos sem ter quebrado nada, com a mensagem de
  * falha apontando para o valor "certo" do upstream. Derivar tudo de `IMG_NS`
@@ -56,7 +56,7 @@ import {
  * de forma coerente — kit + compose + `.env` de exemplo — onde há troca:
  *
  *   ACTIONS, dono=outrodono, IMG_NS dele   → 0 ✗ 1 ↓   corrida de fork: não cobra
- *   ACTIONS, dono=melgarafael, NS alheio   → 2 ✗       contra nós, cobra como antes
+ *   ACTIONS, dono=KaelVic, NS alheio   → 2 ✗       contra nós, cobra como antes
  *   fora do Actions, IMG_NS com typo       → 1 ✗       o erro de digitação segue pego
  *   só NAMESPACE_DESTE_REPO trocado, p/ cá → 1 ✗       na URL derivada, não na âncora
  *   …o mesmo, com a URL fixa como antes    → 0 ✗ 1 ↓   ← é por isso que ela DERIVA
@@ -89,7 +89,7 @@ const ENV_EXEMPLO = fs.readFileSync(path.join(RAIZ, ".env.hostgator.example"), "
 /**
  * A deferência à âncora EXTERNA: numa corrida interna a um fork, este arquivo
  * não cobra o namespace. Decisão do dono do produto em 18/09/2026, opção (a) de
- * `Decisão PRs - rafael/30 — O gate que reprova um fork correto (PR 1117).md`.
+ * `Decisão PRs - kael/30 — O gate que reprova um fork correto (PR 1117).md`.
  *
  * O caso que ela conserta: quem forka e publica as PRÓPRIAS imagens tem `IMG_NS`
  * apontando para o registro dele, e a âncora acima reprovava o CI desse fork
@@ -137,13 +137,13 @@ const RECADO_AO_FORK =
  *
  * Ela dizia "troque em três lugares, e só neles — nenhum OUTRO arquivo do repo
  * repete esse valor". @galeonel seguiu à risca (PR #605) e descobriu que
- * `ghcr_status`, em `_common.sh`, tinha `melgarafael` cravado nas duas URLs: o
+ * `ghcr_status`, em `_common.sh`, tinha `KaelVic` cravado nas duas URLs: o
  * fork ficava com o pré-voo conferindo os pacotes do UPSTREAM enquanto
  * `gravar_imagens` escrevia no `.env` do cliente as referências do FORK.
  *
  * A catraca não pegava por acidente de forma: ela procura a string contígua
- * `ghcr.io/melgarafael`, e a URL do token parte o valor em
- * `ghcr.io/token?scope=repository:melgarafael/`. Instrução que promete mais do
+ * `ghcr.io/KaelVic`, e a URL do token parte o valor em
+ * `ghcr.io/token?scope=repository:KaelVic/`. Instrução que promete mais do
  * que o gate confere é pior que instrução nenhuma — quem a segue conclui que
  * terminou.
  */

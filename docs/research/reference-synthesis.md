@@ -1,6 +1,6 @@
 # Reference Synthesis — Aula CRM Nichado com WhatsApp (WAHA)
 
-**Origem:** `/Users/rafaelmelgaco/Documents/Obsidian Vault/Ecossistema Labs/AutomatikLabs/Treinamentos e Cursos/Aula - CRM Nichado com WhatsApp (WAHA)/`
+**Origem:** `/Users/kaelvic/Documents/Obsidian Vault/Ecossistema Labs/AutomatikLabs/Treinamentos e Cursos/Aula - CRM Nichado com WhatsApp (WAHA)/`
 
 **Status:** Adotada integralmente como linha de base arquitetural do KaelSolutions (decisão registrada em memória do projeto).
 

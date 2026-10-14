@@ -5,9 +5,9 @@
 ## Antes de começar
 
 0. Abra o repositório no seu assistente de código (Claude Code, Codex, Cursor, OpenCode ou
-   Antigravity): o guia `deskcomm-contribuir` (`.agents/skills/deskcomm-contribuir/SKILL.md`) mede
+   Antigravity): o guia `kaelsolutions-contribuir` (`.agents/skills/kaelsolutions-contribuir/SKILL.md`) mede
    antes do PR o que a triagem mede depois — branch atrasada, tripla de migration, marca do fork no
-   diff, fragmento de release — e arma os hooks de git com `bash .agents/skills/deskcomm-contribuir/scripts/armar-hooks.sh`.
+   diff, fragmento de release — e arma os hooks de git com `bash .agents/skills/kaelsolutions-contribuir/scripts/armar-hooks.sh`.
    Para ter os guias em qualquer pasta: `bash scripts/instalar-guias.sh`. Vai **editar** um guia?
    Rode `bash scripts/instalar-guias.sh --fonte .` no seu clone — no Claude Code a skill global
    vence a do projeto, e sem isso você testaria a versão da `main`, não a sua.
@@ -111,7 +111,7 @@ Ao finalizar um epic:
    > Esta lista dizia "três obrigatórios" e chamava o `e2e` de não-bloqueante. Estava
    > desatualizada nos dois pontos, e quem a usasse como régua mediria contra a régua errada.
    > Confira na fonte antes de confiar em qualquer lista escrita:
-   > `gh api repos/melgarafael/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts'`
+   > `gh api repos/KaelVic/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts'`
 
 ### Pegando uma issue — o protocolo
 
@@ -228,7 +228,7 @@ Veja [`README.md`](README.md) §Como rodar local.
 funciona para qualquer pessoa e é onde a resposta fica registrada para quem vier depois. Para bug,
 [abra uma issue](https://github.com/kaelsolutions/KS_CRM/issues/new/choose).
 
-Se for algo que não cabe em público (segurança, por exemplo): `rafael@maudibrasil.com.br` — o mesmo
+Se for algo que não cabe em público (segurança, por exemplo): `contato@kaelsolutions.com` — o mesmo
 endereço do [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 > Esta seção apontava para um Discord interno cujo convite mora num Notion privado — inalcançável

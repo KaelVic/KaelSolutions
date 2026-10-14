@@ -784,7 +784,7 @@ meta_cloud | 1103328999528818     | t         | EAASbhCM          | 203
 
 ### Correção de registro: eu reportei um buraco que não existe
 
-Este handoff (e o meu relatório ao Rafael) afirmou que **`install.sh` não provisiona a chave
+Este handoff (e o meu relatório ao Kael) afirmou que **`install.sh` não provisiona a chave
 de cifra**, e classificou isso como o item de maior impacto — "afeta produção de todo
 self-hoster". **É falso.** `hostgator-setup-kit/install.sh:629` e `update.sh:124` chamam
 `ensure_encryption_key`, que gera a chave e a semeia em `private.app_secrets`.
@@ -1156,7 +1156,7 @@ test:db 399 · gate e2e do CI **20/20 em 3 corridas** · jornadas 7/7 sem WhatsA
 
 ## Conectar canal deixa de estar em três lugares (2026-07-31)
 
-Feedback do Rafael, ao procurar onde conectar a API oficial: *"achei, tá em Configurações.
+Feedback do Kael, ao procurar onde conectar a API oficial: *"achei, tá em Configurações.
 Tá péssimo isso. Tem que ter uma aba pra conectar api oficial na área de conexões, e os
 templates de disparo deveriam também estar em uma aba dentro das conexões"*.
 
@@ -1197,12 +1197,12 @@ templates aprovados da Meta. Dois conceitos com o mesmo rótulo fazem o operador
 errado e concluir que a tela está quebrada.
 
 A colisão é **anterior** a este trabalho. O que dava para fazer aqui era não agravá-la: a
-sub-aba chama-se **"Templates da Meta"**. Renomear o outro lado é decisão do Rafael — e há
+sub-aba chama-se **"Templates da Meta"**. Renomear o outro lado é decisão do Kael — e há
 uma sessão trabalhando nele agora.
 
 ### Um quase-acidente entre sessões
 
-Ao mover `TemplatesClient.tsx` para `components/connections/`, o Rafael avisou que
+Ao mover `TemplatesClient.tsx` para `components/connections/`, o Kael avisou que
 "templates" estava sendo trabalhado em outra sessão. Parei antes de rodar qualquer coisa e
 listei o que já havia tocado — o `git mv` era o risco real: contra edições concorrentes ele
 **não produz conflito textual**, produz arquivo em dois lugares ou mudança perdida em

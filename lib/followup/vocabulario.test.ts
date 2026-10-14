@@ -344,7 +344,7 @@ describe("a tradução não é o valor cru disfarçado", () => {
 
   it("nenhum rótulo É o valor de wire, mesmo sem underscore", () => {
     // A regra do `_` acima não pega `gte`, `eq` nem `and` — exatamente os
-    // comparadores de que o Rafael reclamou. E os rótulos dos COMPARADORES não
+    // comparadores de que o Kael reclamou. E os rótulos dos COMPARADORES não
     // estavam em varredura nenhuma até aqui: eles não moram num Record simples.
     const tudo: Array<[string, string]> = [
       ...rotulosPorValor,

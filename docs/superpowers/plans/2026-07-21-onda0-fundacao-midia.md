@@ -845,11 +845,11 @@ docker compose up -d          # WAHA local (se token Plus expirado: WAHA Core p�
 npm run dev                   # http://localhost:3000
 ```
 
-Conectar/confirmar uma sessão WhatsApp real em Conexões (QR). Se não houver sessão conectável, PARAR e pedir ao Rafael o pareamento — proibido simular.
+Conectar/confirmar uma sessão WhatsApp real em Conexões (QR). Se não houver sessão conectável, PARAR e pedir ao Kael o pareamento — proibido simular.
 
 - [ ] **Step 2: Receber mídia real**
 
-Pedir ao Rafael (ou usar o segundo número de teste) para enviar à sessão conectada: **1 imagem, 1 áudio (PTT), 1 PDF e 1 figurinha**.
+Pedir ao Kael (ou usar o segundo número de teste) para enviar à sessão conectada: **1 imagem, 1 áudio (PTT), 1 PDF e 1 figurinha**.
 
 - [ ] **Step 3: Drenar o event_log e provar no banco**
 

@@ -4,11 +4,11 @@ import { faltouNomeDeContato, interpolateTemplate } from "@/lib/inbox/template-v
 
 describe("interpolateTemplate", () => {
   it("substitui nome e primeiro_nome", () => {
-    expect(interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", { name: "Rafael Melgaço" })).toBe(
-      "Oi Rafael, tudo bem?",
+    expect(interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", { name: "Kael Victor" })).toBe(
+      "Oi Kael, tudo bem?",
     );
-    expect(interpolateTemplate("Falo com {{nome}}?", { name: "Rafael Melgaço" })).toBe(
-      "Falo com Rafael Melgaço?",
+    expect(interpolateTemplate("Falo com {{nome}}?", { name: "Kael Victor" })).toBe(
+      "Falo com Kael Victor?",
     );
   });
   it("tolera espaços e case nas chaves", () => {
@@ -26,12 +26,12 @@ describe("interpolateTemplate", () => {
     expect(
       interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", {
         name: null,
-        displayName: "Rafael Melgaço",
+        displayName: "Kael Victor",
       }),
-    ).toBe("Oi Rafael, tudo bem?");
+    ).toBe("Oi Kael, tudo bem?");
     expect(
-      interpolateTemplate("Falo com {{nome}}?", { name: null, displayName: "Rafael Melgaço" }),
-    ).toBe("Falo com Rafael Melgaço?");
+      interpolateTemplate("Falo com {{nome}}?", { name: null, displayName: "Kael Victor" }),
+    ).toBe("Falo com Kael Victor?");
   });
   it("name em branco → cai no displayName", () => {
     expect(
@@ -40,8 +40,8 @@ describe("interpolateTemplate", () => {
   });
   it("name preenchido vence o displayName", () => {
     expect(
-      interpolateTemplate("Oi {{nome}}", { name: "Rafael Melgaço", displayName: "Cliente 5511" }),
-    ).toBe("Oi Rafael Melgaço");
+      interpolateTemplate("Oi {{nome}}", { name: "Kael Victor", displayName: "Cliente 5511" }),
+    ).toBe("Oi Kael Victor");
   });
   it("displayName ausente ou em branco → mantém o literal", () => {
     expect(interpolateTemplate("Oi {{nome}}", { name: null, displayName: null })).toBe(
@@ -55,8 +55,8 @@ describe("interpolateTemplate", () => {
     // `\n` colado (caso de rótulo vindo do canal) viraria "primeiro nome" com
     // quebra de linha dentro do texto mandado ao cliente.
     expect(
-      interpolateTemplate("Oi {{primeiro_nome}}!", { name: null, displayName: "Rafael\n Melgaço" }),
-    ).toBe("Oi Rafael!");
+      interpolateTemplate("Oi {{primeiro_nome}}!", { name: null, displayName: "Kael\n Melgaço" }),
+    ).toBe("Oi Kael!");
   });
 });
 
@@ -83,11 +83,11 @@ describe("faltouNomeDeContato", () => {
   });
   it("false: displayName cobre a variável", () => {
     expect(
-      faltouNomeDeContato("Oi {{nome}}", { name: null, displayName: "Rafael Melgaço" }),
+      faltouNomeDeContato("Oi {{nome}}", { name: null, displayName: "Kael Victor" }),
     ).toBe(false);
   });
   it("false: nome preenchido cobre a variável", () => {
-    expect(faltouNomeDeContato("Oi {{nome}}", { name: "Rafael" })).toBe(false);
+    expect(faltouNomeDeContato("Oi {{nome}}", { name: "Kael" })).toBe(false);
   });
   it("false: variável desconhecida não é problema de nome", () => {
     expect(faltouNomeDeContato("Cupom {{codigo}}", { name: null })).toBe(false);

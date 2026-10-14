@@ -66,7 +66,7 @@ O dono lê o relatório e escolhe UM dos três:
 
 1. **Aprovar**: criar o arquivo de aprovação e commitá-lo —
    ```bash
-   echo "approved $(date -Iseconds) by Rafael — <observação opcional>" > loop/checkpoints/<FASE>.approved
+   echo "approved $(date -Iseconds) by Kael — <observação opcional>" > loop/checkpoints/<FASE>.approved
    git add loop/checkpoints/<FASE>.approved && git commit -m "chore(<FASE>): checkpoint aprovado"
    ```
    O arquivo `.approved` é o gate físico em DOIS sentidos: destrava a fase seguinte
@@ -77,7 +77,7 @@ O dono lê o relatório e escolhe UM dos três:
    na inbox e/ou ajustar features da próxima fase (commit com `KAELSOLUTIONS_GOV_PLAN_EDIT=1`).
 3. **Recusar**: NÃO criar o `.approved`. Em vez disso:
    ```bash
-   echo "rejected $(date -Iseconds) by Rafael — <motivo em 1 linha>" > loop/checkpoints/<FASE>.rejected
+   echo "rejected $(date -Iseconds) by Kael — <motivo em 1 linha>" > loop/checkpoints/<FASE>.rejected
    git mv loop/checkpoints/<FASE>-report.md loop/checkpoints/<FASE>-report.rejected-$(date +%F).md
    git add loop/checkpoints/<FASE>.rejected && git commit -m "chore(<FASE>): checkpoint recusado"
    ```

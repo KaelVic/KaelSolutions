@@ -1,6 +1,6 @@
 # QA visual da rodada de triagem de 06/09/2026
 
-Prova de tela dos PRs **#597** (@JowaniOrantes), **#599** (@rafaelcesardev),
+Prova de tela dos PRs **#597** (@JowaniOrantes), **#599** (@kaelcesardev),
 **#600** (@JowaniOrantes) e das recuperações **#595/#596** (@maugarciasa), todos
 **mergeados juntos numa branch de integração** e exercitados de uma vez — o que
 nenhum CI faz, porque cada PR é testado sozinho.

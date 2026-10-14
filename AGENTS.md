@@ -174,7 +174,7 @@ O CI tem cinco checks obrigatórios na `main`: `verify`, `build-and-size`, `inva
 `imagens-ok`. Não confie nesta lista — reconte antes de citar:
 
 ```bash
-gh api repos/melgarafael/KaelSolutions/branches/main/protection \
+gh api repos/KaelVic/KaelSolutions/branches/main/protection \
   --jq '.required_status_checks.contexts|join(", ")'
 ```
 
@@ -197,14 +197,14 @@ cite cada um:
 **Os cinco são checks obrigatórios** na branch protection da `main` — medido em 2026-08-14 @ `741c4ec8` (o comando exige permissão de **admin** no repositório: com token de contribuidor ele devolve `404`, medido em 2026-09-13):
 | Situação                                                                            | Guia                    |
 | ----------------------------------------------------------------------------------- | ----------------------- |
-| Instalar, atualizar ou consertar a instalação numa VPS; domínio, Supabase, WhatsApp | `deskcomm-instalar`     |
-| Usar o CRM no dia a dia; encontrar telas, fluxos e configurações pela interface     | `deskcomm-operacao`     |
-| Configurar o CRM para um cliente ou nicho: agentes, roteadores, follow-ups, base    | `deskcomm-cliente-novo` |
-| Desempenho, conversão, custo de IA, funil, relatório                                | `deskcomm-metricas`     |
-| O agente responde errado, passa tudo para humano, não usa a agenda; afinar o prompt | `deskcomm-prompt`       |
-| Contribuir: corrigir bug, abrir ou atualizar PR, migration, conflito com a `main`   | `deskcomm-contribuir`   |
-| Criar extensão/plugin/módulo de nicho, ou transformar um PR de nicho em pacote      | `deskcomm-extensao`     |
-| Escrever ou revisar código aqui                                                     | `deskcomm-doutrina`     |
+| Instalar, atualizar ou consertar a instalação numa VPS; domínio, Supabase, WhatsApp | `kaelsolutions-instalar`     |
+| Usar o CRM no dia a dia; encontrar telas, fluxos e configurações pela interface     | `kaelsolutions-operacao`     |
+| Configurar o CRM para um cliente ou nicho: agentes, roteadores, follow-ups, base    | `kaelsolutions-cliente-novo` |
+| Desempenho, conversão, custo de IA, funil, relatório                                | `kaelsolutions-metricas`     |
+| O agente responde errado, passa tudo para humano, não usa a agenda; afinar o prompt | `kaelsolutions-prompt`       |
+| Contribuir: corrigir bug, abrir ou atualizar PR, migration, conflito com a `main`   | `kaelsolutions-contribuir`   |
+| Criar extensão/plugin/módulo de nicho, ou transformar um PR de nicho em pacote      | `kaelsolutions-extensao`     |
+| Escrever ou revisar código aqui                                                     | `kaelsolutions-doutrina`     |
 
 O gate de arquitetura de qualquer peça que atende pessoas é a skill `sistema-vivo` (lei em
 [`docs/doctrine/sistema-vivo.md`](docs/doctrine/sistema-vivo.md)).
@@ -535,12 +535,12 @@ casar, mesmo que a pessoa não saiba que ele existe. Fora de um clone (ou num cl
 
 | situação | guia |
 |---|---|
-| instalar, atualizar ou consertar a instalação numa VPS; domínio, Supabase, WhatsApp que não conecta | `deskcomm-instalar` |
-| configurar o CRM para um cliente ou nicho: agentes, roteadores, follow-ups, base de conhecimento | `deskcomm-cliente-novo` |
-| desempenho, conversão, custo de IA, funil, relatório | `deskcomm-metricas` |
-| o agente responde errado, passa tudo para humano, não usa a agenda; melhorar o prompt | `deskcomm-prompt` |
-| contribuir: corrigir bug, abrir ou atualizar PR, migration, conflito com a `main` | `deskcomm-contribuir` — que fica quieto quando `bash .agents/skills/deskcomm-contribuir/scripts/quem-sou.sh` responde `mantenedor` |
-| escrever ou revisar código aqui | `deskcomm-doutrina` (as três regras que mais custam) e `sistema-vivo` (o gate de arquitetura) |
+| instalar, atualizar ou consertar a instalação numa VPS; domínio, Supabase, WhatsApp que não conecta | `kaelsolutions-instalar` |
+| configurar o CRM para um cliente ou nicho: agentes, roteadores, follow-ups, base de conhecimento | `kaelsolutions-cliente-novo` |
+| desempenho, conversão, custo de IA, funil, relatório | `kaelsolutions-metricas` |
+| o agente responde errado, passa tudo para humano, não usa a agenda; melhorar o prompt | `kaelsolutions-prompt` |
+| contribuir: corrigir bug, abrir ou atualizar PR, migration, conflito com a `main` | `kaelsolutions-contribuir` — que fica quieto quando `bash .agents/skills/kaelsolutions-contribuir/scripts/quem-sou.sh` responde `mantenedor` |
+| escrever ou revisar código aqui | `kaelsolutions-doutrina` (as três regras que mais custam) e `sistema-vivo` (o gate de arquitetura) |
 
 Os guias têm vitrine pública em [kaelsolutions.com/guias](https://www.kaelsolutions.com/guias) (pt-BR,
 en, es), escrita à mão no repositório `kaelsolutions-site` (`conteudo/guias.ts`). Guia criado,

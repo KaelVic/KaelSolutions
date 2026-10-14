@@ -170,7 +170,7 @@ describe("envio por token respeita a janela de 24h", () => {
       type: "template",
       template_name: "pedido_confirmado",
       template_language: "pt_BR",
-      template_values: { "1": "Rafael" },
+      template_values: { "1": "Kael" },
     } as SendMessageInput);
 
     expect(capturas.inserts.messages).toHaveLength(1);

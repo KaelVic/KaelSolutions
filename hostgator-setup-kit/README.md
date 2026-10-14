@@ -25,7 +25,7 @@ Este kit sobe o **KaelSolutions** no seu servidor VPS da HostGator. Você tem do
 2. Clone o repositório (`git clone --depth 1 https://github.com/kaelsolutions/KS_CRM.git kaelsolutions`)
    e abra a pasta no **Claude Code, Codex, Cursor, OpenCode ou Antigravity** dentro do VPS —
    ou jogue só esta pasta no chat: o `CLAUDE.md` daqui manda clonar e abre o guia.
-3. Diga: *"instala o KaelSolutions pra mim"*. O guia `deskcomm-instalar` conduz tudo —
+3. Diga: *"instala o KaelSolutions pra mim"*. O guia `kaelsolutions-instalar` conduz tudo —
    cria o banco, gera as senhas, sobe o CRM e te ajuda a conectar o WhatsApp.
 
 ## ⚙️ Caminho manual: um comando

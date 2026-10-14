@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 >
-> **PROTOCOLO DO RAFAEL (inegociável):** cada onda termina com PROVA VISÍVEL (output de teste real, curl real, screenshot Playwright) + atualização e commit do `HANDOFF.md`. Nenhuma onda avança sem os critérios de aceite da anterior provados. Medidas de front por ferramenta, nunca a olho.
+> **PROTOCOLO DO KAEL (inegociável):** cada onda termina com PROVA VISÍVEL (output de teste real, curl real, screenshot Playwright) + atualização e commit do `HANDOFF.md`. Nenhuma onda avança sem os critérios de aceite da anterior provados. Medidas de front por ferramenta, nunca a olho.
 
 **Goal:** Motor único de follow-up (grafo versionado + enrollment + relógio único) com builder visual React Flow, fila UI e seletor no agente — spec em `docs/superpowers/specs/2026-07-21-followup-system-design.md`.
 

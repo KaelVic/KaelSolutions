@@ -925,7 +925,7 @@ de `organizations` engana (PostgREST devolve 200 tendo casado zero linhas).
 kong devolveu `000` enquanto o app respondia `200`, e depois o próprio daemon do
 Docker parou de responder. Controle que fechou o diagnóstico: a sonda de layout,
 verde minutos antes, passou a falhar **no mesmo ponto**. Era ambiente, não
-edição. Resolvido matando e subindo o Docker de novo — o Rafael confirmou por
+edição. Resolvido matando e subindo o Docker de novo — o Kael confirmou por
 experiência que travado assim não tem outro jeito.
 
 **2. Uma asserção MINHA reprovou produto correto.** `noBancoDepois === PASSO`

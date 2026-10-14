@@ -14,13 +14,13 @@
 - **Storage-first**: WAHA recebe signed URL (TTL 600s) — NUNCA base64 inline, NUNCA URL pública permanente.
 - Upload: cap **50MB** (`MAX_MEDIA_BYTES` de `lib/messaging/media/types.ts`); mime allowlist por tipo (image/*, video/*, audio/*, e documentos: pdf/doc/xls/ppt/txt/csv/zip); path `{org_id}/{conversation_id}/out-{uuid}.{ext}` (prefixo `out-` distingue outbound).
 - `sendVoice` com `convert: true` (WhatsApp exige OGG/OPUS; docs WAHA). **Contingência registrada**: se na prova real o NOWEB Core não converter (PTT chega como arquivo), fallback `sendFile` e avaliação de conversão server-side (ffmpeg — que a Onda 3 já trará) — decisão na T6, não construir antes.
-- Emoji picker: **nova dependência aprovada para esta onda**: `@emoji-mart/react` + `@emoji-mart/data` (visual WhatsApp-like: busca, categorias, recentes; referência do screenshot do Rafael), SEMPRE via `next/dynamic`/import dinâmico — zero peso no bundle inicial do inbox.
+- Emoji picker: **nova dependência aprovada para esta onda**: `@emoji-mart/react` + `@emoji-mart/data` (visual WhatsApp-like: busca, categorias, recentes; referência do screenshot do Kael), SEMPRE via `next/dynamic`/import dinâmico — zero peso no bundle inicial do inbox.
 - Gravação: `MediaRecorder`, mime negociado (`audio/ogg;codecs=opus` → `audio/webm;codecs=opus` → default do browser); enviar com o mime REAL gravado.
 - MessageBubble: alargar gate `hasMedia` para `media_url || media_storage_path` (forward note do review final da Onda 1).
 - Optimistic update NÃO se aplica a envio de mídia (o renderer buscaria `/messages/temp-…/media` → 404); mídia envia sem inserção otimista e confia na invalidação. Decisão registrada.
 - Ícones só via `@/lib/ui/icons` (adicionar os que faltarem ao wrapper: `Smiley`, `Microphone`, `Plus`, `ImageSquare`, `Trash`, `StopCircle`).
 - Zod em todo input externo; audit já coberto pelo `message.sent` existente; sem `console.log`; typecheck/lint/testes verdes por task (sem pipe-tail).
-- Prova final: Playwright + envio real pelo CRM e **confirmação de chegada no WhatsApp real** (Rafael do outro lado), acks na UI, screenshots + medidas.
+- Prova final: Playwright + envio real pelo CRM e **confirmação de chegada no WhatsApp real** (Kael do outro lado), acks na UI, screenshots + medidas.
 
 ---
 
@@ -1168,7 +1168,7 @@ git commit -m "feat(composer): emoji picker lazy estilo WhatsApp (emoji-mart, lo
 
 - [ ] **Step 2: Envio real pelo CRM (Playwright)** — na conversa real: (a) enviar IMAGEM com caption pelo "+"; (b) enviar PDF; (c) gravar e enviar ÁUDIO (conceder permissão de mic via Playwright `--use-fake-ui-for-media-stream` ou permissão do contexto); (d) inserir emoji pelo picker num texto e enviar. Screenshots de cada etapa (menu aberto, preview com caption, gravação com timer, picker aberto).
 
-- [ ] **Step 3: Confirmação DUPLA do recebimento** — (1) SQL: mensagens outbound com `status='sent'`, `external_id` preenchido e depois `ack>=2` (delivered) via webhook; (2) **Rafael confirma no WhatsApp real** que imagem+caption, PDF, áudio (como MENSAGEM DE VOZ, não arquivo) e texto com emoji chegaram. Se o áudio chegar como arquivo (contingência NOWEB Core sem convert), registrar e decidir ffmpeg server-side.
+- [ ] **Step 3: Confirmação DUPLA do recebimento** — (1) SQL: mensagens outbound com `status='sent'`, `external_id` preenchido e depois `ack>=2` (delivered) via webhook; (2) **Kael confirma no WhatsApp real** que imagem+caption, PDF, áudio (como MENSAGEM DE VOZ, não arquivo) e texto com emoji chegaram. Se o áudio chegar como arquivo (contingência NOWEB Core sem convert), registrar e decidir ffmpeg server-side.
 
 - [ ] **Step 4: UX check** — bolhas outbound renderizam a mídia enviada (gate `media_storage_path` da T3); acks progridem na UI; console limpo; medidas do composer (menu, preview, recorder) por `getBoundingClientRect`.
 

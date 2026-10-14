@@ -7,7 +7,7 @@
 - **Branch de integração:** `feat/followup-vivo` — nascida de `origin/main` `4f89a0da`, zero divergência na criação.
 - **Maestro da missão:** terminal `Assistente e Testes` (Lina).
 - **Aberto em:** 2026-08-10.
-- **Autorização:** Rafael, autonomia total (`workspace.json → guard: off`).
+- **Autorização:** Kael, autonomia total (`workspace.json → guard: off`).
 
 ---
 
@@ -62,9 +62,9 @@ follow-up, ambos em escopo aqui:
 
 | Decisão | Quem | Racional |
 |---|---|---|
-| Ramo nomeado é do **nó**, não da aresta isolada — cada regra vira um ramo com id estável e rótulo; a aresta referencia `branch_id`. | Maestro, aprovado por Rafael | Aresta guardando a regra duplicaria a verdade e quebraria ao reordenar regras. |
-| A ramificação vale **também para o nó de classificação da IA** — cada classe declarada nasce com a sua própria saída. | Maestro, aprovado por Rafael | Rafael citou o condicional; a estrutura do defeito é a mesma. |
-| **UUID sai da tela.** Template vira seletor com nome. | Maestro, aprovado por Rafael | Pedir UUID a um dono de clínica é o defeito de UX mais grave do painel. |
+| Ramo nomeado é do **nó**, não da aresta isolada — cada regra vira um ramo com id estável e rótulo; a aresta referencia `branch_id`. | Maestro, aprovado por Kael | Aresta guardando a regra duplicaria a verdade e quebraria ao reordenar regras. |
+| A ramificação vale **também para o nó de classificação da IA** — cada classe declarada nasce com a sua própria saída. | Maestro, aprovado por Kael | Kael citou o condicional; a estrutura do defeito é a mesma. |
+| **UUID sai da tela.** Template vira seletor com nome. | Maestro, aprovado por Kael | Pedir UUID a um dono de clínica é o defeito de UX mais grave do painel. |
 | Retrocompatibilidade é **obrigatória**: fluxo publicado hoje continua rodando sem intervenção. | Maestro | Projeto open-source; clones têm fluxos vivos em produção. |
 | O tempo adaptativo é tratado como **bug**, não como feature nova. | Maestro | Controle que a tela oferece e o código ignora mente para o usuário. |
 
@@ -173,7 +173,7 @@ reprovações espera — reprovar menos que o previsto denuncia mecanismo redund
 - **Troca de dono na frente C** — os dois despachos ao MaestroConexoes foram *roteados*
   sem confirmação de entrega, e ele não deu claim. Não concluí "terminal morto" pelo
   sinal indireto: **conferi o artefato** (plano sem claim, worktree sem arquivo tocado).
-  Rafael informou que ele está em outra frente. Terminal `DevGatilhos` (DEVELOPER)
+  Kael informou que ele está em outra frente. Terminal `DevGatilhos` (DEVELOPER)
   criado e a frente repassada a ele.
 - **Monitor armado** — vigia o **artefato**, não o proxy: commit novo em qualquer
   `fv/*`, terminal em `Blocked`/`Dead`, e frente em silêncio há mais de 25 min. As três
@@ -302,7 +302,7 @@ nomeou os seis painéis. Previsto 1, medido 1.
 Ele parou antes de rodar a suíte e perguntou, porque percebeu que
 `scripts/seed-e2e-credentials.ts` **rotaciona o TOTP do admin** e derrubaria o run
 do maestro em andamento. Virou regra escrita para o time
-(`/Users/rafaelmelgaco/fv-briefings/PROTOCOLO-E2E.md`): o maestro é o dono do
+(`/Users/kaelvic/fv-briefings/PROTOCOLO-E2E.md`): o maestro é o dono do
 seed, ninguém mais o roda, credenciais se copiam; nunca criar `.env.local` num
 worktree; uma porta por frente (3101–3106); prazo de 60s nas esperas.
 
@@ -521,7 +521,7 @@ nem `rebase`.
 
 ### O padrão que atravessou a missão
 
-Rafael pediu que *"o jeito de configurar execute exatamente a função conforme é
+Kael pediu que *"o jeito de configurar execute exatamente a função conforme é
 orientado na UI"*. Isso virou o critério que achou **cinco defeitos**, nenhum na
 lista original — todos da mesma família: **a tela promete o que o motor não cumpre**.
 
@@ -580,7 +580,7 @@ alguém perguntou *"o que exatamente reprovaria se eu quebrasse isto?"*:
 
 | # | O quê | Dono | Nota |
 |---|---|---|---|
-| P1 | **Ordem dos dois cron.** `followup-flow-worker` e `event-log-drain` são ambos `* * * * *`. Se o worker reclama antes de o drain terminar de escrever (drain tem `-m45`, worker `-m25`), o enrollment espera o minuto seguinte **sempre**, por ordem de execução — e o conserto do relógio **não** resolve. Medição autorizada; **conserto não**: mexer em ordem de cron é decisão do Rafael com o número na mão. | DevGatilhos | **maior que os 8 abaixo** |
+| P1 | **Ordem dos dois cron.** `followup-flow-worker` e `event-log-drain` são ambos `* * * * *`. Se o worker reclama antes de o drain terminar de escrever (drain tem `-m45`, worker `-m25`), o enrollment espera o minuto seguinte **sempre**, por ordem de execução — e o conserto do relógio **não** resolve. Medição autorizada; **conserto não**: mexer em ordem de cron é decisão do Kael com o número na mão. | DevGatilhos | **maior que os 8 abaixo** |
 | P2 | 8 outros call sites que agendam com o relógio do processo, nomeados na guarda | a definir | baixa (ver P1 antes) |
 | P3 | Migração do classify para ramos (item próprio, ver acima) | Arquiteto | média |
 | P4 | Enumeração de status em instrumento de teste sem guarda — hoje sobrevive por coincidência com o CHECK do schema | DevGatilhos | baixa |
@@ -610,7 +610,7 @@ chega depois não sabe se aquilo prova algo ou se foi esquecido.
 
 - **`evidence/followup-vivo/ramos-01-uma-bolinha-por-regra.png`** — o nó de condição com duas regras mostra
   **três saídas separadas**, cada uma com nome legível: *"Tem a etiqueta VIP"*,
-  *"Tem a etiqueta atrasado"* e *"Nenhuma delas"*. É a queixa original do Rafael
+  *"Tem a etiqueta atrasado"* e *"Nenhuma delas"*. É a queixa original do Kael
   resolvida na tela; antes havia **uma bolinha só** para todas as saídas.
 - **`evidence/followup-vivo/ramos-02-altura-com-5-regras.png`** — o card com cinco regras, usado para medir
   a altura por ferramenta (43,4px com uma saída → 159,1px com cinco, custo por ramo
@@ -716,7 +716,7 @@ existir**.
 
 ### Correção do fechamento — CINCO provados em tela, não seis
 
-O maestro escreveu, no anúncio e ao Rafael, *"os seis pedidos provados em tela"*.
+O maestro escreveu, no anúncio e ao Kael, *"os seis pedidos provados em tela"*.
 **Falso para um deles**, e quem levantou foi o dono do item, sobre o próprio trabalho:
 
 | Pedido | Prova em tela | Spec |
@@ -928,7 +928,7 @@ lint e 3639 testes verdes por cima dela.
 
 ### Fica aberto
 
-- **`conversation_end`** continua sem produtor. Rafael pediu "caso aberto"; o que
+- **`conversation_end`** continua sem produtor. Kael pediu "caso aberto"; o que
   existe no schema é o encerramento, e nenhum dos dois foi entregue. Nunca virou
   item — falha de leitura do pedido, não decisão.
 - **A ordem dos dois cron** (§ anterior) segue sendo decisão de produção.
@@ -937,7 +937,7 @@ lint e 3639 testes verdes por cima dela.
 
 ## 11. O gatilho de CASO ABERTO (2026-08-11)
 
-O último dos três que Rafael listou no início — "lead cai em um estágio / **caso
+O último dos três que Kael listou no início — "lead cai em um estágio / **caso
 aberto** / proposta feita". Etapa e proposta saíram na missão; este nunca virou
 item, e a falha foi de leitura do pedido, não decisão.
 

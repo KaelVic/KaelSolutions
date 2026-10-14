@@ -1,6 +1,6 @@
 # W1 — O painel de quem configura o agente
 
-**Worktree:** `/Users/rafaelmelgaco/KaelSolutions-ia360-w1-painel` (branch `feat/ia-360-w1-painel`, base `d25cd1c`)
+**Worktree:** `/Users/kaelvic/KaelSolutions-ia360-w1-painel` (branch `feat/ia-360-w1-painel`, base `d25cd1c`)
 **Pacote alvo:** infraestrutura de apresentação — serve todas as outras waves.
 
 ---

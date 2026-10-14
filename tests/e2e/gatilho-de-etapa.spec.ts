@@ -58,7 +58,7 @@ interface Creds {
 function loadCreds(): Creds {
   if (!fs.existsSync(CREDS_PATH)) {
     throw new Error(
-      "Faltam credenciais de E2E. Copie as do maestro — `cp /Users/rafaelmelgaco/fv-integra/.e2e-creds.json .` — " +
+      "Faltam credenciais de E2E. Copie as do maestro — `cp /Users/kaelvic/fv-integra/.e2e-creds.json .` — " +
         "e NÃO rode scripts/seed-e2e-credentials.ts (ele rotaciona o TOTP do admin e derruba o run das outras frentes).",
     );
   }

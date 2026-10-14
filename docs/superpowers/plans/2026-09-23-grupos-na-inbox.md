@@ -639,7 +639,7 @@ export const CHAVES_DO_FILTRO_FIXAS = Object.fromEntries(
   /**
    * Liga ou desliga o recebimento de grupos NESTA sessão. Só devolve `true` quando o GET
    * seguinte confirma a troca: o WAHA já respondeu 200 para operação que não aconteceu
-   * (medido na issue melgarafael/KaelSolutions#1428).
+   * (medido na issue KaelVic/KaelSolutions#1428).
    */
   async definirRecebimentoDeGrupos(name: string, receber: boolean): Promise<boolean> {
     const url = `${this.baseUrl}/api/sessions/${encodeURIComponent(name)}`;

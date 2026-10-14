@@ -78,7 +78,7 @@ garantia; o desarme é. Congelado em `tests/unit/aviso-ao-lead.test.ts`.
 
 ## O corte de release — o trabalho NÃO termina no merge
 
-Instrução do Rafael (2026-08-26): *"toda nova atualização deve respeitar a
+Instrução do Kael (2026-08-26): *"toda nova atualização deve respeitar a
 doutrina de packaging e releases, senão os usuários não conseguem atualizar na
 VPS deles."* Merge na `main` não chega a instalação nenhuma — o self-hoster puxa
 IMAGEM PUBLICADA por número de versão.
@@ -103,7 +103,7 @@ Checklist em `docs/doctrine/packaging.md` (12 itens). Já verificado ANTES do me
 | 12 — `update.sh` numa instalação real | ✅ **feito na VPS do dono** — ver abaixo |
 
 O item 12 (ensaio de `update.sh` numa instalação real) é o único que exige VPS e
-**é ele que responde a pergunta do Rafael** — se o cliente consegue atualizar.
+**é ele que responde a pergunta do Kael** — se o cliente consegue atualizar.
 
 ## A prova na VPS (v1.6.0, imagem `bf386c19`)
 

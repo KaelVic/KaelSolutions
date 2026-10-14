@@ -3,7 +3,7 @@ title: KaelSolutions — Diagramas de Arquitetura
 version: 0.1
 status: em revisão
 date: 2026-04-28
-owner: Rafael Melgaço
+owner: Kael Victor
 referencia_arquitetural: docs/research/reference-synthesis.md
 formato: Mermaid
 ---

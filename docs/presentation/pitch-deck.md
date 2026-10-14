@@ -16,7 +16,7 @@ date: 2026-04-29
 
 **Multi-tenant · LGPD-nativo · MCP-ready · Brasil-first**
 
-<sub>Rafael Melgaço — São Paulo, 29 de abril de 2026</sub>
+<sub>Kael Victor — São Paulo, 29 de abril de 2026</sub>
 
 ---
 
@@ -289,7 +289,7 @@ Adotamos integralmente o **bundle herdado** da referência *Aula CRM Nichado WAH
 
 > "**Não é mais um CRM. É a plataforma onde IA e humanos atendem juntos.**"
 
-📧 rafael@maudibrasil.com.br
+📧 contato@kaelsolutions.com
 📍 São Paulo, BR
 🔗 docs: github.com/kaelsolutions/KS_CRM (em breve)
 

@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Spec mestre: `docs/superpowers/specs/2026-07-21-inbox-multimodal-design.md` (Onda 5, "Lembrete/snooze"). Handoff `HANDOFF-inbox-multimodal.md` (prova visível em conta REAL; "funcionou BEM").
-- **Decisão travada pelo Rafael:** ao vencer, **reabre na fila do vendedor + aviso interno; NÃO manda nada ao cliente.** Granularidade = **por conversa**.
+- **Decisão travada pelo Kael:** ao vencer, **reabre na fila do vendedor + aviso interno; NÃO manda nada ao cliente.** Granularidade = **por conversa**.
 - **NÃO confundir com o reentry do agente** (`reentry_knob_versions/pointers`, migration 0050) — aquilo é follow-up AUTOMÁTICO do bot AO cliente, por org/segmento. Este snooze é interno, por conversa, humano. Sistemas paralelos, zero overlap de tabela/fluxo.
 - **Trigger Postgres NUNCA faz HTTP** — o disparo é um cron que varre por deadline (não `event_log`, pois é a AUSÊNCIA de resposta que dispara). Template: `app/api/v1/cron/lgpd-sla-watcher/route.ts` (admin client, Bearer `INTERNAL_CRON_SECRET`/`INTERNAL_SECRET`, fail-closed, dedup, `audit()` no fim).
 - **Migration doctrine:** migration versionada (próximo nº **0061** — confirmar com `ls supabase/migrations/`; se o hook renumerar, seguir em todos os artefatos) + apêndice idempotente no `baseline.sql` + linha no MANIFEST + `database.types.ts`. Idempotente (`add column if not exists`; para o CHECK novo do `agent_inbox_items.kind`, **dropar e recriar** o constraint de forma auto-curativa).

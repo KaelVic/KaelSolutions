@@ -1,6 +1,6 @@
 # Spec — Sistema de Follow-up Inteligente (fluxos + fila + seletor no agente)
 
-> Aprovado por Rafael em 2026-07-21. Insumo: `docs/research/followup-reference-mining.md` (mineração odysseus / hermes / openclaw / tomikcrm).
+> Aprovado por Kael em 2026-07-21. Insumo: `docs/research/followup-reference-mining.md` (mineração odysseus / hermes / openclaw / tomikcrm).
 > Status: pronto para plano de implementação.
 >
 > **Snapshot histórico.** O status e o corpo abaixo registram o desenho aprovado

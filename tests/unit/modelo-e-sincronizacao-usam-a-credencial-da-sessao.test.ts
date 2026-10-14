@@ -50,7 +50,7 @@ const FIXTURE = JSON.parse(
 ) as { data: { name: string; language: string; components?: unknown[] }[] };
 
 const PEDIDO = FIXTURE.data.find((t) => t.name === "jaspers_market_order_confirmation_v1")!;
-const VALORES = { "1": "Rafael", "2": "DESK-001", "3": "30/07" };
+const VALORES = { "1": "Kael", "2": "DESK-001", "3": "30/07" };
 
 /**
  * O "banco" que o admin client enxerga: UMA conexão por organização, com o SEU

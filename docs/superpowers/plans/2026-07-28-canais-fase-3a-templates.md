@@ -179,10 +179,10 @@ const tpl = (n: string) => FIXTURE.data.find((t: { name: string }) => t.name ===
 describe("buildComponents", () => {
   it("3 valores no corpo viram UM componente body com 3 parameters (evita 132000)", () => {
     const c = deriveTemplateContract(tpl("jaspers_market_order_confirmation_v1"));
-    const out = buildComponents(c, { "1": "Rafael", "2": "DESK-001", "3": "30/07" });
+    const out = buildComponents(c, { "1": "Kael", "2": "DESK-001", "3": "30/07" });
     expect(out).toEqual([
       { type: "body", parameters: [
-        { type: "text", text: "Rafael" },
+        { type: "text", text: "Kael" },
         { type: "text", text: "DESK-001" },
         { type: "text", text: "30/07" },
       ]},
@@ -210,7 +210,7 @@ describe("buildComponents", () => {
 
   it("valor faltando é reportado como slot, nunca enviado incompleto", () => {
     const c = deriveTemplateContract(tpl("jaspers_market_order_confirmation_v1"));
-    expect(missingSlots(c, { "1": "Rafael" }).map((s) => s.key)).toEqual(["2", "3"]);
+    expect(missingSlots(c, { "1": "Kael" }).map((s) => s.key)).toEqual(["2", "3"]);
   });
 
   it("NAMED põe parameter_name; POSITIONAL não", () => {
@@ -218,8 +218,8 @@ describe("buildComponents", () => {
       name: "x", language: "pt_BR", parameter_format: "NAMED",
       components: [{ type: "BODY", text: "Oi {{nome}}" }],
     });
-    expect(buildComponents(named, { nome: "Rafael" })).toEqual([
-      { type: "body", parameters: [{ type: "text", parameter_name: "nome", text: "Rafael" }] },
+    expect(buildComponents(named, { nome: "Kael" })).toEqual([
+      { type: "body", parameters: [{ type: "text", parameter_name: "nome", text: "Kael" }] },
     ]);
   });
 });

@@ -4,7 +4,7 @@
  * (inbound-turn) consome `TurnAgentResolution` no lugar da chamada direta a
  * `loadPublishedAgentConfig` por channel_session.
  *
- * Regra de decisão (spec 2026-07-23, decisões do Rafael 2026-07-26):
+ * Regra de decisão (spec 2026-07-23, decisões do Kael 2026-07-26):
  *   1. sem router ativo pra sessão ⇒ fluxo atual intacto (config por sessão).
  *   2. sticky ativo (router.sticky + stickyAgentId ainda membro do router):
  *      classifica MESMO ASSIM (barato, é o que detecta troca de assunto) —
@@ -21,7 +21,7 @@
  *   5. sem match / confiança baixa ⇒ fallback se houver (outcome 'fallback'),
  *      senão o agente PUBLICADO DA SESSÃO — o mesmo que responderia se o router
  *      não existisse. Só quando nem esse existe é que sai config:null e o turno
- *      responde com o agente GENÉRICO (decisão do Rafael — não é silêncio).
+ *      responde com o agente GENÉRICO (decisão do Kael — não é silêncio).
  *
  *      ⚠️ ESTE DEGRAU DO MEIO NASCEU DE UM DEFEITO MEDIDO (2026-08-18). Antes,
  *      "sem fallback" pulava direto para o genérico — e um router ATIVO com

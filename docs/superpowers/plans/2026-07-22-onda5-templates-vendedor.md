@@ -150,11 +150,11 @@ import { interpolateTemplate } from "@/lib/inbox/template-vars";
 
 describe("interpolateTemplate", () => {
   it("substitui nome e primeiro_nome", () => {
-    expect(interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", { name: "Rafael Melgaço" })).toBe(
-      "Oi Rafael, tudo bem?",
+    expect(interpolateTemplate("Oi {{primeiro_nome}}, tudo bem?", { name: "Kael Victor" })).toBe(
+      "Oi Kael, tudo bem?",
     );
-    expect(interpolateTemplate("Falo com {{nome}}?", { name: "Rafael Melgaço" })).toBe(
-      "Falo com Rafael Melgaço?",
+    expect(interpolateTemplate("Falo com {{nome}}?", { name: "Kael Victor" })).toBe(
+      "Falo com Kael Victor?",
     );
   });
   it("tolera espaços e case nas chaves", () => {
@@ -597,7 +597,7 @@ git commit -m "feat(templates): página de settings — CRUD de templates (pesso
 
 - [ ] **Step 2: Criar template na UI** — em `/app/templates`, criar um template pessoal (ex.: título "Saudação", corpo "Oi {{primeiro_nome}}! Aqui é da KaelSolutions 👋", shortcut "oi") e um compartilhado. Screenshot da lista.
 
-- [ ] **Step 3: Usar `/` na conversa REAL** — abrir a conversa REAL (contato com nome, ex.: "Rafael Melgaço", na sessão conectada), digitar `/` no composer → menu abre → escolher "Saudação" → confirmar que o corpo entra no textarea com `{{primeiro_nome}}` já substituído por "Rafael". Screenshot do menu aberto + do texto inserido.
+- [ ] **Step 3: Usar `/` na conversa REAL** — abrir a conversa REAL (contato com nome, ex.: "Kael Victor", na sessão conectada), digitar `/` no composer → menu abre → escolher "Saudação" → confirmar que o corpo entra no textarea com `{{primeiro_nome}}` já substituído por "Kael". Screenshot do menu aberto + do texto inserido.
 
 - [ ] **Step 4: Enviar e provar no WhatsApp real** — enviar a mensagem inserida; confirmar por SQL que a outbound tem `external_id` do WAHA e `ack>=2` (entregue), e o corpo é o interpolado (sem `{{}}` residual). Screenshot da bolha enviada.
 

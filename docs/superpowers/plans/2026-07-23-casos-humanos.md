@@ -54,7 +54,7 @@
 
 - [ ] **Step 1: Confirmar o runtime em produção.**
 Run: `grep -rn "AGENT_DISPATCH_CONSUMER" . --include=*.ts --include=*.sh --include=*.yml --include=*.env* -l` e ler o wiring de deploy (`workers/agent-worker/main.ts:186-202`, docker/compose, `.env.example`).
-Expected: confirmar que o agent-engine é o consumer ativo. Se NÃO for, **parar e reportar ao Rafael** — a spec assume o engine (risco §10.3).
+Expected: confirmar que o agent-engine é o consumer ativo. Se NÃO for, **parar e reportar ao Kael** — a spec assume o engine (risco §10.3).
 
 - [ ] **Step 2: Criar `HANDOFF-casos-humanos.md`** com o cabeçalho que se auto-instrui:
 ```markdown

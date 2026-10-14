@@ -217,7 +217,7 @@ rede — não é ela que está segurando os 0%.
 
 ---
 
-## Estado de ambiente deixado de propósito (decisão do Rafael, 2026-08-05)
+## Estado de ambiente deixado de propósito (decisão do Kael, 2026-08-05)
 
 `organizations.settings.llm` da org de E2E (`e2e-test-org`) aponta para
 **`openai/gpt-5.6-terra`**, não mais para `anthropic/claude-sonnet-4-5`.

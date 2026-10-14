@@ -506,7 +506,7 @@ Checks **obrigatórios** na branch protection da `main` (verificado na configura
 Todos os **cinco** são **obrigatórios** — medido em 2026-08-14 na branch protection:
 
 ```console
-$ gh api repos/melgarafael/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts|join(", ")'
+$ gh api repos/KaelVic/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts|join(", ")'
 verify, build-and-size, invariants, e2e, imagens-ok
 ```
 
@@ -584,7 +584,7 @@ Processo padrão (siga sempre):
 
    ```bash
    # A POPULAÇÃO da pergunta: main do PRODUTO (o remoto que aponta para
-   # melgarafael/KaelSolutions, com qualquer nome) + TODO PR ABERTO, inclusive de
+   # KaelVic/KaelSolutions, com qualquer nome) + TODO PR ABERTO, inclusive de
    # fork. O `ls` abaixo mede o DISCO, que responde uma pergunta menor.
    pnpm checar:colisao-de-migration   # declara o que mediu e o que não mediu
    ```
@@ -682,14 +682,14 @@ mesma tabela vale para Codex, Cursor, OpenCode e Antigravity; ver `AGENTS.md`). 
 qualquer pasta, `bash scripts/instalar-guias.sh`; editando um guia numa branch, rode com `--fonte .`
 naquele clone — no Claude Code a skill GLOBAL vence a do projeto com o mesmo nome:
 
-- `deskcomm-instalar` — instalar, atualizar ou consertar a instalação numa VPS
-- `deskcomm-operacao` — usar o CRM no dia a dia, encontrar telas, fluxos e configurações pela interface
-- `deskcomm-cliente-novo` — configurar o CRM para um cliente ou nicho (agentes, roteadores, follow-ups, conhecimento)
-- `deskcomm-metricas` — desempenho, conversão, custo de IA, funil, relatório
-- `deskcomm-prompt` — afinar o prompt de um agente que não performa
-- `deskcomm-contribuir` — o espelho da triagem, antes do PR; fica quieto para o mantenedor
-- `deskcomm-extensao` — criar extensão em vez de PR no núcleo: régua de destino, contrato do pacote e envio
-- `deskcomm-doutrina` — as três regras que mais custam, antes de escrever código
+- `kaelsolutions-instalar` — instalar, atualizar ou consertar a instalação numa VPS
+- `kaelsolutions-operacao` — usar o CRM no dia a dia, encontrar telas, fluxos e configurações pela interface
+- `kaelsolutions-cliente-novo` — configurar o CRM para um cliente ou nicho (agentes, roteadores, follow-ups, conhecimento)
+- `kaelsolutions-metricas` — desempenho, conversão, custo de IA, funil, relatório
+- `kaelsolutions-prompt` — afinar o prompt de um agente que não performa
+- `kaelsolutions-contribuir` — o espelho da triagem, antes do PR; fica quieto para o mantenedor
+- `kaelsolutions-extensao` — criar extensão em vez de PR no núcleo: régua de destino, contrato do pacote e envio
+- `kaelsolutions-doutrina` — as três regras que mais custam, antes de escrever código
 
 Os guias têm página pública em [kaelsolutions.com/guias](https://www.kaelsolutions.com/guias), escrita
 à mão em `kaelsolutions-site/conteudo/guias.ts`: guia criado, renomeado ou com comando novo pede a mesma

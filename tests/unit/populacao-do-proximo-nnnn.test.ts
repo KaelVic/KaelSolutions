@@ -4,7 +4,7 @@
  *
  * A pergunta é sempre a mesma: **"algum lugar já USA ou RESERVOU este número?"**
  * — e a resposta honesta é sobre a main do PRODUTO (o remoto que aponta para
- * `melgarafael/KaelSolutions`, com qualquer nome) mais os PRs ABERTOS, inclusive
+ * `KaelVic/KaelSolutions`, com qualquer nome) mais os PRs ABERTOS, inclusive
  * de fork. Oito lugares respondiam sobre recortes menores, e a revisão mediu
  * cada um: a main de um fork em vez da do produto, só branches locais sem os
  * PRs abertos, cabeças já buscadas de PRs FECHADOS, o DISCO em vez da main
@@ -46,7 +46,7 @@ const BIBLIOTECA = path.join(RAIZ, "scripts/migration-populacao.sh");
 /** A URL que a biblioteca reconhece como o repositório PRINCIPAL. */
 const URL_PRODUTO = "https://github.com/kaelsolutions/KS_CRM.git";
 /** O repositório do produto, como o `gh` o nomeia (`--repo`). */
-const REPO_PRODUTO = "melgarafael/KaelSolutions";
+const REPO_PRODUTO = "KaelVic/KaelSolutions";
 
 /**
  * Onde a biblioteca mora e quem a consome — cada consumidor é um dos oito
@@ -55,8 +55,8 @@ const REPO_PRODUTO = "melgarafael/KaelSolutions";
  * encontrado pelo teste de "todo consumidor declara a população", abaixo.
  */
 const CONSUMIDORES = [
-  ".agents/skills/deskcomm-contribuir/scripts/pre-voo.sh",
-  ".agents/skills/deskcomm-contribuir/scripts/hooks/check-migration-triple.sh",
+  ".agents/skills/kaelsolutions-contribuir/scripts/pre-voo.sh",
+  ".agents/skills/kaelsolutions-contribuir/scripts/hooks/check-migration-triple.sh",
   "loop/hooks/check-migration-triple.sh",
   "triagem/scripts/complemento.sh",
 ] as const;
@@ -209,10 +209,10 @@ describe("a biblioteca da população existe e é consumida por todos os oito lu
       "scripts/hooks/check-migration-triple.sh",
     ]) {
       const fonte = fs.readFileSync(
-        path.join(RAIZ, ".agents/skills/deskcomm-contribuir", rel),
+        path.join(RAIZ, ".agents/skills/kaelsolutions-contribuir", rel),
         "utf8",
       );
-      const espelho = path.join(RAIZ, ".claude/skills/deskcomm-contribuir", rel);
+      const espelho = path.join(RAIZ, ".claude/skills/kaelsolutions-contribuir", rel);
       if (!fs.existsSync(espelho)) continue;
       expect(fs.readFileSync(espelho, "utf8"), `espelho divergente: ${rel}`).toBe(fonte);
     }
@@ -318,7 +318,7 @@ describe("a main medida é a do PRODUTO, com qualquer nome de remoto", () => {
       encoding: "utf8",
     }).trim();
     expect(getUrl, "o insteadOf parou de valer: o caso não mede o que diz medir").toContain(
-      "melgarafael/KaelSolutions",
+      "KaelVic/KaelSolutions",
     );
     // O remoto do PRODUTO é reconhecido, e não se confunde com o `fork` (cuja
     // URL crua é a do webtecnica, mesmo com o insteadOf apontando para cá).
@@ -479,7 +479,7 @@ describe("o que fica de fora é declarado, com o comando que cobre", () => {
   it("sem a main do produto, o aviso diz isso em vez de calar", () => {
     const r = bashComBiblioteca(RAIZ, "pop_aviso_populacao");
     expect(r.stdout).toContain("NÃO MEDIDO");
-    expect(r.stdout).toContain("melgarafael/KaelSolutions");
+    expect(r.stdout).toContain("KaelVic/KaelSolutions");
   });
 
   it("o script de CI (#1269) segue sendo quem mede os PRs abertos, e declara o limite dele", () => {

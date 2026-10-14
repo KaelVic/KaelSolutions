@@ -1,6 +1,6 @@
 # HANDOFF — LGPD · achados e estado
 
-> Documento separado por decisão do Rafael (2026-07-24): *"LGPD deixe em um doc de handoff,
+> Documento separado por decisão do Kael (2026-07-24): *"LGPD deixe em um doc de handoff,
 > resolvemos depois"*. **Nuvemshop foi desligada — os webhooks dela são irrelevantes.**
 >
 > Estes achados surgiram **durante** a entrega CRM Vivo (ver `HANDOFF-crm-vivo.md`), porque a

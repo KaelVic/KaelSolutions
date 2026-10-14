@@ -11,7 +11,7 @@
 ## Global Constraints
 
 - Spec mestre: `docs/superpowers/specs/2026-07-21-inbox-multimodal-design.md` (Onda 5, linha "Resposta rascunhada pela IA"). Handoff `HANDOFF-inbox-multimodal.md` (prova visível em conta REAL; "funcionou BEM").
-- **Decisões travadas pelo Rafael:** (1) gatilho = **botão sob demanda** (não automático); (2) cérebro = **o agente publicado da org em modo rascunho** (mesma persona/RAG/prompt do bot, mas NÃO envia).
+- **Decisões travadas pelo Kael:** (1) gatilho = **botão sob demanda** (não automático); (2) cérebro = **o agente publicado da org em modo rascunho** (mesma persona/RAG/prompt do bot, mas NÃO envia).
 - **`leadId` no agent-engine = `contact_id`** (confirmado em `inbound-turn.ts:504`). `tenantId` = `organization_id`. Tudo sai da row da conversa.
 - Reuso obrigatório (NÃO duplicar a resolução BYOK/credencial): `loadPublishedAgentConfig` (`lib/agent-engine/agent/agent-config.ts:63`), `getLeadContext` (`lib/agent-engine/edge/crm/get-lead-context.ts:101`), `runModelCall` (`lib/agent-engine/edge/llm/run-model-call.ts:141`), `llmEdgeConfigFromEnv`/`crmEdgeConfigFromEnv`, `createPool` (`lib/agent-engine/db/pool.ts`).
 - **Guardrails que NÃO se aplicam ao rascunho** (não invocar): `runBeforeSend` inteiro, `pacingGate` (anti-ban), `disclosureGate` (bot), `sendInBubbles`/split, checkpoint de fechamento. **Aplicar antes de gerar:** early-return se contato `is_blocked` ou `is_anonymized` (não sugerir resposta a lead bloqueado), e se o lead está em handoff humano.
@@ -226,7 +226,7 @@
 - Evidência: `inbox-multimodal-onda51-*.png`
 
 - [ ] **Step 1: Ambiente** — dev server (porta deste worktree) + WAHA + sessão WORKING + agente publicado na org de teste (a org E2E `6e567068` tem `default_agent_id`; confirmar que há versão publicada no canal `e2e-wave12`; se não, publicar uma). Worker do agente NÃO é necessário (o endpoint roda o LLM inline). Precisa de credencial LLM real da org (OpenAI BYOK já cadastrada em sessões anteriores).
-- [ ] **Step 2: Login como agente** (`e2e-agent`), abrir a conversa REAL `bcb64692` (contato "Rafael Melgaço").
+- [ ] **Step 2: Login como agente** (`e2e-agent`), abrir a conversa REAL `bcb64692` (contato "Kael Victor").
 - [ ] **Step 3:** clicar "Sugerir resposta" → confirmar loading → o rascunho aparece no composer (texto coerente com o histórico da conversa, na persona do agente, SEM "sou um assistente virtual"). Screenshot do rascunho no composer. Medir por ferramenta que o textarea tem conteúdo não-vazio.
 - [ ] **Step 4:** editar levemente e enviar → provar entrega no WhatsApp real (SQL: `external_id` + `ack>=2`, `by_user=t`).
 - [ ] **Step 5:** caso de erro amigável — numa org/canal SEM agente publicado, o botão retorna toast claro ("Nenhum agente publicado…"), não quebra a UI.

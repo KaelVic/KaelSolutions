@@ -14,10 +14,10 @@ describe("renderTemplateBody — o texto que o LEAD vai ler", () => {
     const t = tpl("jaspers_market_order_confirmation_v1");
     const texto = renderTemplateBody(
       t.components,
-      { "1": "Rafael", "2": "DESK-001", "3": "30/07" },
+      { "1": "Kael", "2": "DESK-001", "3": "30/07" },
       { name: t.name, language: t.language },
     );
-    expect(texto).toContain("Hi Rafael");
+    expect(texto).toContain("Hi Kael");
     expect(texto).toContain("order number is DESK-001");
     expect(texto).toContain("Estimated delivery:  30/07");
     expect(texto).not.toContain("{{");
@@ -42,10 +42,10 @@ describe("renderTemplateBody — o texto que o LEAD vai ler", () => {
     const t = tpl("jaspers_market_order_confirmation_v1");
     const texto = renderTemplateBody(
       t.components,
-      { "1": "Rafael" },
+      { "1": "Kael" },
       { name: t.name, language: t.language },
     );
-    expect(texto).toContain("Hi Rafael");
+    expect(texto).toContain("Hi Kael");
     expect(texto).toContain("{{2}}");
   });
 

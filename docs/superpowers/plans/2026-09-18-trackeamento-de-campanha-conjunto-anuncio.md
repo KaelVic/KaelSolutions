@@ -97,7 +97,7 @@ Este trabalho foi feito, do começo ao fim, dentro de
 proíbe isso já estava escrita em `CLAUDE.local.md` do próprio repo, datada de
 13/09/2026, e não foi lida antes de começar:
 
-> Produção = imagem OFICIAL do melgarafael. Nunca editar código na instalação.
+> Produção = imagem OFICIAL do KaelVic. Nunca editar código na instalação.
 > Bug/melhoria: corrigir em `/root/projects/KaelSolutions-contrib` → PR.
 
 **O dano não foi no código.** `update.sh` decide qual versão está instalada com
@@ -125,11 +125,11 @@ que foi decidido do que aconteceu.
 
 | PR | Escopo        | Estado                                   |
 |----|---------------|------------------------------------------|
-| 1  | A1 + A2       | **merged**: melgarafael/KaelSolutions#1211 |
-| 2  | C1 + C1b + C2 | **merged**: melgarafael/KaelSolutions#1212 |
-| 3  | B1            | **merged**: melgarafael/KaelSolutions#1221 |
-| 4  | B2 + B3 + B3b | aberto: melgarafael/KaelSolutions#1387     |
-| 5  | B4            | aberto: melgarafael/KaelSolutions#1389     |
+| 1  | A1 + A2       | **merged**: KaelVic/KaelSolutions#1211 |
+| 2  | C1 + C1b + C2 | **merged**: KaelVic/KaelSolutions#1212 |
+| 3  | B1            | **merged**: KaelVic/KaelSolutions#1221 |
+| 4  | B2 + B3 + B3b | aberto: KaelVic/KaelSolutions#1387     |
+| 5  | B4            | aberto: KaelVic/KaelSolutions#1389     |
 
 **Desvio 6 — B4 não mexeu em `origemDoContato`.** O plano previa a rota
 preguiçosa e deixava em aberto como o nome chegaria à tela. O que foi feito: a

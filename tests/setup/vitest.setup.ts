@@ -167,7 +167,7 @@ if (typeof document !== "undefined") {
 }
 
 /**
- * `URL.createObjectURL` no ambiente jsdom do vitest — melgarafael/KaelSolutions#1745.
+ * `URL.createObjectURL` no ambiente jsdom do vitest — KaelVic/KaelSolutions#1745.
  *
  * O `createObjectURL` que o vitest instala no ambiente jsdom passa por
  * `makeCompatBlob`, que lê o interno do Blob do jsdom pelo primeiro símbolo

@@ -16,7 +16,7 @@ export const FIRST_NAMES_PT_BR: ReadonlySet<string> = new Set<string>([
   // Top masculino
   "joão", "joao", "jose", "josé", "antonio", "antônio", "francisco", "carlos",
   "paulo", "pedro", "lucas", "luiz", "luis", "luís", "marcos", "gabriel",
-  "rafael", "daniel", "marcelo", "bruno", "eduardo", "felipe", "rodrigo",
+  "kael", "daniel", "marcelo", "bruno", "eduardo", "felipe", "rodrigo",
   "manoel", "ricardo", "mateus", "matheus", "leonardo", "andre", "andré",
   "sergio", "sérgio", "marcio", "márcio", "vinicius", "vinícius", "thiago",
   "tiago", "alex", "alexandre", "igor", "vitor", "victor", "gustavo", "hugo",

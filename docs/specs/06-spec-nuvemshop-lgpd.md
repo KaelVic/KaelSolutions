@@ -5,7 +5,7 @@ depends_on: 01-spec-platform-base.md, 02-spec-customer-360.md
 version: 0.1
 status: em revisão
 date: 2026-04-28
-owner: Rafael Melgaço
+owner: Kael Victor
 referencia_arquitetural: docs/research/reference-synthesis.md
 business_rules: L-01, L-02, L-03, L-04, L-05, L-06, L-07, L-08, L-09, L-10, B-05
 ---
@@ -255,7 +255,7 @@ export class NuvemshopAdapter implements EcommercePlatformAdapter {
     const url = `${NS_API_BASE}/${storeId}${path}`;
     const headers: Record<string, string> = {
       'Authentication': `bearer ${ctx.credentials.accessToken}`,
-      'User-Agent': 'KaelSolutions/1.0 (rafael@maudibrasil.com.br)',
+      'User-Agent': 'KaelSolutions/1.0 (contato@kaelsolutions.com)',
       'Content-Type': 'application/json',
       ...(init.idempotencyKey ? { 'Idempotency-Key': init.idempotencyKey } : {}),
     };

@@ -39,7 +39,7 @@
 > command for your case:
 >
 > ```bash
-> curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
+> curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
 > ```
 >
 > *(prefer to read before executing? clone the repo and run `bash hostgator-setup-kit/comecar.sh` —
@@ -136,19 +136,19 @@ prompt and contribute. To have them in **any folder** — including before cloni
 machine — run once:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash
+curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash
 ```
 
 Then open a new session of your assistant and say *"I want to install the CRM on my VPS"*: asking
 for the subject in Portuguese triggers the right guide in any of the five. To call a guide by name,
-each one has its own way — `/deskcomm-instalar` in Claude Code, Cursor and Antigravity;
-`$deskcomm-instalar` in Codex; in OpenCode, ask for it by name, in natural language.
+each one has its own way — `/kaelsolutions-instalar` in Claude Code, Cursor and Antigravity;
+`$kaelsolutions-instalar` in Codex; in OpenCode, ask for it by name, in natural language.
 
 The guides do **not** update themselves: running the same command again brings the new version. To
 undo:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover
+curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover
 ```
 
 With the repository already cloned, the guides come inside it (`.agents/skills/`) and none of that
@@ -365,7 +365,7 @@ pnpm test:e2e      # Playwright (requires dev server)
 **These checks are required** to merge into `main`. This list has already said "four" and then "five" — **measure, don't trust it**:
 
 ```bash
-gh api repos/melgarafael/KaelSolutions/branches/main/protection \
+gh api repos/KaelVic/KaelSolutions/branches/main/protection \
   --jq '.required_status_checks.contexts|join(", ")'
 # on 2026-08-14: verify, build-and-size, invariants, e2e, imagens-ok
 ```
@@ -474,8 +474,8 @@ For **security vulnerabilities**, **do NOT open a public issue** — use [privat
 
 - **Discussions:** [GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions)
 - **Issues:** [GitHub Issues](https://github.com/kaelsolutions/KS_CRM/issues)
-- **Instagram:** [@melgarafael](https://www.instagram.com/melgarafael)
-- **YouTube:** [youtube.com/@melgarafael](https://www.youtube.com/@melgarafael)
+- **Instagram:** [@KaelVic](https://www.instagram.com/KaelVic)
+- **YouTube:** [youtube.com/@KaelVic](https://www.youtube.com/@KaelVic)
 
 ---
 

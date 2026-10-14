@@ -5,13 +5,13 @@
 > sem ter lido este arquivo, pare e leia.
 >
 > Regência: **Assistente e Testes** (orquestrador desta entrega, palavra final).
-> Aprovação humana: **Rafael**.
+> Aprovação humana: **Kael**.
 
 ---
 
 ## 0. Onde o trabalho acontece
 
-- **Worktree:** `/Users/rafaelmelgaco/KaelSolutions-crm-vivo`
+- **Worktree:** `/Users/kaelvic/KaelSolutions-crm-vivo`
 - **Branch:** `feat/crm-vivo`, criada de `origin/main` (`3b4c193`)
 - **Próxima migration livre:** `0070` (a base vai até `0067`)
 - **Dev server desta entrega:** porta **3020** (3000/3001/3010 são de outras sessões — **não encoste**)
@@ -519,7 +519,7 @@ responda **por escrito** no handoff:
 4. **Reporte quando começa, quando termina e quando trava** — `lina ask "@Assistente e Testes" "<status>" --intent status`.
 5. **Travou? Traga o problema mastigado e um caminho.** Devolver problema cru é falha sua.
 6. **Não amplie escopo.** Achou algo? Handoff, e segue.
-7. **`git push` / merge / deploy: proibido sem autorização do Rafael.** Commit local por wave, sim.
+7. **`git push` / merge / deploy: proibido sem autorização do Kael.** Commit local por wave, sim.
 8. **Não afirme "funciona" sem evidência observada.** Rodou, leu o output, viu a tela. Um staff engineer aprovaria? Se não, itera antes de mostrar.
 
 ### Definition of Done por wave
@@ -778,7 +778,7 @@ qualquer resultado seria inconclusivo. Escolheu um alvo com dado real e filtro p
 ### Lei: conferir antes de escalar
 
 O `@DevVivo` reportou **disco cheio, 211 MB livres**, com proposta de apagar 8,2 GB de arquivos do
-Rafael. Medida real antes de repassar:
+Kael. Medida real antes de repassar:
 
 | | |
 |---|---|
@@ -6928,7 +6928,7 @@ dois, senão a retratação leva junto o que era útil:
   Medido: veneno seguido de escrita saudável com Δ de 0 a 3000ms — **a saudável chega em todos,
   inclusive com Δ zero**. A linha envenenada é descartada **sozinha**.
 
-**E o raio para o Rafael volta ao escopo honesto:** não é *"o produto perde eventos o tempo todo"*. É
+**E o raio para o Kael volta ao escopo honesto:** não é *"o produto perde eventos o tempo todo"*. É
 ***"quando a entrega morre, por qualquer motivo, nenhuma tela avisa — e isso já aconteceu por 2h13
 hoje, com 15 mudanças escritas e nenhuma entregue"***. O raio do silêncio **nunca dependeu de qual era
 a raiz**, e por isso é a única parte que atravessou três retratações intacta.

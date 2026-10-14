@@ -82,7 +82,7 @@ function desaspar(valor: string): string {
  * O que um parser YAML ESTRITO recusa num valor de cabeçalho — a regra que
  * derrubou duas skills sem ninguém ver.
  *
- * Medido em 2026-09-15: `deskcomm-contribuir` ("…da triagem: mede…") e
+ * Medido em 2026-09-15: `kaelsolutions-contribuir` ("…da triagem: mede…") e
  * `sistema-vivo` ("…métrica. Fonte: docs/…") traziam `: ` dentro da
  * descrição sem aspas — "mapping values are not allowed in this context" no
  * YAML.safe_load. O Claude Code tolera e lista a skill; um parser estrito (os
@@ -196,7 +196,7 @@ describe("skills embutidas — as portas de acionamento conhecem todas as skills
   // AGENTS.md (Codex, OpenCode, Cursor), CLAUDE.md (Claude Code), a rule
   // sempre-ativa do Cursor e a do Antigravity. Uma skill nova que entre só na
   // pasta fica invisível para quem não sabe que ela existe — que é o leigo.
-  const PORTAS = ["AGENTS.md", "CLAUDE.md", ".cursor/rules/deskcomm-guias.mdc", ".agents/rules/deskcomm-guias.md"];
+  const PORTAS = ["AGENTS.md", "CLAUDE.md", ".cursor/rules/kaelsolutions-guias.mdc", ".agents/rules/kaelsolutions-guias.md"];
   const guias = SKILLS.filter((n) => n.startsWith("kaelsolutions-"));
 
   it.each(PORTAS)("%s cita cada guia kaelsolutions-*", (porta) => {
@@ -207,13 +207,13 @@ describe("skills embutidas — as portas de acionamento conhecem todas as skills
 
   it("a regra do Cursor e a do Antigravity têm o mesmo corpo (só o cabeçalho muda)", () => {
     const corpo = (p: string) => readFileSync(join(RAIZ, p), "utf8").split("\n---\n").slice(1).join("\n---\n").trim();
-    expect(corpo(".cursor/rules/deskcomm-guias.mdc")).toBe(corpo(".agents/rules/deskcomm-guias.md"));
+    expect(corpo(".cursor/rules/kaelsolutions-guias.mdc")).toBe(corpo(".agents/rules/kaelsolutions-guias.md"));
   });
 
   it.each([".claude/settings.json", ".codex/hooks.json"])("%s é JSON válido e aponta para o hook de sessão", (arquivo) => {
     const json = JSON.parse(readFileSync(join(RAIZ, arquivo), "utf8")) as { hooks?: { SessionStart?: unknown[] } };
     expect(json.hooks?.SessionStart?.length ?? 0).toBeGreaterThan(0);
-    expect(JSON.stringify(json)).toContain("deskcomm-contribuir/scripts/hooks/sessao.sh");
+    expect(JSON.stringify(json)).toContain("kaelsolutions-contribuir/scripts/hooks/sessao.sh");
   });
 });
 

@@ -1,6 +1,6 @@
 APP_IMAGE="ghcr.io/kaelsolutions/ks-crm:1.76.0"
-WORKER_IMAGE="ghcr.io/melgarafael/kaelsolutions-worker:1.76.0"
-SCHEDULER_IMAGE="ghcr.io/melgarafael/kaelsolutions-scheduler:1.76.0"
+WORKER_IMAGE="ghcr.io/KaelVic/kaelsolutions-worker:1.76.0"
+SCHEDULER_IMAGE="ghcr.io/KaelVic/kaelsolutions-scheduler:1.76.0"
 DOMAIN="<ip-da-vps>.sslip.io"
 REVERSE_PROXY="traefik"
 TRAEFIK_NETWORK="coolify"

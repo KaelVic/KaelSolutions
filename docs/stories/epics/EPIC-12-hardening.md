@@ -14,7 +14,7 @@ exposes_contracts:
   - "infra.web-vitals-budget"
 status: completed (partial: Lighthouse CI + bundle-analyzer + /app/* E2E deferred)
 created_at: 2026-04-28
-owner: Rafael Melgaço
+owner: Kael Victor
 ---
 
 # EPIC-12 — Hardening + E2E + Polish
@@ -493,7 +493,7 @@ exposes:
 ```
 
 #### Decisões a registrar
-- Budget é HARD: PR que excede falha. Override exige aprovação de Rafael + ADR.
+- Budget é HARD: PR que excede falha. Override exige aprovação de Kael + ADR.
 - Lighthouse roda contra preview URL pra refletir produção (Vercel `gru1`).
 
 #### Definition of Done
@@ -731,7 +731,7 @@ exposes:
 4. axe-core spec roda em /app/inbox, /app/pipelines/[id], /app/contacts, /app/contacts/[id], /admin/inbox, /onboarding/step-1; CI fail se `critical`/`serious`
 5. Keyboard specs: navegam usando só `page.keyboard.press`, sem clicks; verificam atalhos j/k/r/e/a no inbox e h/j/k/l/Space no kanban
 6. Foco move pro `<h1>` em mudança de rota (programatic `tabIndex={-1}`); verificar via Playwright
-7. Manual VoiceOver checklist (documentado em `docs/a11y-checklist.md`) — Rafael executa antes de marcar DoD
+7. Manual VoiceOver checklist (documentado em `docs/a11y-checklist.md`) — Kael executa antes de marcar DoD
 
 #### Acceptance Criteria
 
@@ -780,7 +780,7 @@ Then foco volta pro elemento que abriu o modal
 | t4 | live-region | announce dispara aria-live correto | unit test + Playwright watch DOM |
 | t5 | focus-trap | modais trapam foco | Playwright Tab cicla |
 | t6 | reduce-motion | skeletons sem animation | já em S-12.04 |
-| t7 | manual | VoiceOver passa checklist | Rafael runs, doc assinado |
+| t7 | manual | VoiceOver passa checklist | Kael runs, doc assinado |
 
 #### Architecture contracts emitted
 
@@ -861,7 +861,7 @@ Then encontra exato comando "Execute o EPIC-NN conforme docs/stories/epics/EPIC-
 
 | ID | Tipo | Descrição | Como testar |
 |---|---|---|---|
-| t1 | docs | Quickstart funciona em macOS limpa | Rafael executa em VM ou colega |
+| t1 | docs | Quickstart funciona em macOS limpa | Kael executa em VM ou colega |
 | t2 | docs | Links em ARCHITECTURE são válidos | `markdown-link-check` em CI |
 | t3 | docs | PR template aparece ao abrir PR | gh pr create test |
 
@@ -880,7 +880,7 @@ exposes:
 ```
 
 #### Definition of Done
-- [ ] Quickstart validado em ambiente limpo (Rafael ou colega)
+- [ ] Quickstart validado em ambiente limpo (Kael ou colega)
 - [ ] markdown-link-check em CI sem erros
 - [ ] Commit `docs(EPIC-12): readme + architecture + contributing [wave 9]`
 
@@ -891,7 +891,7 @@ exposes:
 **Points**: 2 | **Priority**: P0 | **Deps**: S-12.09 | **FR refs**: Spec 08 §6 (CI/CD), §11 (runbooks)
 
 #### Contexto
-Última wave. Garante que o pipeline CI/CD entrega: PR cria preview Vercel, smoke E2E (subset de 5 testes) roda contra preview URL, checklist final pré-go-live arquivado em `docs/release/PRE-GOLIVE-CHECKLIST.md` validado por Rafael.
+Última wave. Garante que o pipeline CI/CD entrega: PR cria preview Vercel, smoke E2E (subset de 5 testes) roda contra preview URL, checklist final pré-go-live arquivado em `docs/release/PRE-GOLIVE-CHECKLIST.md` validado por Kael.
 
 #### Files to create
 - `tests/e2e/smoke/login.spec.ts` — login + dashboard render
@@ -910,7 +910,7 @@ exposes:
 2. Workflow `preview-smoke.yml` listen em `deployment_status` event onde `state=success` → roda `pnpm smoke` com BASE_URL=preview URL
 3. `/api/health` retorna 200 com `{ status: "ok", deps: { supabase: "ok", upstash: "ok", waha: "ok|degraded", sentry: "ok" }, version: <git sha> }`; smoke só passa se `status=ok`
 4. Checklist pré-go-live (markdown verificável): env vars production setadas (lista §7.1), secrets rotacionados (Sentry token, Supabase service role, encryption keys), backup verificado (último restore drill em staging), monitoring (Sentry + Vercel Analytics), DNS configurado (`app.kaelsolutions.com.br` + `admin.`), TLS válido, status page criada, runbooks acessíveis pra on-call, MFA forçado pra super-admin, LGPD política publicada
-5. Rafael (humano) executa checklist antes de promover staging→prod
+5. Kael (humano) executa checklist antes de promover staging→prod
 
 #### Acceptance Criteria
 
@@ -930,7 +930,7 @@ And smoke api-health.spec falha com mensagem clara
 
 ```gherkin
 Given checklist pré-go-live
-When Rafael verifica todos itens
+When Kael verifica todos itens
 Then arquivo é commitado com timestamp e signoff
 And nenhum item ficou unchecked
 ```
@@ -942,7 +942,7 @@ And nenhum item ficou unchecked
 | t1 | smoke | 5 specs passam em preview | preview-smoke.yml verde |
 | t2 | health | /api/health 200 quando OK | curl preview URL |
 | t3 | health | /api/health 503 quando dep down | mock dep failure local |
-| t4 | checklist | Arquivo signed pelo Rafael | git log + signoff line |
+| t4 | checklist | Arquivo signed pelo Kael | git log + signoff line |
 
 #### Architecture contracts emitted
 
@@ -959,7 +959,7 @@ exposes:
 
 #### Decisões a registrar
 - Smoke separado de E2E full: smoke roda em <2min em CADA preview; E2E full roda em main + nightly.
-- Checklist exige signoff Rafael — não é automatizado (decisão humana go/no-go).
+- Checklist exige signoff Kael — não é automatizado (decisão humana go/no-go).
 
 #### Definition of Done
 - [ ] preview-smoke.yml verde 3x consecutivos em PRs reais
@@ -990,7 +990,7 @@ exposes:
 | Risco | Severidade | Mitigação |
 |---|---|---|
 | E2E flaky por timing realtime | alta | Helper `waitForRealtime` com retry exponencial; mock WAHA determinístico; 3 runs consecutivos verde como gate |
-| Bundle budget bloqueia features futuras legítimas | média | Override via ADR + aprovação Rafael; budget revisado por epic |
+| Bundle budget bloqueia features futuras legítimas | média | Override via ADR + aprovação Kael; budget revisado por epic |
 | Sentry scrub falha em corner case (PII vaza) | crítica | Dupla camada (scrub + pino redact); audit manual mensal de eventos sample |
 | axe-core fail bloqueia merge urgente | média | Severidade `moderate` não bloqueia; só `critical`/`serious`; bypass via PR label `a11y-debt` (justificativa obrigatória) |
 | Lighthouse CI varia entre runs | média | Median de 3 runs; thresholds com 10% buffer; só falha se p75 falha 2 de 3 runs |
@@ -1000,7 +1000,7 @@ exposes:
 
 - **ADR-30**: Error boundary `request_id` exibido = `Sentry.lastEventId()` (8-char short form). Suporte usa esse ID pra cruzar com Sentry issue.
 - **ADR-31**: PII scrubbing dupla camada (`Sentry.beforeSend` + pino `redact`). Falha em uma é coberta pela outra.
-- **ADR-32**: Web Vitals budget é HARD gate. Override exige ADR + aprovação Rafael.
+- **ADR-32**: Web Vitals budget é HARD gate. Override exige ADR + aprovação Kael.
 - **ADR-33**: WAHA + Nuvemshop sempre mockados em E2E (determinismo). Smoke contra real é separado e roda só em preview.
 - **ADR-34**: axe `critical`/`serious` bloqueia CI; `moderate` permitido com label `a11y-debt`.
 - **ADR-35**: Lighthouse roda em median de 3 runs com 10% buffer pra reduzir flakiness.

@@ -578,7 +578,7 @@ describe("processNode — condition", () => {
 });
 
 /**
- * `branching: 'per_check'` — a queixa original do Rafael: N regras, N saídas.
+ * `branching: 'per_check'` — a queixa original do Kael: N regras, N saídas.
  * O nó deixa de dobrar as regras num booleano e passa a rotear pelo `branch_id`
  * da regra que passou.
  */

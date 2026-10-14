@@ -39,7 +39,7 @@
 > devuelve el comando exacto para tu caso:
 >
 > ```bash
-> curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
+> curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
 > ```
 >
 > *(¿prefieres leer antes de ejecutar? clona el repo y corre `bash hostgator-setup-kit/comecar.sh` —
@@ -318,7 +318,7 @@ pnpm test:e2e      # Playwright (requiere dev server)
 **Estos checks son obligatorios** para mergear en `main`. Esta lista ya dijo "cuatro" y después "cinco" — **medí, no confíes en ella**:
 
 ```bash
-gh api repos/melgarafael/KaelSolutions/branches/main/protection \
+gh api repos/KaelVic/KaelSolutions/branches/main/protection \
   --jq '.required_status_checks.contexts|join(", ")'
 # el 2026-08-14: verify, build-and-size, invariants, e2e, imagens-ok
 ```
@@ -426,8 +426,8 @@ Para **vulnerabilidades de seguridad**, **NO abras un issue público** — usa e
 
 - **Discusiones:** [GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions)
 - **Issues:** [GitHub Issues](https://github.com/kaelsolutions/KS_CRM/issues)
-- **Instagram:** [@melgarafael](https://www.instagram.com/melgarafael)
-- **YouTube:** [youtube.com/@melgarafael](https://www.youtube.com/@melgarafael)
+- **Instagram:** [@KaelVic](https://www.instagram.com/KaelVic)
+- **YouTube:** [youtube.com/@KaelVic](https://www.youtube.com/@KaelVic)
 
 ---
 

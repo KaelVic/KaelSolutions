@@ -153,9 +153,9 @@ describe("nome do arquivo de códigos de recuperação", () => {
  * A versão anterior deste gate ficava VERDE enquanto a marca vazava, por dois
  * furos independentes, e os dois só apareceram quando alguém foi olhar:
  *
- *  1. o padrão era `/Deskcomm/` — **case-sensitive**. Passavam
- *     `support@deskcomm.com.br` (tela de conta suspensa), `suporte@deskcomm.app`
- *     (tela de cobrança) e `deskcommcrm-recovery-codes.txt` (o arquivo que o
+ *  1. o padrão era `/KaelSolutions/` — **case-sensitive**. Passavam
+ *     `support@kaelsolutions.com.br` (tela de conta suspensa), `suporte@kaelsolutions.app`
+ *     (tela de cobrança) e `kaelsolutions-recovery-codes.txt` (o arquivo que o
  *     usuário baixa e guarda por anos). Endereço e nome de arquivo são
  *     minúsculos por natureza — ou seja, o gate era cego justamente na forma em
  *     que a marca de fato aparece;
@@ -165,7 +165,7 @@ describe("nome do arquivo de códigos de recuperação", () => {
  *     DENTRO de `app/` e escapava pela extensão. Esse é o pior deles: o nome vai
  *     para o app autenticador e fica no celular do usuário para sempre.
  *
- * MECANISMO. A varredura é `/deskcomm/i` sobre `.ts` e `.tsx` de `app/`,
+ * MECANISMO. A varredura é `/kaelsolutions/i` sobre `.ts` e `.tsx` de `app/`,
  * `components/`, `lib/` e `workers/`. Cada arquivo com ocorrência precisa de uma
  * entrada em `MARCA_CONGELADA` com categoria, motivo escrito e o conjunto EXATO
  * de marcas encontradas. Arquivo novo reprova; marca nova em arquivo já
@@ -174,8 +174,8 @@ describe("nome do arquivo de códigos de recuperação", () => {
  *
  * MARCA ≠ PROTOCOLO — a distinção que precisa estar escrita, não subentendida.
  * Boa parte das ocorrências abaixo NÃO é marca: é identificador técnico.
- * `X-Deskcomm-Signature` é contrato de fio com receptores de terceiros, o cookie
- * `sb-deskcomm-auth` é a sessão de quem já está logado. Quem "completar o
+ * `X-KaelSolutions-Signature` é contrato de fio com receptores de terceiros, o cookie
+ * `sb-kaelsolutions-auth` é a sessão de quem já está logado. Quem "completar o
  * whitelabel" renomeando isso derruba integração de cliente em produção — em
  * silêncio, porque o receptor não erra: ele apenas deixa de reconhecer. Por isso
  * a categoria é campo obrigatório: sem ela, a lista viraria uma pilha de
@@ -207,7 +207,171 @@ type EntradaDeMarca = {
   marcas: string[];
 };
 
-const MARCA_CONGELADA: Record<string, EntradaDeMarca> = {};
+const MARCA_CONGELADA: Record<string, EntradaDeMarca> = {
+  "app/layout.tsx": {
+    "categoria": "INFRA",
+    "motivo": "Nome do tema da aplicação gravado no localStorage (kaelsolutions-theme) para chave de storage.",
+    "marcas": [
+      "kaelsolutions-theme"
+    ]
+  },
+  "components/shell/Sidebar.tsx": {
+    "categoria": "INFRA",
+    "motivo": "Assinatura visual padrão do rodapé da barra lateral de navegação quando sem logo personalizado.",
+    "marcas": [
+      "kaelsolutions",
+      "kaelsolutions"
+    ]
+  },
+  "hooks/ai/useDebugToggle.ts": {
+    "categoria": "INFRA",
+    "motivo": "Chave de depuração interna do time armazenada no localStorage do navegador para citas de IA.",
+    "marcas": [
+      "kaelsolutions.show_ai_citations"
+    ]
+  },
+  "lib/agenda/google/evento.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Sufixo identificador de iCalUID gravado no Google Calendar para conciliação de eventos remotos.",
+    "marcas": [
+      "kaelsolutions",
+      "kaelsolutions.com"
+    ]
+  },
+  "lib/agent-engine/agent/draft-reply.test.ts": {
+    "categoria": "DEV",
+    "motivo": "Fixture de teste unitário validando a geração de rascunhos de resposta com agente de IA.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/ai/pontos/pkce-da-assinatura.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Namespace criptográfico de chave de verificação PKCE para assinatura de pontos do sistema.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/automation/actions/call-webhook.test.ts": {
+    "categoria": "DEV",
+    "motivo": "Fixtures de teste unitário para verificação de cabeçalhos de eventos e assinatura de webhook.",
+    "marcas": [
+      "x-kaelsolutions-event",
+      "x-kaelsolutions-signature",
+      "x-kaelsolutions-signature",
+      "x-kaelsolutions-signature"
+    ]
+  },
+  "lib/automation/actions/call-webhook.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Cabeçalhos HTTP padronizados de eventos e assinatura criptográfica HMAC em webhooks de saída.",
+    "marcas": [
+      "x-kaelsolutions-event",
+      "x-kaelsolutions-signature"
+    ]
+  },
+  "lib/branding.ts": {
+    "categoria": "PADRAO",
+    "motivo": "Definição canônica do nome padrão do produto KaelSolutions (DEFAULT_APP_NAME) no sistema.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/email/templates/ai-budget-alarm.tsx": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Assunto do modelo de e-mail de alerta de consumo de cota de inteligência artificial.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/impersonate/cookie-edge.ts": {
+    "categoria": "INFRA",
+    "motivo": "Nome do cookie de sessão de impersonação de suporte no middleware de borda do Next.js.",
+    "marcas": [
+      "kaelsolutions-impersonate"
+    ]
+  },
+  "lib/impersonate/cookie.ts": {
+    "categoria": "INFRA",
+    "motivo": "Nome do cookie de sessão de impersonação utilizado nos servidores e endpoints da aplicação.",
+    "marcas": [
+      "kaelsolutions-impersonate"
+    ]
+  },
+  "lib/mcp/server.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Nome e identificador do servidor Model Context Protocol exportado para clientes de inteligência artificial.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/mcp/servidor-externo/chamada.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Identificador de chamada externa e user-agent de requisições de servidores MCP remotos.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/nuvemshop/config.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Identificador de aplicativo e e-mail de suporte técnico para integração oficial com Nuvemshop.",
+    "marcas": [
+      "contato@kaelsolutions.com",
+      "kaelsolutions"
+    ]
+  },
+  "lib/supabase/admin.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Header de identificação e user-agent do cliente administrativo Supabase com service-role.",
+    "marcas": [
+      "kaelsolutions"
+    ]
+  },
+  "lib/supabase/browser.ts": {
+    "categoria": "INFRA",
+    "motivo": "Nome do cookie de autenticação do Supabase no cliente do navegador para sessão do usuário.",
+    "marcas": [
+      "sb-kaelsolutions-auth"
+    ]
+  },
+  "lib/supabase/server.ts": {
+    "categoria": "INFRA",
+    "motivo": "Nome do cookie de autenticação do Supabase no servidor Next.js para gerenciamento de sessão.",
+    "marcas": [
+      "sb-kaelsolutions-auth"
+    ]
+  },
+  "lib/system/changelog.test.ts": {
+    "categoria": "DEV",
+    "motivo": "Fixture de teste para validação de parse e renderização do histórico de versões do sistema.",
+    "marcas": [
+      "kaelsolutions",
+      "kaelsolutions",
+      "kaelsolutions"
+    ]
+  },
+  "lib/theme.tsx": {
+    "categoria": "INFRA",
+    "motivo": "Nome da chave de persistência de tema visual (claro/escuro) no localStorage do navegador.",
+    "marcas": [
+      "kaelsolutions-theme"
+    ]
+  },
+  "lib/wacalls/events-bridge.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Identificador de worker e canal de comunicação de eventos da ponte de chamadas de voz.",
+    "marcas": [
+      "kaelsolutions-worker"
+    ]
+  },
+  "lib/webhooks/assinatura.ts": {
+    "categoria": "PROTOCOLO",
+    "motivo": "Nome do cabeçalho HTTP de assinatura HMAC para verificação de autenticidade de webhooks.",
+    "marcas": [
+      "x-kaelsolutions-signature"
+    ]
+  }
+};
 
 /**
  * As raízes varridas — e a FRONTEIRA, escrita, porque foi a ausência dela que
@@ -234,14 +398,14 @@ const RAIZES_VARRIDAS = ["app", "components", "hooks", "lib", "workers"] as cons
 /**
  * Extrai as marcas de um texto, uma por ocorrência.
  *
- * Casa `deskcomm` em qualquer caixa e leva junto o identificador inteiro em volta
- * (`x-deskcomm-signature`, `support@deskcomm.com.br`), porque é o identificador —
+ * Casa `kaelsolutions` em qualquer caixa e leva junto o identificador inteiro em volta
+ * (`x-kaelsolutions-signature`, `support@kaelsolutions.com.br`), porque é o identificador —
  * não a palavra solta — que distingue contrato de fio de vazamento de marca.
  *
  * Linha que ABRE com `//`, `*` ou `/*` é comentário e não conta: comentário não
  * chega ao usuário, e contá-lo encheria a lista de entradas inertes até ninguém
  * mais ler as que importam. O teste olha só o início da linha DE PROPÓSITO —
- * procurar `//` em qualquer posição descartaria `"https://deskcomm.app"`, que é
+ * procurar `//` em qualquer posição descartaria `"https://kaelsolutions.app"`, que é
  * exatamente um vazamento de verdade.
  */
 /**
@@ -250,7 +414,7 @@ const RAIZES_VARRIDAS = ["app", "components", "hooks", "lib", "workers"] as cons
  * Linha que ABRE com `//`, `*` ou `/*` é comentário e não conta: comentário não
  * chega ao usuário, e contá-lo encheria a lista de entradas inertes até ninguém
  * mais ler as que importam. O teste olha só o início da linha DE PROPÓSITO —
- * procurar `//` em qualquer posição descartaria `"https://deskcomm.app"`, que é
+ * procurar `//` em qualquer posição descartaria `"https://kaelsolutions.app"`, que é
  * exatamente um vazamento de verdade.
  *
  * NÃO se reaproveita onde a fonte não é TypeScript: o comentário de HTML
@@ -271,15 +435,15 @@ function linhasQueContam(fonte: string): string[] {
 /**
  * Extrai as marcas de um texto, uma por ocorrência.
  *
- * Casa `deskcomm` em qualquer caixa e leva junto o identificador inteiro em volta
- * (`x-deskcomm-signature`, `support@deskcomm.com.br`), porque é o identificador —
+ * Casa `kaelsolutions` em qualquer caixa e leva junto o identificador inteiro em volta
+ * (`x-kaelsolutions-signature`, `support@kaelsolutions.com.br`), porque é o identificador —
  * não a palavra solta — que distingue contrato de fio de vazamento de marca.
  */
 function marcasNoTexto(fonte: string): string[] {
   const achadas: string[] = [];
   for (const linha of linhasQueContam(fonte)) {
-    for (const casada of linha.matchAll(/[\w@.-]*deskcomm[\w@.-]*/gi)) {
-      // Pontuação encostada (o ponto final de "no DeskcommCRM.") não faz parte
+    for (const casada of linha.matchAll(/[\w@.-]*kaelsolutions[\w@.-]*/gi)) {
+      // Pontuação encostada (o ponto final de "no KaelSolutions.") não faz parte
       // do identificador e faria a lista mudar por causa de uma vírgula.
       achadas.push(casada[0].toLowerCase().replace(/^[.-]+/, "").replace(/[.-]+$/, ""));
     }
@@ -416,22 +580,22 @@ describe("catraca de marca hardcoded", () => {
   });
 
   it("pega a marca em qualquer caixa e dentro de identificador", () => {
-    // O furo nº 1 do gate antigo, agora com asserção: `/Deskcomm/` deixava passar
+    // O furo nº 1 do gate antigo, agora com asserção: `/KaelSolutions/` deixava passar
     // as três formas de baixo, que são as formas em que a marca de fato aparece.
-    expect(marcasNoTexto(`a.download = "deskcommcrm-recovery-codes.txt";`)).toEqual([
-      "deskcommcrm-recovery-codes.txt",
+    expect(marcasNoTexto(`a.download = "kaelsolutions-recovery-codes.txt";`)).toEqual([
+      "kaelsolutions-recovery-codes.txt",
     ]);
-    expect(marcasNoTexto(`href="mailto:suporte@deskcomm.app"`)).toEqual(["suporte@deskcomm.app"]);
-    expect(marcasNoTexto(`const k = "sb-DESKCOMM-auth";`)).toEqual(["sb-deskcomm-auth"]);
+    expect(marcasNoTexto(`href="mailto:suporte@kaelsolutions.app"`)).toEqual(["suporte@kaelsolutions.app"]);
+    expect(marcasNoTexto(`const k = "sb-KAELSOLUTIONS-auth";`)).toEqual(["sb-kaelsolutions-auth"]);
   });
 
   it("ignora comentário, mas não confunde `//` de URL com comentário", () => {
     // A regra de comentário é uma exceção, e exceção sem guarda vira buraco:
     // procurar `//` em qualquer posição da linha esconderia justamente a URL.
-    expect(marcasNoTexto(`  // fala do DeskcommCRM`)).toEqual([]);
-    expect(marcasNoTexto(` * fala do DeskcommCRM`)).toEqual([]);
-    expect(marcasNoTexto(`const u = "https://deskcomm.app/x";`)).toEqual(["deskcomm.app"]);
-    expect(marcasNoTexto(`fetch(url); // manda pro DeskcommCRM`)).toEqual(["deskcommcrm"]);
+    expect(marcasNoTexto(`  // fala do KaelSolutions`)).toEqual([]);
+    expect(marcasNoTexto(` * fala do KaelSolutions`)).toEqual([]);
+    expect(marcasNoTexto(`const u = "https://kaelsolutions.app/x";`)).toEqual(["kaelsolutions.app"]);
+    expect(marcasNoTexto(`fetch(url); // manda pro KaelSolutions`)).toEqual(["kaelsolutions"]);
   });
 
   it("nenhum arquivo fora da lista fixa a marca", () => {
@@ -516,7 +680,7 @@ describe("catraca de marca hardcoded", () => {
  * o código que embarca na imagem. Ela é cega para `supabase/templates/*.html` e
  * `supabase/config.toml`, e essa cegueira tinha consequência medida: dava para
  * zerar a lista de dívidas, ver a suíte inteira verde, e o cliente do
- * revendedor continuar recebendo "Confirme seu e-mail — DeskcommCRM" no
+ * revendedor continuar recebendo "Confirme seu e-mail — KaelSolutions" no
  * PRIMEIRO e-mail que ele abre na vida.
  *
  * Estes arquivos não são renderizados por nenhum TypeScript nosso: quem os
@@ -556,7 +720,17 @@ describe("catraca de marca no que o GoTrue renderiza", () => {
     { arquivo: "supabase/config.toml", limpar: semComentariosToml },
   ];
 
-  const CONGELADO_SUPABASE: Record<string, EntradaDeMarca> = {};
+  const CONGELADO_SUPABASE: Record<string, EntradaDeMarca> = {
+  "supabase/config.toml": {
+    "categoria": "INFRA",
+    "motivo": "Configuração local da CLI do Supabase com o project_id da instalação e os assuntos padrão dos e-mails.",
+    "marcas": [
+      "kaelsolutions",
+      "kaelsolutions",
+      "kaelsolutions"
+    ]
+  }
+};
 
   const encontradoAqui = new Map<string, string[]>();
   for (const { arquivo, limpar } of ALVOS) {
@@ -580,22 +754,22 @@ describe("catraca de marca no que o GoTrue renderiza", () => {
   });
 
   it("comentário de HTML não conta, e `-->` no meio da linha não engole o resto", () => {
-    expect(marcasNoTexto(semComentariosHtml("<!-- fala do DeskcommCRM -->"))).toEqual([]);
-    expect(marcasNoTexto(semComentariosHtml("<!--\n  DeskcommCRM\n  em várias linhas\n-->"))).toEqual([]);
+    expect(marcasNoTexto(semComentariosHtml("<!-- fala do KaelSolutions -->"))).toEqual([]);
+    expect(marcasNoTexto(semComentariosHtml("<!--\n  KaelSolutions\n  em várias linhas\n-->"))).toEqual([]);
     // O caso que a regra de `//` erraria: marca REAL depois do fecho.
-    expect(marcasNoTexto(semComentariosHtml("<!-- nota --> Sua conta no DeskcommCRM"))).toEqual([
-      "deskcommcrm",
+    expect(marcasNoTexto(semComentariosHtml("<!-- nota --> Sua conta no KaelSolutions"))).toEqual([
+      "kaelsolutions",
     ]);
     // E a marca fora de comentário nenhum continua contando.
-    expect(marcasNoTexto(semComentariosHtml("<p>conta no DeskcommCRM</p>"))).toEqual(["deskcommcrm"]);
+    expect(marcasNoTexto(semComentariosHtml("<p>conta no KaelSolutions</p>"))).toEqual(["kaelsolutions"]);
   });
 
   it("comentário de TOML não conta, mas `#` dentro de string não vira comentário", () => {
-    expect(marcasNoTexto(semComentariosToml("# Supabase CLI config — DeskcommCRM"))).toEqual([]);
-    expect(marcasNoTexto(semComentariosToml('cor = "#506d48"  # DeskcommCRM'))).toEqual([
-      "deskcommcrm",
+    expect(marcasNoTexto(semComentariosToml("# Supabase CLI config — KaelSolutions"))).toEqual([]);
+    expect(marcasNoTexto(semComentariosToml('cor = "#506d48"  # KaelSolutions'))).toEqual([
+      "kaelsolutions",
     ]);
-    expect(marcasNoTexto(semComentariosToml('subject = "Olá — DeskcommCRM"'))).toEqual(["deskcommcrm"]);
+    expect(marcasNoTexto(semComentariosToml('subject = "Olá — KaelSolutions"'))).toEqual(["kaelsolutions"]);
   });
 
   it("nenhum arquivo do GoTrue fixa a marca fora da lista", () => {
@@ -621,7 +795,7 @@ describe("catraca de marca no que o GoTrue renderiza", () => {
 
   it("os dois modelos de e-mail não têm marca nenhuma — é o estado que se defende", () => {
     // Explícito, e não só implícito na ausência de linha na allowlist: é ESTE
-    // caso que falha quando alguém reescreve "no DeskcommCRM" num template.
+    // caso que falha quando alguém reescreve "no KaelSolutions" num template.
     expect(encontradoAqui.has("supabase/templates/confirmation.html")).toBe(false);
     expect(encontradoAqui.has("supabase/templates/recovery.html")).toBe(false);
   });
@@ -632,7 +806,7 @@ describe("catraca de marca no que o GoTrue renderiza", () => {
  *
  * A catraca acima é cega para URL sem a marca. O caso medido é o #266: um
  * `HTTP-Referer` com o domínio pessoal do contribuidor foi parar na chamada de
- * TODO self-hoster, e a varredura da época só olhava `deskcomm` — o `X-Title`
+ * TODO self-hoster, e a varredura da época só olhava `kaelsolutions` — o `X-Title`
  * ficava coberto pela marca, o domínio sozinho passava verde. Host de terceiro
  * no código que embarca é a mesma falha por outro nome: o domínio de alguém
  * viaja na imagem que o cliente instala, e ninguém vê.
@@ -965,7 +1139,7 @@ describe("catraca de host de terceiro no código que embarca", () => {
     expect(hostsNoTexto("logger.info(evento);")).toEqual([]);
     expect(hostsNoTexto('audit("auth.organization_id", { org });')).toEqual([]);
     expect(hostsNoTexto('emit("message.received", payload);')).toEqual([]);
-    expect(hostsNoTexto('localStorage.getItem("deskcomm.show_ai_citations")')).toEqual([]);
+    expect(hostsNoTexto('localStorage.getItem("kaelsolutions.show_ai_citations")')).toEqual([]);
     // Os 6 falsos que a PRIMEIRA versão da régua produziu na `main`: nomes de
     // evento de auditoria cujo prefixo termina num "TLD" (`ai`, `org`, `app`,
     // `store`) seguido de `_`. Nenhum deles é host, e é o `_` no lookahead que

@@ -255,7 +255,7 @@ régua: 42 versões no CHANGELOG, mais nova v1.28.0
   ✓ pt-BR 360px: filtro "quem usa o CRM" mostra 4 guias
   ✓ pt-BR: cinco abas de assistente
   ✓ pt-BR 360px: aba Codex abre o painel do Codex
-  ✓ pt-BR: painel do Codex mostra $deskcomm-prompt
+  ✓ pt-BR: painel do Codex mostra $kaelsolutions-prompt
   ✓ pt-BR: seta para a direita vai para a aba Cursor
   ✓ pt-BR: End vai para a última aba
   ✓ pt-BR 360px: aba selecionada visível na faixa de abas
@@ -274,7 +274,7 @@ régua: 42 versões no CHANGELOG, mais nova v1.28.0
   ✓ pt-BR 1280px: filtro "quem usa o CRM" mostra 4 guias
   ✓ pt-BR: cinco abas de assistente
   ✓ pt-BR 1280px: aba Codex abre o painel do Codex
-  ✓ pt-BR: painel do Codex mostra $deskcomm-prompt
+  ✓ pt-BR: painel do Codex mostra $kaelsolutions-prompt
   ✓ pt-BR: seta para a direita vai para a aba Cursor
   ✓ pt-BR: End vai para a última aba
   ✓ pt-BR 1280px: aba selecionada visível na faixa de abas
@@ -295,7 +295,7 @@ régua: 42 versões no CHANGELOG, mais nova v1.28.0
   ✓ en 360px: filtro "quem usa o CRM" mostra 4 guias
   ✓ en: cinco abas de assistente
   ✓ en 360px: aba Codex abre o painel do Codex
-  ✓ en: painel do Codex mostra $deskcomm-prompt
+  ✓ en: painel do Codex mostra $kaelsolutions-prompt
   ✓ en: seta para a direita vai para a aba Cursor
   ✓ en: End vai para a última aba
   ✓ en 360px: aba selecionada visível na faixa de abas
@@ -314,7 +314,7 @@ régua: 42 versões no CHANGELOG, mais nova v1.28.0
   ✓ en 1280px: filtro "quem usa o CRM" mostra 4 guias
   ✓ en: cinco abas de assistente
   ✓ en 1280px: aba Codex abre o painel do Codex
-  ✓ en: painel do Codex mostra $deskcomm-prompt
+  ✓ en: painel do Codex mostra $kaelsolutions-prompt
   ✓ en: seta para a direita vai para a aba Cursor
   ✓ en: End vai para a última aba
   ✓ en 1280px: aba selecionada visível na faixa de abas
@@ -335,7 +335,7 @@ régua: 42 versões no CHANGELOG, mais nova v1.28.0
   ✓ es 360px: filtro "quem usa o CRM" mostra 4 guias
   ✓ es: cinco abas de assistente
   ✓ es 360px: aba Codex abre o painel do Codex
-  ✓ es: painel do Codex mostra $deskcomm-prompt
+  ✓ es: painel do Codex mostra $kaelsolutions-prompt
   ✓ es: seta para a direita vai para a aba Cursor
   ✓ es: End vai para a última aba
   ✓ es 360px: aba selecionada visível na faixa de abas
@@ -354,7 +354,7 @@ régua: 42 versões no CHANGELOG, mais nova v1.28.0
   ✓ es 1280px: filtro "quem usa o CRM" mostra 4 guias
   ✓ es: cinco abas de assistente
   ✓ es 1280px: aba Codex abre o painel do Codex
-  ✓ es: painel do Codex mostra $deskcomm-prompt
+  ✓ es: painel do Codex mostra $kaelsolutions-prompt
   ✓ es: seta para a direita vai para a aba Cursor
   ✓ es: End vai para a última aba
   ✓ es 1280px: aba selecionada visível na faixa de abas

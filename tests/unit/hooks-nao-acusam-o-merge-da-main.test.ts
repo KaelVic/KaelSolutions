@@ -47,7 +47,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 const FREEZE = "loop/hooks/freeze-invariants.sh";
 const MIG_MANTENEDOR = "loop/hooks/check-migration-triple.sh";
-const MIG_CONTRIBUIDOR = ".agents/skills/deskcomm-contribuir/scripts/hooks/check-migration-triple.sh";
+const MIG_CONTRIBUIDOR = ".agents/skills/kaelsolutions-contribuir/scripts/hooks/check-migration-triple.sh";
 const PLANO_GUARD = "loop/hooks/validate-features.sh";
 const POPULACAO = "scripts/migration-populacao.sh";
 

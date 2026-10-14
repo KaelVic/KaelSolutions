@@ -4,8 +4,8 @@
 # `$0` vale `bash` e não há arquivo de onde reler um comentário — o --help saía vazio, com exit 0.
 ajuda() {
   cat <<'AJUDA'
-instalar-guias.sh — deixa os guias do assistente (deskcomm-instalar, deskcomm-cliente-novo,
-deskcomm-metricas, deskcomm-prompt, deskcomm-contribuir, deskcomm-doutrina) disponíveis
+instalar-guias.sh — deixa os guias do assistente (kaelsolutions-instalar, kaelsolutions-cliente-novo,
+kaelsolutions-metricas, kaelsolutions-prompt, kaelsolutions-contribuir, kaelsolutions-doutrina) disponíveis
 em QUALQUER pasta, não só dentro de um clone do KaelSolutions.
 
 ── Por que existe ────────────────────────────────────────────────────────────
@@ -39,8 +39,8 @@ toca no link que você mesmo fez para o `kaelsolutions-*` de outro clone.
 
 ── Uso ───────────────────────────────────────────────────────────────────────
 
-  curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash
-  curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover
+  curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover
   bash scripts/instalar-guias.sh                 # instala ou atualiza (cópia da main)
   bash scripts/instalar-guias.sh --fonte .       # aponta para ESTE clone (quem edita os guias)
   bash scripts/instalar-guias.sh --remover       # desfaz
@@ -272,7 +272,7 @@ echo "ok: ${#guias[@]} guias em ${#DESTINOS[@]} pastas — $ligados ligados, $co
 printf '  %s\n' "${guias[@]}"
 [ "$obsoletos" = 0 ] || echo "  (removi $obsoletos instalação(ões) de guia que saiu da fonte)"
 echo "Abra uma sessão NOVA do seu assistente e peça o assunto em português (ex.: \"quero instalar o CRM na minha VPS\") — o guia certo carrega sozinho em qualquer um deles."
-echo "Para chamar pelo nome: /deskcomm-instalar no Claude Code, no Cursor e no Antigravity; \$deskcomm-instalar no Codex; no OpenCode, peça pelo nome (\"use o guia deskcomm-instalar\")."
+echo "Para chamar pelo nome: /kaelsolutions-instalar no Claude Code, no Cursor e no Antigravity; \$kaelsolutions-instalar no Codex; no OpenCode, peça pelo nome (\"use o guia kaelsolutions-instalar\")."
 if [ -z "$fonte" ] || [ "$copiados" -gt 0 ]; then
   echo "Os guias NÃO se atualizam sozinhos: rode este comando de novo para trazer a versão nova."
 fi

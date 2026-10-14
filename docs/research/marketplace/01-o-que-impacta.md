@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 |---|---|
-| Worktree | `/Users/rafaelmelgaco/wt/marketplace-ext` |
+| Worktree | `/Users/kaelvic/wt/marketplace-ext` |
 | Branch | `feat/marketplace-de-extensoes` |
 | SHA base | `8ad4e257257f1f30a2d26de59229b93fa8915b6b` (topo de `origin/main`) |
 | `git status --porcelain` no início | **vazio** (0 linhas — `git status --porcelain \| wc -l` → `0`) |
@@ -26,7 +26,7 @@ Onde a afirmação pôde virar comando, está o comando — número envelhece, `
 **CONFIRMADO.** A tabela abaixo foi montada lendo os arquivos citados. Reproduza o esqueleto com:
 
 ```bash
-cd /Users/rafaelmelgaco/wt/marketplace-ext
+cd /Users/kaelvic/wt/marketplace-ext
 find app/api/v1/extensions -name route.ts | sort            # as portas HTTP
 grep -n '^create or replace function' supabase/migrations/20260917120000_0271_extensoes_declarativas.sql
 grep -n 'export async function\|rpc(\|action:' lib/extensions/service.ts
@@ -219,7 +219,7 @@ no prompt de nenhum agente.
 | Espelho | `.claude/skills/<nome>/` — as mesmas 7 | gerado por `pnpm skills:sync` (`scripts/sincronizar-skills.ts`, `package.json:33`) |
 | Forma portátil | `.agents/skills/<nome>/agents/openai.yaml` — 1 por skill | (`diff -rq` mostra que o espelho `.claude/` **não** leva a pasta `agents/`) |
 | Gate | `tests/unit/skills-embutidas.test.ts` (229 linhas) | reprova espelho divergente, skill escondida por `.gitignore`, frontmatter fora do padrão, orçamento de 8 000 caracteres do Codex e skill dentro da imagem Docker |
-| Registro | `.agents/rules/deskcomm-guias.md` (`trigger: always_on`) | a tabela "quando usar cada guia" |
+| Registro | `.agents/rules/kaelsolutions-guias.md` (`trigger: always_on`) | a tabela "quando usar cada guia" |
 | **Distribuição** | **`scripts/instalar-guias.sh`** (280 linhas) + `tests/shell/instalar-guias.test.sh` (21 casos) | `curl -fsSL …/scripts/instalar-guias.sh \| bash` mantém um **clone esparso da `main` em `~/.kaelsolutions/guias`** e liga cada `kaelsolutions-*` por link simbólico em `~/.claude/skills`, `~/.agents/skills` e `~/.gemini/config/skills` |
 
 **Este é o achado mais reusável do inventário.** Já existe, provado por teste de shell, um canal de
@@ -229,11 +229,11 @@ apaga o que ele criou, e fallback de cópia onde não há link simbólico. Uma s
 "criar extensão" **entra por esse caminho sem construir nada**.
 
 **O que isto obriga:** skill nova exige (a) pasta em `.agents/skills/`, (b) `pnpm skills:sync` para
-o espelho, (c) linha em `.agents/rules/deskcomm-guias.md`, (d) caber no orçamento de 8 000
+o espelho, (c) linha em `.agents/rules/kaelsolutions-guias.md`, (d) caber no orçamento de 8 000
 caracteres de descrição somadas, (e) o `--help` de `instalar-guias.sh` cita os guias **pelo nome**
 (`scripts/instalar-guias.sh:7-9`) — acrescentar um sem atualizar ali deixa o texto mentindo.
 
-**INFERIDO:** a prosa de `.agents/rules/deskcomm-guias.md:6` diz *"guias para cinco situações"* e
+**INFERIDO:** a prosa de `.agents/rules/kaelsolutions-guias.md:6` diz *"guias para cinco situações"* e
 lista 5 bullets + 2 no fim (7 skills no disco). Uma skill nova de extensões torna esse "cinco" uma
 afirmação de estado vencida (DoD 16). Não medi se algum gate lê esse número.
 
@@ -394,8 +394,8 @@ coluna diz "não existe".
 | **1b. Contagem de downloads na vitrine** | **Não existe** — `grep -rnwiE "rating\|avaliacao\|review\|download_count\|downloads\|install_count"` sobre toda a feature devolve **1 linha, e é um comentário** (`components/extensions/ExtensionsManager.test.tsx:1334`) | Servidor de catálogo (processo separado, SQLite — spec :98), **nunca** a VPS | DEC-004 §3: métrica com método publicado; "downloads não são usuários ativos" impresso no painel |
 | **1c. Avaliações / estrelas** | **Não existe** (mesmo comando acima) | Servidor de catálogo + moderação | Não-neg. **11** (não prometer avaliações antes da prova) + DEC-004 §1 |
 | **1d. Página/descrição rica de cada extensão** | **Impossível com o contrato atual**: `ExtensionManifest` não tem homepage, repositório, autor, screenshot, tags, changelog nem README (`lib/extensions/manifest.ts:29-57`) | `lib/extensions/manifest.ts` (schema `.strict()`), `CatalogEntry`, a migration (manifesto persistido é revalidado) e **toda instalação existente** | Não-neg. **6** (troca de ponteiro com precondição) + doutrina de migrations (tripla) |
-| **2. Doutrina + skill embutida que ensine a criar extensão** | 7 skills em `.agents/skills/`; `deskcomm-contribuir` é o molde (`references/` + `scripts/` + `agents/openai.yaml`); doutrina já escrita em `docs/doctrine/extensoes.md` | `.agents/skills/<nova>/SKILL.md`; `pnpm skills:sync`; `.agents/rules/deskcomm-guias.md`; `tests/unit/skills-embutidas.test.ts` (orçamento de 8 000 caracteres); `scripts/instalar-guias.sh` (o `--help` nomeia os guias) | DoD 16 (o "cinco situações" do rules vira afirmação vencida) |
-| **2a. Redirecionar contribuidor de PR-no-núcleo para extensão** | `triagem/TRIAGEM.md:137` (2-bis) já classifica; `deskcomm-contribuir` é "o espelho da triagem" | `triagem/TRIAGEM.md` §2-bis **e** `docs/doctrine/extensoes.md` (a tabela está duplicada — mudar uma sem a outra as faz divergir) | DoD 18 |
+| **2. Doutrina + skill embutida que ensine a criar extensão** | 7 skills em `.agents/skills/`; `kaelsolutions-contribuir` é o molde (`references/` + `scripts/` + `agents/openai.yaml`); doutrina já escrita em `docs/doctrine/extensoes.md` | `.agents/skills/<nova>/SKILL.md`; `pnpm skills:sync`; `.agents/rules/kaelsolutions-guias.md`; `tests/unit/skills-embutidas.test.ts` (orçamento de 8 000 caracteres); `scripts/instalar-guias.sh` (o `--help` nomeia os guias) | DoD 16 (o "cinco situações" do rules vira afirmação vencida) |
+| **2a. Redirecionar contribuidor de PR-no-núcleo para extensão** | `triagem/TRIAGEM.md:137` (2-bis) já classifica; `kaelsolutions-contribuir` é "o espelho da triagem" | `triagem/TRIAGEM.md` §2-bis **e** `docs/doctrine/extensoes.md` (a tabela está duplicada — mudar uma sem a outra as faz divergir) | DoD 18 |
 | **2b. Um SDK / kit de criação de pacote** | **Não existe.** O único artefato de autoria é o JSON do manifesto | — | Não-neg. **11** proíbe **anunciar** SDK antes da prova |
 | **3. Jornada de instalar/ativar/usar excelente para leigo** | Implementada e provada: `ExtensionsManager.tsx`, `InstalledExtensionCard.tsx`, `ExtensionOperations.tsx`, `ExtensionGuide.tsx`; E2E `tests/e2e/extensoes-declarativas.spec.ts`, `extensoes-recuperacao.spec.ts`, `extensoes-versao.spec.ts` (J25/J26) | Esses componentes + `docs/testing/user-journey-map.md` (jornada nova) + evidência visual | DoD 12 (banco fresco do `baseline.sql`, envs opcionais ausentes) |
 | **3a. Porta na navegação para a vitrine** | `lib/navigation/catalogo.ts:697` já tem `/app/extensions` (grupo Organização) | `NAV_CATALOG` (`catalogo.ts`) + `lib/navigation/registry.ts` (ícone) + `tests/unit/navegacao-completude.test.ts` | DoD 14 |
@@ -460,7 +460,7 @@ Explícito, para que ninguém leia ausência como negativa:
    deste repositório** e a doutrina diz que o que vale para PR é a lei em `docs/doctrine/extensoes.md`.
    Onde cito "PROG-017 §11" estou repetindo o ponteiro da doutrina, não o conteúdo.
 9. **Não verifiquei a branch protection.** Repito a lista do `CLAUDE.md`; o comando que a mede é
-   `gh api repos/melgarafael/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts|join(", ")'`.
+   `gh api repos/KaelVic/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts|join(", ")'`.
 10. **Não li `scripts/sincronizar-skills.ts` nem `scripts/skills-embutidas/espelho.ts`.** Descrevi o
     espelho pelo cabeçalho do teste e por `diff -rq` de uma única skill.
 11. **Não medi o estoque de `.changes/`** (só vi que o diretório existe e tem fragmentos), nem rodei

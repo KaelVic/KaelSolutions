@@ -68,7 +68,7 @@ projeto. O dono de uma instalação que cobra as empresas dela é outro eixo
 | Isolamento por cliente                                                                    | RLS e invariantes de banco no CI                                                                                                                               |
 | Agente que **fala**, não só conversa                                                      | `lib/wacalls/` e `lib/voice/`                                                                                                                                  |
 | Canal agnóstico                                                                           | `lib/channels/capabilities.ts` e [`restricao-de-canal.md`](./restricao-de-canal.md)                                                                            |
-| Método de entrega já escrito                                                              | as skills `deskcomm-instalar`, `deskcomm-cliente-novo`, `deskcomm-prompt` e `deskcomm-metricas`                                                                |
+| Método de entrega já escrito                                                              | as skills `kaelsolutions-instalar`, `kaelsolutions-cliente-novo`, `kaelsolutions-prompt` e `kaelsolutions-metricas`                                                                |
 | Marca própria (o cliente revende)                                                         | `lib/branding/`, `platform_branding`, e o gate que proíbe o nome do produto em código que alcança o usuário                                                    |
 
 Comandos de medição — **CONFIRMADO**, rodados contra este commit:

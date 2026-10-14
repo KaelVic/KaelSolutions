@@ -8,7 +8,7 @@
 
 ## Protocolo desta sessão (lei, não sugestão)
 
-Imposto por Rafael em 2026-08-13, terceira repetição da mesma correção. Palavras dele:
+Imposto por Kael em 2026-08-13, terceira repetição da mesma correção. Palavras dele:
 
 > *"O Claude tem mania de assumir que só porque o código funciona em testes
 > automatizados o trabalho está concluído. Mas os bugs, gaps e lacunas de
@@ -748,7 +748,7 @@ para **qualquer outra sessão** no mesmo banco. Limpo (`null`/`null`). Spec temp
 | `border-error-fg/30` **não gera CSS nenhum** no Tailwind 3.4 (opacidade sobre cor em `var()`) — 2 telas do repo estão sem borda | `app/app/contacts/[id]/_client.tsx:64`, `components/contacts/AnonymizeDialog.tsx:102` |
 | As duas listas de audit divergem em **120 códigos** (208 no union × 88 no painel) | `lib/audit/actions.ts` × `components/admin/audit/action-codes.ts`, que diz "keep in sync manually" e não tem gate |
 | Apêndice não-idempotente **não é pego por gate nenhum** — `test:db` fica verde | o modo update tolera erro por contrato; quem detectaria é um diff de stderr que nenhum job roda |
-| **E-mail pessoal do dono no User-Agent** de toda instalação self-host | `lib/nuvemshop/config.ts:13` → sai em `api-client.ts:68`. **Decisão do Rafael**: qual endereço de projeto usar |
+| **E-mail pessoal do dono no User-Agent** de toda instalação self-host | `lib/nuvemshop/config.ts:13` → sai em `api-client.ts:68`. **Decisão do Kael**: qual endereço de projeto usar |
 
 ---
 
@@ -951,7 +951,7 @@ e2e, imagens-ok`.
 ## Próximo passo exato
 
 O épico está fechado no código e na documentação. Falta o que só o dono faz: **PR e merge na
-`main`** — autorizado explicitamente por Rafael em 2026-08-13. Ao abrir o PR, o `e2e` roda pela
+`main`** — autorizado explicitamente por Kael em 2026-08-13. Ao abrir o PR, o `e2e` roda pela
 primeira vez a `tests/e2e/icone-da-marca.spec.ts`; se ela reprovar por ambiente, o lugar dela é
 `FORA_DO_CI` **com o motivo medido**, nunca uma exclusão preventiva.
 ---

@@ -240,7 +240,7 @@ describe("eco do próprio envio — a IA não se cala por ter falado", () => {
     await dispatchWahaEvent(
       admin as never,
       SESSION as never,
-      envelope(eco("oi, aqui é o Rafael falando do meu celular")),
+      envelope(eco("oi, aqui é o Kael falando do meu celular")),
       "req-2",
     );
 

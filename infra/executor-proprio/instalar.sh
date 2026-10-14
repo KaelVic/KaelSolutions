@@ -78,9 +78,9 @@ fi
 # Confere o token AGORA, em vez de descobrir pelo log de uma vaga parada.
 codigo=$(curl -s -o /dev/null -w '%{http_code}' \
   -H "Authorization: Bearer $(cat "$CONF/token")" \
-  "https://api.github.com/repos/melgarafael/KaelSolutions/actions/runners")
+  "https://api.github.com/repos/KaelVic/KaelSolutions/actions/runners")
 [ "$codigo" = 200 ] || falha "o token não lê os runners do repositório (HTTP ${codigo}). Confira a permissão Administration."
-echo "melgarafael/KaelSolutions" > "$CONF/repo"
+echo "KaelVic/KaelSolutions" > "$CONF/repo"
 
 nucleos=$(nproc)
 memoria_gb=$(awk '/MemTotal/ {printf "%d", $2/1024/1024}' /proc/meminfo)

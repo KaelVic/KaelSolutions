@@ -1,7 +1,7 @@
 /**
  * O AVISO APARECE COMO FOI GRAVADO; O QUE É NOSSO CONTINUA TRADUZIDO.
  *
- * ## O defeito (issue #603), achado por @rafaelbatistazz no PR #622
+ * ## O defeito (issue #603), achado por @kaelbatistazz no PR #622
  *
  * `AgentInboxList` renderizava `{t(item.title)}` e `{t(item.body)}`.
  * `agent_inbox_items.title/body` são LINHAS: o runtime as escreve no instante

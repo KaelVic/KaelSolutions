@@ -429,7 +429,7 @@ describe('sendMessageHandler — os 6 desfechos do envio', () => {
         type: 'template',
         template_name: 'pedido_confirmado',
         template_language: 'pt_BR',
-        template_values: { '1': 'Rafael' },
+        template_values: { '1': 'Kael' },
       } as Parameters<typeof sendMessageHandler>[2],
     );
 

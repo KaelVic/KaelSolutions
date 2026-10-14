@@ -39,7 +39,7 @@
 > comando certo pro seu caso:
 >
 > ```bash
-> curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
+> curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
 > ```
 >
 > *(prefere ler antes de executar? clone o repo e rode `bash hostgator-setup-kit/comecar.sh` —
@@ -139,19 +139,19 @@ do agente e contribuir. Para tê-los em **qualquer pasta** — inclusive antes d
 computador —, rode uma vez:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash
+curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash
 ```
 
 Depois abra uma sessão nova do seu assistente e diga *"quero instalar o CRM na minha VPS"*: pedir o
 assunto em português aciona o guia certo em qualquer um dos cinco. Para chamar um guia pelo nome,
-cada um tem o seu jeito — `/deskcomm-instalar` no Claude Code, no Cursor e no Antigravity;
-`$deskcomm-instalar` no Codex; no OpenCode, peça pelo nome, em linguagem natural.
+cada um tem o seu jeito — `/kaelsolutions-instalar` no Claude Code, no Cursor e no Antigravity;
+`$kaelsolutions-instalar` no Codex; no OpenCode, peça pelo nome, em linguagem natural.
 
 Os guias **não** se atualizam sozinhos: rodar o mesmo comando de novo traz a versão nova. Para
 desfazer:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover
+curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover
 ```
 
 Com o repositório já clonado, os guias vêm dentro dele (`.agents/skills/`) e nem isso é preciso. Se
@@ -398,7 +398,7 @@ pnpm test:e2e      # Playwright (requer dev server)
 **Estes checks são obrigatórios** pra mergear na `main`. A lista abaixo já disse "quatro" e depois "cinco" — **meça, não confie nela**:
 
 ```bash
-gh api repos/melgarafael/KaelSolutions/branches/main/protection \
+gh api repos/KaelVic/KaelSolutions/branches/main/protection \
   --jq '.required_status_checks.contexts|join(", ")'
 # em 2026-08-14: verify, build-and-size, invariants, e2e, imagens-ok
 ```
@@ -513,8 +513,8 @@ Pra **vulnerabilidades de segurança**, **NÃO abra issue pública** — use o [
 
 - **Discussões:** [GitHub Discussions](https://github.com/kaelsolutions/KS_CRM/discussions) — pra perguntas, ideias, showcase.
 - **Issues:** [GitHub Issues](https://github.com/kaelsolutions/KS_CRM/issues) — bugs e tasks.
-- **Instagram:** [@melgarafael](https://www.instagram.com/melgarafael)
-- **YouTube:** [youtube.com/@melgarafael](https://www.youtube.com/@melgarafael)
+- **Instagram:** [@KaelVic](https://www.instagram.com/KaelVic)
+- **YouTube:** [youtube.com/@KaelVic](https://www.youtube.com/@KaelVic)
 
 ---
 
@@ -573,6 +573,6 @@ Este é um projeto **self-host**: cada pessoa roda o CRM na **própria infraestr
 
 **Built with ☕ in Brasil** · **Made for the community**
 
-Siga o desenvolvimento: [Instagram](https://www.instagram.com/melgarafael) · [YouTube](https://www.youtube.com/@melgarafael)
+Siga o desenvolvimento: [Instagram](https://www.instagram.com/KaelVic) · [YouTube](https://www.youtube.com/@KaelVic)
 
 </div>

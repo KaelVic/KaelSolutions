@@ -20,9 +20,9 @@
 # trabalho que não é dele e ninguém confere depois. Duas provas valem:
 #
 #   1. A API do GitHub associa o commit a uma conta:
-#      `gh api repos/melgarafael/KaelSolutions/commits/<sha> --jq .author.login`
+#      `gh api repos/KaelVic/KaelSolutions/commits/<sha> --jq .author.login`
 #   2. O PR é de um handle e seus commits carregam a assinatura em questão:
-#      `gh api repos/melgarafael/KaelSolutions/pulls/<n>/commits \
+#      `gh api repos/KaelVic/KaelSolutions/pulls/<n>/commits \
 #         --jq '[.[].commit.author.email] | unique'`
 #
 # Para conferir que este arquivo não é decorativo:
@@ -45,7 +45,7 @@
 #     regra acima proíbe.
 #   - `Triagem <t@l>` e `Triagem <triagem@local>` — assinaturas de sessão
 #     automatizada, não pessoas.
-#   - `Rafael Savoia <rafaelsavoia@MacBook-Pro-de-Rafael-2.local>` — nome
+#   - `Kael Savoia <kaelsavoia@MacBook-Pro-de-Kael-2.local>` — nome
 #     DIFERENTE do dono do produto. Compartilhar o primeiro nome não é prova
 #     de nada, e é o caso que mais convida ao erro.
 
@@ -61,13 +61,13 @@ Felipe Oliveira <56138438+felipebnt@users.noreply.github.com> <felipe_bnt@hotmai
 # git muda; a API associa ambas a `jmpo`.
 jmpo <pompa.07@gmail.com> Juan <pompa.07@gmail.com>
 
-# @melgarafael — o dono do produto, que commita de três máquinas. O e-mail
+# @KaelVic — o dono do produto, que commita de três máquinas. O e-mail
 # canônico é o de 2.545 dos commits.
 #
 # Prova de duas naturezas, e a diferença importa:
-#   - `rafael@maudibrasil.com.br` e `119944436+melgarafael@users.noreply...`
-#     a API associa os dois a @melgarafael;
-#   - `rafael@automatiklabs.com.br` resolve para **@rafaelmelgaco**, uma conta
+#   - `contato@kaelsolutions.com` e `119944436+KaelVic@users.noreply...`
+#     a API associa os dois a @KaelVic;
+#   - `kael@automatiklabs.com.br` resolve para **@kaelvic**, uma conta
 #     DIFERENTE. Aqui a API não decide nada: ela só diz que são duas contas,
 #     não se são duas pessoas. A fusão entrou por **confirmação explícita do
 #     dono da identidade em 2026-08-30** ("as duas contas são minhas"), e não
@@ -77,8 +77,8 @@ jmpo <pompa.07@gmail.com> Juan <pompa.07@gmail.com>
 # Fica escrito porque a natureza da prova não é detalhe: quem reler isto daqui
 # a um ano precisa saber que este mapeamento repousa numa resposta humana, e
 # não em algo que se possa reverificar rodando um comando.
-Rafael Melgaço <rafael@maudibrasil.com.br> <119944436+melgarafael@users.noreply.github.com>
-Rafael Melgaço <rafael@maudibrasil.com.br> <rafael@automatiklabs.com.br>
+Kael Victor <contato@kaelsolutions.com> <119944436+KaelVic@users.noreply.github.com>
+Kael Victor <contato@kaelsolutions.com> <kael@automatiklabs.com.br>
 
 # @automatikpg-ux — PRs #569, #570, #571 (e os anteriores dele).
 # Prova: os três PRs são da conta @automatikpg-ux e TODOS os commits deles
@@ -105,7 +105,7 @@ automatikpg-ux <automatikpg@gmail.com> root <root@vpsbr-15867794.vpshostgator.co
 #   git log origin/main --author='alguem@fork.dev' --format=%h | wc -l        # 829
 #   git log origin/main --since=2026-09-10 --no-merges --format=%h | wc -l    # 987
 # O primeiro commit assim é de 10/09 07:51, 16 minutos depois de nascer o
-# `tests/shell/deskcomm-contribuir.test.sh` (582964015, 07:35), que gravava
+# `tests/shell/kaelsolutions-contribuir.test.sh` (582964015, 07:35), que gravava
 # exatamente esse par nome/e-mail. O e-mail não existe e a API do GitHub não
 # associa conta nenhuma a ele — a prova aqui é a origem do valor no repositório,
 # não o perfil.
@@ -113,4 +113,4 @@ automatikpg-ux <automatikpg@gmail.com> root <root@vpsbr-15867794.vpshostgator.co
 # Reescrever o histórico para corrigir a autoria está fora de questão (seriam
 # 829 commits já publicados). O `.mailmap` mostra o autor verdadeiro na leitura,
 # que é o que `git shortlog` e `git log` usam.
-melgarafael <rafael@maudibrasil.com.br> Pessoa <alguem@fork.dev>
+KaelVic <contato@kaelsolutions.com> Pessoa <alguem@fork.dev>

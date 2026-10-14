@@ -1,6 +1,6 @@
 # W1-GATILHOS — relatório
 
-**Worktree:** `/Users/rafaelmelgaco/fv-gatilhos` · **Branch:** `fv/gatilhos` (de `feat/followup-vivo` = `4f89a0da`)
+**Worktree:** `/Users/kaelvic/fv-gatilhos` · **Branch:** `fv/gatilhos` (de `feat/followup-vivo` = `4f89a0da`)
 **Autor:** DevGatilhos · **Data:** 2026-08-10
 
 ---
@@ -91,7 +91,7 @@ Daí saem dois problemas com "caso aberto" como gatilho:
 existe no schema como `conversation_end` e tem evento (`ai.handoff_resolved`, e o
 fechamento de conversa que `fn_demanda_fecha_com_conversa` já observa). É o
 momento em que um follow-up de pós-atendimento faz sentido. **Parei aqui e
-aguardo a decisão do Rafael** antes de construir — construir "caso aberto" como
+aguardo a decisão do Kael** antes de construir — construir "caso aberto" como
 pedido literalmente entregaria um controle que briga com outro.
 
 ---

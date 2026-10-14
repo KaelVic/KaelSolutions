@@ -198,7 +198,7 @@ select tablename from pg_publication_tables where pubname='supabase_realtime';  
 
 - [ ] **Step 2:** Resolver a ambiguidade da key: testar `X-Api-Key` com **hash SHA512** e com **plaintext** contra `/api/sessions`; fixar o formato correto no `.env.hostgator.example` e no passo do `install.sh`.
 
-- [ ] **Step 3:** Ajustar `docker-compose.prod.yml` (imagem `devlikeapro/waha`, `WAHA_DEFAULT_ENGINE` conforme resultado). Se o Core não pareia/limita demais, escalar a decisão ao Rafael (Plus opcional via `WAHA_IMAGE`).
+- [ ] **Step 3:** Ajustar `docker-compose.prod.yml` (imagem `devlikeapro/waha`, `WAHA_DEFAULT_ENGINE` conforme resultado). Se o Core não pareia/limita demais, escalar a decisão ao Kael (Plus opcional via `WAHA_IMAGE`).
 
 - [ ] **Step 4 (verificação):** parear um número de teste via QR (`/api/<session>/auth/qr`) e enviar 1 mensagem via `/api/sendText`. Documentar o resultado no topo do compose.
 

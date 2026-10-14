@@ -146,7 +146,7 @@ class FonteGravada:
 
     def __init__(self, dados: dict):
         self.dados = dados
-        self.repo = dados.get("repo", "melgarafael/KaelSolutions")
+        self.repo = dados.get("repo", "KaelVic/KaelSolutions")
 
     def _get(self, chave: str) -> Any:
         if chave not in self.dados:

@@ -1,6 +1,6 @@
 # Plano — RAG completo (feat/rag-completo)
 
-Base: `origin/main` @ 8112377a. Worktree: `/Users/rafaelmelgaco/KaelSolutions-rag`.
+Base: `origin/main` @ 8112377a. Worktree: `/Users/kaelvic/KaelSolutions-rag`.
 Diagnóstico completo: `/private/tmp/.../scratchpad/diagnostico-rag.md` (7 mapas + consolidação).
 
 ## A inversão que resolve quase tudo
@@ -94,7 +94,7 @@ categoria por agente.
 - `.docx`, `.csv`, `.xlsx`, URL/sitemap.
 - Rerank, busca híbrida, indexação incremental.
 
-## Doutrina de packaging (o Rafael declarou: este é um **minor**)
+## Doutrina de packaging (o Kael declarou: este é um **minor**)
 
 Alvo: **o que os fragmentos de `.changes/` calcularem** — hoje `1.6.0 + minor = 1.7.0`,
 conferível com `pnpm release:conferir`. Este PR chegou a digitar `## [1.7.0]` no CHANGELOG à

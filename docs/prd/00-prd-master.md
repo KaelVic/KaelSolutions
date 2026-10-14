@@ -3,7 +3,7 @@ title: KaelSolutions — PRD-Mestre
 version: 0.2
 status: em revisão
 date: 2026-07-19
-owner: Rafael Melgaço
+owner: Kael Victor
 referencia_arquitetural: docs/research/reference-synthesis.md
 ---
 

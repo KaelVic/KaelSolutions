@@ -11,7 +11,7 @@ set -uo pipefail
 
 VAGA="${1:?uso: vaga.sh <número da vaga>}"
 CONF=/etc/kaelsolutions-executor
-REPO="$(cat "$CONF/repo" 2>/dev/null || echo melgarafael/KaelSolutions)"
+REPO="$(cat "$CONF/repo" 2>/dev/null || echo KaelVic/KaelSolutions)"
 CPUS="$(cat "$CONF/cpus-por-vaga" 2>/dev/null || echo 4)"
 MEMORIA="$(cat "$CONF/memoria-por-vaga" 2>/dev/null || echo 14g)"
 IMAGEM=kaelsolutions-executor:atual

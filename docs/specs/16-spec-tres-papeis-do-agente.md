@@ -56,7 +56,7 @@ usuários** na tela do cliente. Não é vocabulário — é **dado interno**. O 
 
 ## 2. Decisões fechadas
 
-Aprovadas por Rafael em 2026-08-05. Cada uma com o que ela exclui.
+Aprovadas por Kael em 2026-08-05. Cada uma com o que ela exclui.
 
 | # | decisão | consequência |
 |---|---|---|

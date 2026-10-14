@@ -6,7 +6,7 @@
  * (`elegivelParaWorkerLegado()` devolve `false`). O agente publicado roda no
  * agent-engine, que não importa nenhum deles.
  *
- * O defeito que este arquivo pega: a skill `deskcomm-cliente-novo`
+ * O defeito que este arquivo pega: a skill `kaelsolutions-cliente-novo`
  * (`references/nichos.md`) afirmava que o G4 jurídico valia "sempre, sem
  * exceção, antes de qualquer LLM". Era falso para todo agente publicado, e foi
  * esse texto que levou a issue #2097 e o PR #2156 a mexer no worker legado,
@@ -107,7 +107,7 @@ describe("gates fixos de passagem para humano só no worker legado", () => {
     expect(
       quemImporta(TRIGGERS, gate),
       `${gate} passou a rodar fora do worker legado. Tire-o de SO_NO_LEGADO e corrija ` +
-        "a skill (.agents/skills/deskcomm-cliente-novo/references/nichos.md), que diz que ele não vale para o agente publicado.",
+        "a skill (.agents/skills/kaelsolutions-cliente-novo/references/nichos.md), que diz que ele não vale para o agente publicado.",
     ).toEqual([WORKER_LEGADO]);
   });
 

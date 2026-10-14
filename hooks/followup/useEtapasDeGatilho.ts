@@ -12,7 +12,7 @@ import type { Pipeline } from "@/lib/kanban/types";
  * ⚠️ POR QUE ESTA LEITURA EXISTE. O `trigger_config` do gatilho de etapa guarda
  * só `params.stage_id`. Uma tela que recebesse isso e mostrasse o uuid estaria
  * pedindo ao dono de uma clínica que decorasse identificadores — o defeito de UX
- * que Rafael vetou nesta missão. Para exibir «Proposta enviada» é preciso o
+ * que Kael vetou nesta missão. Para exibir «Proposta enviada» é preciso o
  * caminho inverso (id → nome), e ele não vem no ponteiro.
  *
  * ⚠️ POR QUE `agent-mapping` E NÃO `board`. As duas rotas devolvem as etapas do

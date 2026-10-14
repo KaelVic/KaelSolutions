@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- Trabalho na worktree existente `/Users/rafaelmelgaco/kaelsolutions-saas/spec`, branch `docs/spec-cobranca-do-revendedor`. O PR 0 leva **a spec e a ADR juntas**: a ADR linka a spec, e o gate de links reprova link para arquivo que não existe na branch. Todo `cd` é `cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1`.
+- Trabalho na worktree existente `/Users/kaelvic/kaelsolutions-saas/spec`, branch `docs/spec-cobranca-do-revendedor`. O PR 0 leva **a spec e a ADR juntas**: a ADR linka a spec, e o gate de links reprova link para arquivo que não existe na branch. Todo `cd` é `cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1`.
 - Número da ADR: `0004` (medido em 29/09/2026: `docs/adr/` da `origin/main` tem 0001, 0002 e 0003; nenhum dos 15 PRs abertos toca `docs/adr/`). Reconfira no Task 1, Step 1.
 - O texto da ADR usa "capacidade do núcleo com chave da instalação" para a cobrança; **nunca** a classifica como "módulo". A palavra "módulo" só aparece para nomear o conceito da ADR-0002 (para contrastá-lo), módulos reais (comanda, honorários) ou o caminho de código existente `lib/instalacao/modulos.ts`.
 - Documento de autoridade (`docs/adr`, `docs/doctrine`, `docs/index.md`, entre outros — lista em `tests/unit/documentacao-aponta-para-o-que-existe.test.ts`, constante `AUTORIDADE`) **não** cita em crase caminho de arquivo que ainda não existe (`lib/organizacao/operante.ts`, `lib/cobranca/vocabulario.ts`, o arquivo do PR #307 com prefixo `docs/adr/`...). Diretório sem extensão (`lib/cobranca/`) não é cobrado pelo gate e pode aparecer.
@@ -47,7 +47,7 @@
 - [ ] **Step 1: Branch limpa, atualizada com a main, e número livre**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git status --short                       # esperado: vazio (árvore limpa; se não, PARE — não é sua)
 git fetch origin
 git merge origin/main -m "chore: traz a main para a branch da spec da cobrança"
@@ -61,7 +61,7 @@ Esperado: o merge entra sem conflito (a branch só acrescenta `docs/superpowers/
 - [ ] **Step 2: Os documentos citados não andaram desde a medição deste plano**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git diff --stat 9b63075bf origin/main -- docs/doctrine/operacao-de-agentes.md \
   docs/specs/19-spec-console-de-agencia.md VISION.md docs/growth/lp-plano.md \
   docs/business-rules/00-business-rules-catalog.md docs/doctrine/extensoes.md docs/index.md \
@@ -91,14 +91,14 @@ new:
 
 - [ ] **Step 4: Rodar o teste e ver falhar**
 
-Run: `cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1; pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts`
+Run: `cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1; pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts`
 
 Expected: FAIL em "nenhum link relativo aponta para arquivo que não existe", com a linha `docs/index.md → adr/0004-cobranca-do-revendedor.md` (e só ela). Se falhar com outra linha, ela já estava morta antes deste plano: anote e não conserte aqui.
 
 - [ ] **Step 5: Medir o peso das duas tabelas vazias num Postgres 17 descartável**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 docker run -d --rm --name adr0004-peso -e POSTGRES_PASSWORD=descartavel pgvector/pgvector:pg17
 # o entrypoint sobe um servidor temporário e depois o definitivo: espere o 2º "ready"
 until [ "$(docker logs adr0004-peso 2>&1 | grep -c 'ready to accept connections')" -ge 2 ]; do sleep 1; done
@@ -396,24 +396,24 @@ Coolify; o material para revendedores. Para ver o que já chegou à `main`:
 
 Troque, com o Edit, `{{PESO_LEGIVEL}}` pelo valor legível da última linha do Step 5 (ex.: `48 kB`) e `{{PESO_BYTES}}` pelos bytes (ex.: `49152`). Confira:
 
-Run: `cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1; grep -c '{{PESO' docs/adr/0004-cobranca-do-revendedor.md`
+Run: `cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1; grep -c '{{PESO' docs/adr/0004-cobranca-do-revendedor.md`
 Expected: `0`
 
 - [ ] **Step 8: Conferir que a ADR não chama a cobrança de "módulo"**
 
-Run: `cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1; grep -n -i 'módulo' docs/adr/0004-cobranca-do-revendedor.md`
+Run: `cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1; grep -n -i 'módulo' docs/adr/0004-cobranca-do-revendedor.md`
 
 Expected: toda linha impressa está (a) no cabeçalho ("tabelas de módulo" da ADR-0002), (b) na seção "Relação com a ADR-0002" nomeando o conceito da ADR-0002 ou módulos reais (comanda, honorários), (c) no caminho `lib/instalacao/modulos.ts`, ou (d) na linha da alternativa recusada da provisionadora. Nenhuma diz que a cobrança **é** um módulo. Se alguma disser, reescreva com "capacidade do núcleo com chave".
 
 - [ ] **Step 9: Rodar o teste e ver passar**
 
-Run: `cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1; pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts`
+Run: `cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1; pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts`
 Expected: PASS, 4 testes. (Os links da ADR para `../superpowers/specs/...`, `../../VISION.md`, `../white-label.md`, `../doctrine/*.md` e `0002-…md`, e os caminhos em crase `app/api/v1/admin/tenants/[id]/suspend/route.ts`, `hostgator-setup-kit/update.sh` e `lib/instalacao/modulos.ts`, existem.)
 
 - [ ] **Step 10: Commit**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git add docs/adr/0004-cobranca-do-revendedor.md docs/index.md
 git commit -F - <<'FIM'
 docs(adr): ADR-0004 — cobrança do revendedor, o terceiro eixo de dinheiro
@@ -446,7 +446,7 @@ FIM
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 f=docs/doctrine/operacao-de-agentes.md
 grep -c 'hoje devolve 0' $f; grep -c 'não existe nenhuma tabela de' $f; grep -c 'ADR-0004' $f
 ```
@@ -558,7 +558,7 @@ new:
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 f=docs/doctrine/operacao-de-agentes.md
 grep -c 'hoje devolve 0' $f; grep -c 'não existe nenhuma tabela de' $f; grep -c 'ADR-0004' $f
 # a régua nova contra o baseline real
@@ -573,13 +573,13 @@ Expected: `0`, `0`, `5`; depois `create table if not exists public.push_subscrip
 
 - [ ] **Step 7: Rodar o gate de links**
 
-Run: `cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1; pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts`
+Run: `cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1; pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts`
 Expected: PASS, 4 testes.
 
 - [ ] **Step 8: Commit**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git add docs/doctrine/operacao-de-agentes.md
 git commit -F - <<'FIM'
 docs(doutrina): as proibições de faturamento dizem de quem são
@@ -614,7 +614,7 @@ FIM
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 grep -c 'não existe nenhuma tabela de plano, fatura ou' docs/specs/19-spec-console-de-agencia.md
 grep -c 'ADR-0004' docs/specs/19-spec-console-de-agencia.md VISION.md docs/growth/lp-plano.md
 grep -c 'Não vendemos assinatura\|não vendemos assinatura' VISION.md
@@ -698,7 +698,7 @@ Estes três arquivos não estão na lista `AUTORIDADE` do gate, então confira �
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 test -f docs/specs/../adr/0004-cobranca-do-revendedor.md && test -f docs/adr/0004-cobranca-do-revendedor.md \
   && test -f docs/growth/../adr/0004-cobranca-do-revendedor.md && echo links-ok
 ```
@@ -707,7 +707,7 @@ Expected: `links-ok`
 - [ ] **Step 8: Commit**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git add docs/specs/19-spec-console-de-agencia.md VISION.md docs/growth/lp-plano.md
 git commit -F - <<'FIM'
 docs: a promessa de não cobrar é do projeto, não de quem revende
@@ -740,7 +740,7 @@ B-03 (retenção de mídia) e B-05 (sync inicial da Nuvemshop) **não** tratam d
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 grep -c 'usage_events' supabase/baseline.sql                                  # B-01: a tabela
 grep -rn 'usage_events' lib app workers components hooks scripts | grep -v database.types | wc -l
 grep -rln 'internal_kaelsolutions' lib app workers scripts supabase/baseline.sql | wc -l   # B-02: o tenant
@@ -795,7 +795,7 @@ new:
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 f=docs/business-rules/00-business-rules-catalog.md
 grep -c '^- \*\*Estado\*\*' $f; grep -c 'ADR-0004' $f
 test -f docs/business-rules/../adr/0004-cobranca-do-revendedor.md && echo link-ok
@@ -806,7 +806,7 @@ Expected: `4`; `3`; `link-ok`; `1 file changed, 3 insertions(+)` (só acréscimo
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git add docs/business-rules/00-business-rules-catalog.md
 git commit -F - <<'FIM'
 docs(regras): estado medido das regras de cobrança B-01, B-02 e B-04
@@ -837,7 +837,7 @@ FIM
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 grep -c 'ainda não construída' docs/doctrine/extensoes.md
 grep -n 'create or replace function public.fn_modulo_instalar' supabase/baseline.sql
 grep -n 'create or replace function public.fn_[a-z_]*_provisionar' supabase/baseline.sql
@@ -860,7 +860,7 @@ new:
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 grep -c 'ainda não construída' docs/doctrine/extensoes.md
 pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts
 ```
@@ -869,7 +869,7 @@ Expected: `0`; PASS, 4 testes.
 - [ ] **Step 4: Commit**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git add docs/doctrine/extensoes.md
 git commit -F - <<'FIM'
 docs(extensoes): a máquina da ADR-0002 já está construída
@@ -898,7 +898,7 @@ FIM
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 pnpm exec vitest run tests/unit/documentacao-aponta-para-o-que-existe.test.ts \
   tests/unit/traducao-nao-defasa.test.ts tests/unit/evidencia-citada.test.ts \
   tests/unit/evidencia-no-caminho-versionado.test.ts tests/unit/handoff-na-raiz-nao-volta.test.ts
@@ -909,7 +909,7 @@ Expected: `Test Files  5 passed (5)`. (O selo de tradução guarda só `docs/whi
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 pnpm test:unit > /tmp/vt-pr0.log 2>&1; echo "exit=$?"
 grep -aE "Test Files|Tests " /tmp/vt-pr0.log | tail -2
 r=$(grep -aE "^ *Tests " /tmp/vt-pr0.log | tail -1 | grep -oE "[0-9]+ failed" | head -1)
@@ -923,7 +923,7 @@ Expected: `exit=0`, rodapé sem `failed`, `rodapé: 0 failed | grep contou: 0`. 
 
 Run:
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git diff --name-only origin/main...HEAD
 ```
 Expected, exatamente:
@@ -943,7 +943,7 @@ Nada em `.changes/`: PR só de documentação não muda comportamento visível a
 - [ ] **Step 4: Push e PR (ação externa — PARE e peça confirmação explícita ao dono antes)**
 
 ```bash
-cd /Users/rafaelmelgaco/kaelsolutions-saas/spec || exit 1
+cd /Users/kaelvic/kaelsolutions-saas/spec || exit 1
 git push -u origin docs/spec-cobranca-do-revendedor
 gh pr create --base main --head docs/spec-cobranca-do-revendedor \
   --title "docs(adr): ADR-0004 — cobrança do revendedor, e a spec que a detalha" \

@@ -1,9 +1,9 @@
 
-> kaelsolutions@0.1.0 test:unit /Users/rafaelmelgaco/KaelSolutions-canais
+> kaelsolutions@0.1.0 test:unit /Users/kaelvic/KaelSolutions-canais
 > vitest run
 
 
- RUN  v4.1.10 /Users/rafaelmelgaco/KaelSolutions-canais
+ RUN  v4.1.10 /Users/kaelvic/KaelSolutions-canais
 
 
  Test Files  136 passed (136)

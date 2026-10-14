@@ -2,7 +2,7 @@
 
 > ⚠️ **INSTRUÇÃO PERMANENTE (não remover):** ler no INÍCIO de toda sessão que
 > trabalhe neste épico; ATUALIZAR + COMMITAR ao final de CADA avanço. Regra do
-> Rafael: progresso só conta com PROVA VISÍVEL (screenshot Playwright, output de
+> Kael: progresso só conta com PROVA VISÍVEL (screenshot Playwright, output de
 > teste). Cada feature provada DUAS vezes: localhost (dev) E VPS após publicar.
 > Maker≠checker: cada feature reportada ao Maestro com evidência.
 

@@ -1,10 +1,10 @@
 -- 0064 — Task 8.6: UM follow-up vivo por lead ORG-WIDE + agent_id no enrollment.
 --
--- Furo achado pelo Rafael (walkthrough): o índice unique-live era
+-- Furo achado pelo Kael (walkthrough): o índice unique-live era
 -- (pointer_id, contact_id) — impede duplicata no MESMO fluxo, mas NÃO entre
 -- fluxos. A varredura de silêncio itera TODOS os pointers de silêncio ativos e
 -- enrollava o mesmo contato em CADA um → um lead silencioso que casa N fluxos
--- vira N sequências paralelas = spam. Decisão do Rafael: exclusividade
+-- vira N sequências paralelas = spam. Decisão do Kael: exclusividade
 -- 1-por-lead na ORG (índice vira (organization_id, contact_id)).
 --
 -- Idempotente + psql-puro (sem BEGIN/COMMIT — o runner envolve em transação).

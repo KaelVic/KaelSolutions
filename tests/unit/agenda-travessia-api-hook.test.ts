@@ -33,7 +33,7 @@
  *
  * ─── Medir ───────────────────────────────────────────────────────────────────
  *
- *   cd /Users/rafaelmelgaco/wt/cal-integra
+ *   cd /Users/kaelvic/wt/cal-integra
  *   npx vitest run tests/unit/agenda-travessia-api-hook.test.ts && pnpm typecheck
  *
  * Para ver a camada (a) morder, renomeie `contatoNome` em

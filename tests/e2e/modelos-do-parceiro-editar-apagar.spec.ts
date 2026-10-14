@@ -14,7 +14,7 @@
  * ⚠️ FORA DO CI (ver `FORA_DO_CI` em .github/workflows/e2e.yml): o servidor do
  * app precisa nascer apontado para o dublê, e isso é ambiente do `next start`,
  * não da spec. Roda local (receita inteira em
- * `.agents/skills/deskcomm-contribuir/references/receita-e2e-local.md`) com:
+ * `.agents/skills/kaelsolutions-contribuir/references/receita-e2e-local.md`) com:
  *
  *   pnpm e2e:env && pnpm e2e:build
  *   ZERNIO_API_BASE_URL=http://127.0.0.1:3998 ZERNIO_ACCOUNT_ID=ACC-E2E-MODELOS \

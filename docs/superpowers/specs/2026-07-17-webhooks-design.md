@@ -1,6 +1,6 @@
 # Webhooks universais + mini motor de regras — Design
 
-**Data:** 2026-07-17 · **Status:** aprovado por Rafael (brainstorming em 3 blocos) · **Escopo:** v1
+**Data:** 2026-07-17 · **Status:** aprovado por Kael (brainstorming em 3 blocos) · **Escopo:** v1
 
 ## 1. Problema
 

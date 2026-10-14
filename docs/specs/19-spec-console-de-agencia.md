@@ -30,7 +30,7 @@ um modelo de agente e registrar o aceite antes de entregar.
 
 **O que esta spec NÃO é.** Não é o CRM do cliente (isso já existe), não é faturamento e não é um
 runtime de agentes novo. É a **camada de operação** que hoje só existe como procedimento manual
-descrito nas skills `deskcomm-cliente-novo` e `deskcomm-metricas`.
+descrito nas skills `kaelsolutions-cliente-novo` e `kaelsolutions-metricas`.
 
 ### 1.2 Decisões de produto fechadas
 

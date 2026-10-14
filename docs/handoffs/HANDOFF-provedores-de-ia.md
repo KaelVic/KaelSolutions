@@ -17,7 +17,7 @@ catálogo que se atualiza sozinho. As três são o mesmo problema visto de ângu
 diferentes — a camada de decisão de modelo não tem dono, nem superfície, nem
 rastro.
 
-### Decisões do Rafael (2026-08-07)
+### Decisões do Kael (2026-08-07)
 
 1. **Painel agrupado por papel**, com "configuração avançada" que permite
    escolher ponto a ponto. Razão declarada por ele: vem aí **portabilidade com
@@ -268,7 +268,7 @@ quem instalou. Tokens em zero e custo em NULL na linha de erro.
 | P2 | Pontos sem telemetria | registro | ✅ parcial: mídia agora avisa na Central; `contagem_de_tokens` e `embedding_consultar` seguem sem log próprio (são chamadas HTTP diretas, fora do seam) |
 | P3 | `install.sh` truncava o `.env` E apagava chave opcional não-coletada | `hostgator-setup-kit/install.sh` | ✅ resolvido |
 | P4 | Sete variáveis de ambiente de modelo continuam válidas e competem com o binding | `lib/agent-engine/env.ts` | ✅ resolvido em `ab37426c` — precedência declarada e testada |
-| P5 | `psql-transporte.ts` duplica ~10 linhas do `gov-helpers.ts`. Não estendi o original porque `tests/invariants/**` é congelado por hook, e usar a variável de escape seria decidir sozinho uma questão do dono do repo | `tests/invariants/` | aguarda decisão do Rafael |
+| P5 | `psql-transporte.ts` duplica ~10 linhas do `gov-helpers.ts`. Não estendi o original porque `tests/invariants/**` é congelado por hook, e usar a variável de escape seria decidir sozinho uma questão do dono do repo | `tests/invariants/` | aguarda decisão do Kael |
 | P6 | Resolvedor plugado no seam (`c2a78b31`) | `lib/agent-engine/edge/llm/` | ✅ resolvido |
 | P7 | `sentiment_classify` e `bot_respond` agora honram o painel via `lib/ai/gateway-binding.ts` (`23f7c64f`) | `lib/ai/` | ✅ resolvido |
 | P10 | `teste_de_agente` marcado como **fixo** — o ensaio usa o modelo da versão que vai ser publicada, e é isso que o faz valer | `lib/ai/pontos/` | ✅ resolvido (com a razão invertida) |

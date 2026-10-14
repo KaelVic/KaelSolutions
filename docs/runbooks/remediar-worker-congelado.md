@@ -79,7 +79,7 @@ atendeu o tempo todo; atendeu com o agente de dois meses atrás.
 Read-only, seguro em produção, não precisa de clone:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/hostgator-setup-kit/diagnostico.sh | bash
+curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/hostgator-setup-kit/diagnostico.sh | bash
 ```
 
 Ou, se o operador já tem o projeto no disco:
@@ -119,7 +119,7 @@ cd /caminho/do/projeto
 docker compose -f docker-compose.prod.yml ps --format '{{.Service}}|{{.Image}}' > /root/estado-antes.txt
 # 2. aponte SÓ o worker para a imagem publicada da versão que o app já roda
 grep '^APP_IMAGE=' .env            # → confirme a versão, ex.: …kaelsolutions:1.2.1
-printf 'WORKER_IMAGE=ghcr.io/melgarafael/kaelsolutions-worker:<a-mesma-versão>\n' >> .env
+printf 'WORKER_IMAGE=ghcr.io/KaelVic/kaelsolutions-worker:<a-mesma-versão>\n' >> .env
 printf 'WORKER_PULL_POLICY=missing\n' >> .env
 # 3. recrie apenas o worker
 docker compose -f docker-compose.prod.yml up -d --no-deps worker
@@ -341,7 +341,7 @@ imagem da produção, provando que foi construída ali e não reaproveitada.
 Restaurar o `.env` anterior (sem `WORKER_IMAGE`) e subir **não devolve o estado exato**.
 O compose no disco já é o novo, então o worker volta ao default `:stable`; como `stable`
 não existia, o Compose **construiu localmente e taggeou a imagem como
-`ghcr.io/melgarafael/kaelsolutions-worker:stable`**.
+`ghcr.io/KaelVic/kaelsolutions-worker:stable`**.
 
 O resultado é uma imagem local **com nome de registry** — que parece publicada e não é:
 

@@ -5,9 +5,9 @@
 ## Before you start
 
 0. Open the repository in your code assistant (Claude Code, Codex, Cursor, OpenCode or
-   Antigravity): the `deskcomm-contribuir` guide (`.agents/skills/deskcomm-contribuir/SKILL.md`) measures,
+   Antigravity): the `kaelsolutions-contribuir` guide (`.agents/skills/kaelsolutions-contribuir/SKILL.md`) measures,
    before the PR, what triage measures after — stale branch, migration triple, fork mark in the
-   diff, release fragment — and arms the git hooks with `bash .agents/skills/deskcomm-contribuir/scripts/armar-hooks.sh`.
+   diff, release fragment — and arms the git hooks with `bash .agents/skills/kaelsolutions-contribuir/scripts/armar-hooks.sh`.
    To have the guides in any folder: `bash scripts/instalar-guias.sh`. Going to **edit** a guide?
    Run `bash scripts/instalar-guias.sh --fonte .` in your clone — in Claude Code the global skill
    beats the project one, and without it you would be testing the `main` version, not yours.
@@ -111,7 +111,7 @@ When finishing an epic:
    > This list used to say "three required" and called `e2e` non-blocking. It was
    > out of date on both points, and whoever used it as a ruler would measure against the wrong ruler.
    > Check the source before trusting any written list:
-   > `gh api repos/melgarafael/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts'`
+   > `gh api repos/KaelVic/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts'`
 
 ### Claiming an issue — the protocol
 
@@ -228,7 +228,7 @@ See [`README.en.md`](README.en.md) §Development — how to run locally.
 channel, works for anyone and is where the answer stays recorded for whoever comes after. For bugs,
 [open an issue](https://github.com/kaelsolutions/KS_CRM/issues/new/choose).
 
-If it is something that does not fit in public (security, for example): `rafael@maudibrasil.com.br` — the same
+If it is something that does not fit in public (security, for example): `contato@kaelsolutions.com` — the same
 address as in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 > This section used to point to an internal Discord whose invite lives in a private Notion — unreachable

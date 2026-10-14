@@ -6,7 +6,7 @@
  * abertos DAQUELA organização e só dela; e que o título do aviso continua
  * saindo como foi gravado quando a interface está em espanhol (issue #603).
  *
- * Trabalho original de @rafaelbatistazz no PR #622.
+ * Trabalho original de @kaelbatistazz no PR #622.
  */
 import { randomUUID } from "node:crypto";
 import { mkdirSync } from "node:fs";

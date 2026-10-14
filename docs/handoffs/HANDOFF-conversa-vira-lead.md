@@ -1,7 +1,7 @@
 # HANDOFF — A conversa vira lead (spec 17)
 
 > Branch `feat/conversa-vira-lead`, empilhada sobre `feat/tres-papeis-do-agente` (spec 16, PR #181).
-> Worktree `/Users/rafaelmelgaco/KaelSolutions-tres-papeis`. Spec:
+> Worktree `/Users/kaelvic/KaelSolutions-tres-papeis`. Spec:
 > [`docs/specs/17-spec-conversa-vira-lead.md`](../../docs/specs/17-spec-conversa-vira-lead.md).
 > Antecessor: [`HANDOFF-tres-papeis.md`](HANDOFF-tres-papeis.md) — as regras de trabalho ao final
 > daquele arquivo continuam valendo aqui.
@@ -238,7 +238,7 @@ versionada.
 
 ### Fatia D — a fila de confirmação (spec 17 §4b)
 
-**Duas decisões do Rafael**, registradas na spec antes de codar: (a) o dado que o cliente diz vai
+**Duas decisões do Kael**, registradas na spec antes de codar: (a) o dado que o cliente diz vai
 para uma FILA, um humano confirma; (b) a base legal ficou a meu critério.
 
 **Escolhi aplicar, não inventar.** A regra **L-05** já nomeia as finalidades (`marketing` /
@@ -535,7 +535,7 @@ continua medido: `typecheck`, `lint` e `pnpm test:unit`.
 
 | # | o quê | por quê |
 |---|---|---|
-| 1 | **A mão do Operador** (salvar e-mail/nome dito na conversa) | **2 decisões são do Rafael:** (a) política de sobrescrita — um e-mail dito de brincadeira substitui o correto, e o audit atual grava só os NOMES dos campos, não from/to, o que a regra L-06 exige; (b) base legal — nenhum código do repo escreve `consent.<finalidade>`, e `lgpd.consent_changed` está declarado e nunca é emitido |
+| 1 | **A mão do Operador** (salvar e-mail/nome dito na conversa) | **2 decisões são do Kael:** (a) política de sobrescrita — um e-mail dito de brincadeira substitui o correto, e o audit atual grava só os NOMES dos campos, não from/to, o que a regra L-06 exige; (b) base legal — nenhum código do repo escreve `consent.<finalidade>`, e `lgpd.consent_changed` está declarado e nunca é emitido |
 | 2 | Nenhum turno com WAHA real desde a 0122 | o telefone foi provado por payload gravado e por banco, não por mensagem nova ponta a ponta |
 | 3 | `GET /api/v1/contacts/<id-invalido>` devolve **500 com a mensagem crua do Postgres** | achado de brinde; não é carona deste passo |
 | 4 | A mesma rota tem **dois contratos**: POST devolve `{data:{contact}}`, GET devolve `{data}` | idem — uniformizar é mudança de contrato público |

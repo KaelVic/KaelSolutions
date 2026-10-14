@@ -25,7 +25,7 @@ Na prática isso separa duas coisas que parecem a mesma:
 | Estado muda quando o scroll chega no ponto que o explica | Elemento entra com fade só porque entrou no viewport |
 | Movimento tem começo e fim ligados a um fato do produto | Movimento contínuo de fundo, decorativo |
 
-**✅ APROVADO por Rafael em 27/07/2026.** Vira um documento novo — `docs/design-system/10-landing-motion.md` — declarando o escopo. Assim não é violação silenciosa da doutrina; é extensão registrada dela. O próprio `09-anti-patterns.md` diz que anti-patterns são o memory bank do design system e devem ser atualizados por PR.
+**✅ APROVADO por Kael em 27/07/2026.** Vira um documento novo — `docs/design-system/10-landing-motion.md` — declarando o escopo. Assim não é violação silenciosa da doutrina; é extensão registrada dela. O próprio `09-anti-patterns.md` diz que anti-patterns são o memory bank do design system e devem ser atualizados por PR.
 
 ---
 
@@ -97,7 +97,7 @@ Fino, sticky, fundo `#faf9f6` com `border-bottom` de 1px que só aparece após 4
 [■ KaelSolutions]     Como funciona · Prova · Instalar · Preço      [GitHub ⭐] [Instalar na VPS]
 ```
 
-- `[GitHub ⭐ 116]` — secundário, ghost, **com contador ao vivo**. Decisão do Rafael, contra minha recomendação inicial e com argumento melhor que o meu: 116 para um CRM brasileiro com 3 meses de vida lê como tração real, não como hobby — a régua de ~1k que a pesquisa usa é de projeto anglófono de infraestrutura, outro mercado. O número é buscado da API do GitHub e cacheado; nunca hardcoded (prova social escrita à mão apodrece e fica menor que a realidade).
+- `[GitHub ⭐ 116]` — secundário, ghost, **com contador ao vivo**. Decisão do Kael, contra minha recomendação inicial e com argumento melhor que o meu: 116 para um CRM brasileiro com 3 meses de vida lê como tração real, não como hobby — a régua de ~1k que a pesquisa usa é de projeto anglófono de infraestrutura, outro mercado. O número é buscado da API do GitHub e cacheado; nunca hardcoded (prova social escrita à mão apodrece e fica menor que a realidade).
 - `[Instalar na VPS]` — primário sólido Sage.
 - Mobile: logo + botão primário; o resto vira menu.
 
@@ -505,7 +505,7 @@ Depois, uma passada por camada: `tampo`, `trilhas`, `peças`, `lead`.
 
 ## Apêndice — padrões de referência aprovados
 
-Referências enviadas pelo Rafael em 27/07: **Google CodeWiki** e **Twenty CRM**. Aproveitamos o *mecanismo*; a paleta continua sendo a nossa.
+Referências enviadas pelo Kael em 27/07: **Google CodeWiki** e **Twenty CRM**. Aproveitamos o *mecanismo*; a paleta continua sendo a nossa.
 
 ### Do CodeWiki — o sólido que se abre nas próprias faces
 

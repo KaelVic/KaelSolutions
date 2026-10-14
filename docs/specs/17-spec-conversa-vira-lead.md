@@ -100,7 +100,7 @@ aberto para ele. Cada recusa é registrada — silêncio não distingue "não de
 
 ## 4b. O dado que o cliente diz na conversa — fila, não escrita direta
 
-> Decidido pelo Rafael em 2026-08-06, depois de a medição mostrar que não havia política nenhuma.
+> Decidido pelo Kael em 2026-08-06, depois de a medição mostrar que não havia política nenhuma.
 
 **O Operador PROPÕE; um humano CONFIRMA.** A IA não grava dado de contato direto. O problema não é
 hipotético: `contactPatchSchema` aceita e-mail livre, o handler não lê o valor anterior antes de
@@ -141,7 +141,7 @@ mesma verdade.
 **Escopo:** o agente opera só nos funis marcados. Sem marcação, **nenhum** — falha fechada: um
 agente novo não sai movendo card de ninguém.
 
-**Regras:** a área de CRM na configuração do agente é a ideia do Rafael, com uma correção de rumo
+**Regras:** a área de CRM na configuração do agente é a ideia do Kael, com uma correção de rumo
 declarada: **não é campo de prosa para "treinar"**. Prosa vira o defeito da spec 16 — instrução que
 o modelo esquece, ou repete ao cliente. É uma **tabela de tradução**: para cada etapa do funil, o
 que precisa ser verdade para o agente mover para lá. É o `agent_stage_hint` que já existe, com

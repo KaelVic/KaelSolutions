@@ -235,7 +235,7 @@ Cada caminho: ler `is_personal` do contato e pular (`skipped`, sem efeito). Mold
 - Tela: 6 (`ConversationHeader.tsx`, `usePersonalContact.ts`, `[id]/_client.tsx`, `ContactsTable.tsx`, `contacts/_client.tsx`, + teste).
 - Audit: 1 (`actions.ts`). Fragmento: 1.
 
-**O PR precisa ser dividido em 3 fatias** (o Rafael revisa uma por vez; cada fatia verde sozinha):
+**O PR precisa ser dividido em 3 fatias** (o Kael revisa uma por vez; cada fatia verde sozinha):
 - **Fatia 1 — banco + marcar/desmarcar** (Etapas 1–5 + 18 parcial): migration, tipos, rotas, audit, timeline. Revisável sem saber do resto.
 - **Fatia 2 — esconder + calar** (Etapas 6–11): entrada, lista/busca/contas/board/RAG/contexto/guards, envio, os 12 caminhos.
 - **Fatia 3 — MCP + voz + tela** (Etapas 12–17): ferramentas, ligação, botões/selo/filtro, provas e2e.

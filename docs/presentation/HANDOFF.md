@@ -124,7 +124,7 @@ Triggers de domínio implementados:
 
 Tudo decidido durante a sessão autônoma está documentado em:
 
-- **Memórias persistentes do projeto** em `~/.claude/projects/-Users-rafaelmelgaco-KaelSolutions/memory/`
+- **Memórias persistentes do projeto** em `~/.claude/projects/-Users-kaelvic-KaelSolutions/memory/`
   - `project_tenancy_model.md` — Multi-tenant clássico desde dia 1 (Opção A)
   - `project_mvp_scope.md` — Opção B (com IA core)
   - `project_ecommerce_integration.md` — Nuvemshop only no MVP
@@ -199,6 +199,6 @@ Tudo decidido durante a sessão autônoma está documentado em:
 
 ## Final
 
-Fui — boa apresentação amanhã, Rafael. Toda a infra está pronta pra continuar quando você voltar. Mensagem: **isso aqui não é um deck. É um CRM real, deployado, com schema operacional que cobre LGPD, multi-tenancy, anti-banimento WAHA, MCP-ready e RAG por tenant — escrito e implantado em uma sessão noturna.**
+Fui — boa apresentação amanhã, Kael. Toda a infra está pronta pra continuar quando você voltar. Mensagem: **isso aqui não é um deck. É um CRM real, deployado, com schema operacional que cobre LGPD, multi-tenancy, anti-banimento WAHA, MCP-ready e RAG por tenant — escrito e implantado em uma sessão noturna.**
 
 Boa.

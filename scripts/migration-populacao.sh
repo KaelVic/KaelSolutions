@@ -85,7 +85,7 @@ pop_main_do_produto() {
     # exato — `*/x` exige a barra — e isso devolvia vazio num clone cujo remoto
     # do produto estava certinho.
     case "$slug" in
-      melgarafael/kaelsolutions | */melgarafael/kaelsolutions)
+      KaelVic/kaelsolutions | */KaelVic/kaelsolutions)
         printf '%s/main\n' "$r"; return 0 ;;
     esac
   done
@@ -101,8 +101,8 @@ pop_repo_do_produto() {
     [ -n "$url" ] || continue
     slug="$(pop_slug_de "$url")"
     case "$slug" in
-      melgarafael/kaelsolutions | */melgarafael/kaelsolutions)
-        printf 'melgarafael/KaelSolutions\n'; return 0 ;;
+      KaelVic/kaelsolutions | */KaelVic/kaelsolutions)
+        printf 'KaelVic/KaelSolutions\n'; return 0 ;;
     esac
   done
   return 1
@@ -271,7 +271,7 @@ pop_dica_proximo_livre() { # $1 = o NNNN em colisão, $2 = base, $3 = populaçã
 pop_aviso_populacao() { # $1 = "base" ou vazio; $2 = nome da base
   local base="${1:-}" nome="${2:-origin/main}"
   if [ -z "$base" ]; then
-    printf 'NÃO MEDIDO: a main do PRODUTO (remoto que aponta para melgarafael/KaelSolutions) não está neste clone.\n'
+    printf 'NÃO MEDIDO: a main do PRODUTO (remoto que aponta para KaelVic/KaelSolutions) não está neste clone.\n'
   fi
   printf 'PRs ABERTOS (inclusive de fork) NÃO foram medidos aqui: hook e pré-voo não vão à rede.\n'
   printf '  Para medir também os PRs abertos: pnpm checar:colisao-de-migration (roda depois do commit).\n'

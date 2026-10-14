@@ -111,7 +111,7 @@ pediu.
 Medido no `CLAUDE.md` do meu HEAD, que traz a saída do `gh api` colada:
 
 ```console
-$ gh api repos/melgarafael/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts|join(", ")'
+$ gh api repos/KaelVic/KaelSolutions/branches/main/protection --jq '.required_status_checks.contexts|join(", ")'
 verify, build-and-size, invariants, e2e
 ```
 
@@ -119,7 +119,7 @@ verify, build-and-size, invariants, e2e
 
 **E a origem da crença não é descuido de quem repetiu — é estrutural.** O
 `CLAUDE.md` que chega ao contexto de uma sessão vem do DIRETÓRIO PRINCIPAL
-(`/Users/rafaelmelgaco/KaelSolutions`), não do worktree onde se trabalha. Medido
+(`/Users/kaelvic/KaelSolutions`), não do worktree onde se trabalha. Medido
 agora: o principal está na branch `feat/indice-de-atrito` e o arquivo lá ainda
 diz, na linha 215, `Check **não-obrigatório** (roda, mas não segura merge)`. O
 `CLAUDE.md` do worktree `fv-fila` **já estava corrigido** — inclusive na base
@@ -127,7 +127,7 @@ diz, na linha 215, `Check **não-obrigatório** (roda, mas não segura merge)`. 
 eu mexia, e nada na tela avisa isso.
 
 É a terceira vez que a crença aparece hoje (o `@Assistente e Testes` a disse ao
-Rafael, eu a escrevi num comentário — retratado em `f4719b31` — e de novo numa
+Kael, eu a escrevi num comentário — retratado em `f4719b31` — e de novo numa
 mensagem de commit). Três pessoas, uma fonte.
 
 **A conclusão do commit `c67a61cc` continua válida por outro motivo**, e é o que

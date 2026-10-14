@@ -53,7 +53,7 @@ async function main(): Promise<void> {
     console.info(`   ${describeAddress(s.address).padEnd(12)} {{${s.key}}}  ${s.expects}`);
   }
 
-  const values = { "1": "Rafael", "2": "DESK-001", "3": "30/07" };
+  const values = { "1": "Kael", "2": "DESK-001", "3": "30/07" };
   console.info(`   missingSlots com os 3 valores: ${missingSlots(contract, values).length}`);
 
   const components = buildComponents(contract, values);

@@ -15,7 +15,7 @@ import { estadoDeEnvio } from "./rodada";
  * com uma hora de janela pela frente: na cadência de 1/min, até 60 mensagens
  * além do que o operador configurou.
  *
- * Achado por @melgarafael na triagem do PR #1392.
+ * Achado por @KaelVic na triagem do PR #1392.
  */
 describe("teto diário conta no fuso do cliente", () => {
   const FUSO = "America/Sao_Paulo";

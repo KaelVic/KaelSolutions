@@ -3,7 +3,7 @@ title: KaelSolutions — Catálogo de Regras de Negócio
 version: 0.1
 status: em revisão
 date: 2026-04-28
-owner: Rafael Melgaço
+owner: Kael Victor
 ---
 
 # KaelSolutions — Catálogo de Regras de Negócio

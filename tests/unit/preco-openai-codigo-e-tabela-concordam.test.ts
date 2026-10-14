@@ -77,7 +77,7 @@ const gptDoCodigo = [...precosDoCodigo().keys()].sort();
 
 describe("o preço que o código cobra é o preço que a tabela soma", () => {
   it("as duas fontes têm os mesmos ids gpt (guarda de vacuidade, juntas)", () => {
-    // `> 0` como guarda de vacuidade — sugerida pelo @melgarafael na revisão do
+    // `> 0` como guarda de vacuidade — sugerida pelo @KaelVic na revisão do
     // #1498: um `toBe(12)` reprovaria quem adicionasse um modelo novo nas DUAS
     // fontes corretamente. Quem adiciona de um UM lado só cai na igualdade de
     // conjuntos logo abaixo, que é a asserção que fecha o buraco da #1478.

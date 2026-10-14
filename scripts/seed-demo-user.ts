@@ -31,9 +31,9 @@ async function main() {
 
   // 2. Atualizar Nome do Usuário
   await admin.auth.admin.updateUserById(USER_ID, {
-    user_metadata: { full_name: "Rafael Kael" },
+    user_metadata: { full_name: "Kael Kael" },
   });
-  console.log("✅ Usuário atualizado: Rafael Kael");
+  console.log("✅ Usuário atualizado: Kael Kael");
 
   // 3. Sessão de WhatsApp Conectada
   const { data: existingSession } = await admin
@@ -380,11 +380,11 @@ async function main() {
       contactName: "Carlos Eduardo Mendes",
       status: "open",
       unread: 0,
-      preview: "Excelente Rafael, já acionei nosso time de TI para a call.",
+      preview: "Excelente Kael, já acionei nosso time de TI para a call.",
       messages: [
-        { dir: "inbound", body: "Boa tarde Rafael, recebemos a proposta comercial da KS. Temos algumas dúvidas técnicas sobre o webhook.", minAgo: 180 },
+        { dir: "inbound", body: "Boa tarde Kael, recebemos a proposta comercial da KS. Temos algumas dúvidas técnicas sobre o webhook.", minAgo: 180 },
         { dir: "outbound", body: "Boa tarde Carlos! Perfeito. Nossos webhooks enviam eventos em tempo real com HMAC e payload JSON estruturado para qualquer endpoint seu.", minAgo: 150 },
-        { dir: "inbound", body: "Excelente Rafael, já acionei nosso time de TI para a call.", minAgo: 120 },
+        { dir: "inbound", body: "Excelente Kael, já acionei nosso time de TI para a call.", minAgo: 120 },
       ],
     },
     {

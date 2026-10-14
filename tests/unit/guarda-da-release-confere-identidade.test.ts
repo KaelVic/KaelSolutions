@@ -24,9 +24,9 @@ import { afterAll, beforeEach, describe, expect, it } from "vitest";
  * ═══ A medida (2026-09-18, nesta `main`) ════════════════════════════════════
  *
  *   commit    o que o git diz (%an)   o que a API diz do PR de origem
- *   3a4df3cb  kaelsolutions-release[bot]   kaelsolutions-release[bot], Bot, PR #1160, head release/1.34.0, melgarafael/KaelSolutions
- *   577c46e9  kaelsolutions-release[bot]   kaelsolutions-release[bot], Bot, PR #1136, head release/1.33.0, melgarafael/KaelSolutions
- *   d73c32cc  Rafael Melgaço          kaelsolutionsopp4s-cmd,       User, PR #1112, head fix/EPIC-13-credencial-editavel, kaelsolutionsopp4s-cmd/kaelsolutions-fixes
+ *   3a4df3cb  kaelsolutions-release[bot]   kaelsolutions-release[bot], Bot, PR #1160, head release/1.34.0, KaelVic/KaelSolutions
+ *   577c46e9  kaelsolutions-release[bot]   kaelsolutions-release[bot], Bot, PR #1136, head release/1.33.0, KaelVic/KaelSolutions
+ *   d73c32cc  Kael Victor          kaelsolutionsopp4s-cmd,       User, PR #1112, head fix/EPIC-13-credencial-editavel, kaelsolutionsopp4s-cmd/kaelsolutions-fixes
  *
  * O nome no git NEM é o login da identidade: `%an` é um rótulo. A identidade é
  * `user.login` + `user.type` + `head.ref`/`head.repo`, que o commit não escolhe.
@@ -64,7 +64,7 @@ const NOME_DE_AUTOR_QUE_O_APP_GRAVA = "kaelsolutions-release[bot]";
 
 /** O login com que a API apresenta o App — o e-mail do corte real confirma o slug. */
 const LOGIN_DO_APP = "kaelsolutions-release[bot]";
-const REPO_DE_CIMA = "melgarafael/KaelSolutions";
+const REPO_DE_CIMA = "KaelVic/KaelSolutions";
 
 /** Uma linha no formato que o `--jq` da guarda produz: cinco campos por TAB. */
 function linhaDaApi(login: string, tipo: string, ref: string, repo: string, numero: number): string {

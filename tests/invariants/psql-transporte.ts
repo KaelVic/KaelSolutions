@@ -26,7 +26,7 @@
  * transporte", e driblá-la com a variável de escape seria decidir sozinho uma
  * questão que é do dono do repo. Então o gov-helpers fica intocado e a
  * duplicação — uma função de dez linhas — é o preço, registrada como dívida no
- * handoff desta frente para o Rafael decidir se as duas viram uma.
+ * handoff desta frente para o Kael decidir se as duas viram uma.
  */
 import { execFileSync } from "node:child_process";
 

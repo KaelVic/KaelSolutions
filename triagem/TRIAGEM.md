@@ -52,7 +52,7 @@ gh pr view <n> --json comments --jq '[.comments[]|select(.body|test("pass=9|pass
 ```
 
 **Em 08/09/2026 a varredura rendeu mais seis, e o padrão ficou nítido:** #612 (@CristianoFF43,
-fechado **29 minutos** depois de abrir), #622 (@rafaelbatistazz, **3min34s**), e #421/#423/#424/#425
+fechado **29 minutos** depois de abrir), #622 (@kaelbatistazz, **3min34s**), e #421/#423/#424/#425
 (@rafaeskytrabalho, **os quatro no mesmo segundo**). Comentários humanos nos seis: **zero**. Dentro
 deles, nove consertos com teste e fragmento — entre os quais o lembrete de compromisso que nunca
 dispara, a IA sem onde gravar campo personalizado, e o fuso do dia civil que faz o horário oferecido
@@ -195,7 +195,7 @@ Gates da `main`: `typecheck`, `lint`, `lint:channels`, `test:unit`, `test:shell`
 Obrigatórios no merge — **cinco**, e não confie nesta lista: meça.
 
 ```bash
-gh api repos/melgarafael/KaelSolutions/branches/main/protection \
+gh api repos/KaelVic/KaelSolutions/branches/main/protection \
   --jq '.required_status_checks.contexts|join(", ")'
 # em 2026-08-14: verify, build-and-size, invariants, e2e, imagens-ok
 ```
@@ -456,10 +456,10 @@ própria logo abaixo):
 # `refs/tri/N` é uma CÓPIA, ela sobrevive ao fechamento do PR (medido em
 # 19/09/2026: 323 refs/tri contra 35 PRs abertos, 288 delas de PR que não está
 # aberto) e ela pode estar VELHA. `--limit 1000`, e não 100 nem o padrão 30.
-git fetch --force origin $(for n in $(gh pr list --repo melgarafael/KaelSolutions \
+git fetch --force origin $(for n in $(gh pr list --repo KaelVic/KaelSolutions \
   --state open --limit 1000 --json number --jq '.[].number'); do
   printf "pull/%s/head:refs/tri/%s " "$n" "$n"; done)
-for n in $(gh pr list --repo melgarafael/KaelSolutions --state open --limit 1000 \
+for n in $(gh pr list --repo KaelVic/KaelSolutions --state open --limit 1000 \
   --json number --jq '.[].number'); do
   # `if d=$(…)` e não `git diff | sed || echo`: num cano o status é o do `sed`,
   # e o `|| echo` nunca disparava.
@@ -1134,7 +1134,7 @@ Dois hooks locais desta casa disparam em merge da `main` sem que você tenha edi
 | tripla da migration | ele examina só arquivo com status `A`, e um `git mv` entra como `R096` — então ele **passa de graça** na renumeração | conferir à mão contra `git log --all --name-only`, os PRs abertos e as outras branches |
 
 O NNNN que o hook confere é medido sobre a **população da pergunta** — a main do
-PRODUTO (o remoto que aponta para `melgarafael/KaelSolutions`, com qualquer nome)
+PRODUTO (o remoto que aponta para `KaelVic/KaelSolutions`, com qualquer nome)
 mais `refs/heads` e `refs/remotes` — e não só sobre as branches locais, que era o
 recorte medido como errado na #1273. O que a população local NÃO cobre são os PRs
 abertos, e isso sai escrito na própria mensagem do hook, junto com o comando que
@@ -2392,7 +2392,7 @@ Cada um destes foi cometido de verdade nesta casa, e é por isso que estão escr
     sai com a âncora do nome canônico, `^[0-9]{14}_([0-9]{4})_`, aplicada ao NOME
     sem a pasta — `_0[0-9]{3}_` sem âncora pega o número do slug. A variável de
     repositório não é `origin/main`: é o remoto que aponta para
-    `melgarafael/KaelSolutions`, com qualquer nome (#1273).
+    `KaelVic/KaelSolutions`, com qualquer nome (#1273).
 
     **No minuto de ALOCAR, o `checar` não basta:** ele mede o arquivo que o PR JÁ
     acrescentou e, sem migration nova, responde `OK — nenhuma migration acrescentada`
@@ -2402,7 +2402,7 @@ Cada um destes foi cometido de verdade nesta casa, e é por isso que estão escr
 
     ```bash
     abertos=$(mktemp)
-    gh pr list --repo melgarafael/KaelSolutions --state open --limit 1000 --json number --jq '.[].number' > "$abertos"
+    gh pr list --repo KaelVic/KaelSolutions --state open --limit 1000 --json number --jq '.[].number' > "$abertos"
     git fetch -q --force origin $(sed 's#.*#pull/&/head:refs/tri/&#' "$abertos")
     while read -r n; do
       if a=$(git diff --name-only --diff-filter=A origin/main...refs/tri/$n -- supabase/migrations 2>/dev/null); then

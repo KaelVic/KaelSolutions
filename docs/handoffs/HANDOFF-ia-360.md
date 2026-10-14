@@ -5,7 +5,7 @@
 >
 > Contrato e motivos: `docs/handoffs/BRIEFING-ia-360.md` — leia antes de tocar em código.
 > Branch: `feat/ia-360-mcp` · Base: `origin/main` = `687716a`
-> Worktree do Maestro: `/Users/rafaelmelgaco/KaelSolutions-ia360`
+> Worktree do Maestro: `/Users/kaelvic/KaelSolutions-ia360`
 
 ---
 
@@ -87,7 +87,7 @@ envelhecer — se a wave entregar as tools e ninguém tirar o pacote da dívida,
 
 ### Wave 4 — Organizar a operação · EM ANDAMENTO
 
-**Terminal:** MaestroConexoes · worktree `/Users/rafaelmelgaco/KaelSolutions-ia360-w4-organizar`
+**Terminal:** MaestroConexoes · worktree `/Users/kaelvic/KaelSolutions-ia360-w4-organizar`
 · branch `feat/ia-360-w4-organizar` · base `99cd0fc` (contém `origin/main` = `687716a`;
 `git log HEAD..origin/main` vazio, medido antes de começar).
 ### Wave 1 — o painel do humano · CONCLUÍDA
@@ -249,7 +249,7 @@ Duas telas do épico não tinham spec nenhum: `ai/agents/new` e `ai/usage`. Agor
 formulário**, não por seed — a diferença entre provar que a tela funciona com dado
 plantado e provar que alguém chega lá sozinho.
 
-**O ciclo inteiro com IA de verdade.** Com a chave real do Rafael, cadastrada **pela
+**O ciclo inteiro com IA de verdade.** Com a chave real do Kael, cadastrada **pela
 tela** de credenciais, agente criado **pela tela** com `openai / gpt-5.6-terra`:
 
 ```
@@ -299,7 +299,7 @@ segundo tropeço próprio: logins em sequência reusavam o **mesmo código** den
 de 30 s e o servidor recusa repetição (proteção de replay). O helper deste spec agora
 nunca reenvia o código da janela anterior.
 
-#### A tela bilíngue, resolvida (pedido do Rafael)
+#### A tela bilíngue, resolvida (pedido do Kael)
 
 O achado anterior era que o pilar 3 tinha sido aplicado **num bloco** e não na tela.
 Agora foi aplicado na tela inteira, em três telas:
@@ -393,7 +393,7 @@ dos describes subiu para 240 s para caber essa recuperação.
 ### Wave 2 — Não perder o cliente (pacote `reter`) · CONCLUÍDA
 
 **Entregue por:** DevVivo · branch `feat/ia-360-w2-reter` · worktree
-`/Users/rafaelmelgaco/KaelSolutions-ia360-w2-reter` · base `99cd0fc`
+`/Users/kaelvic/KaelSolutions-ia360-w2-reter` · base `99cd0fc`
 
 | Medida | Antes (`99cd0fc`) | Depois (`02904498`) |
 |---|---|---|
@@ -455,7 +455,7 @@ anterior à wave. Cada uma produziu exatamente uma reprovação; o controle rest
 
 ### Wave 3 — passar para um humano (pacote `escalar`) · CÓDIGO E TESTES CONCLUÍDOS
 
-**Entregue por:** terminal "Maestro" · worktree `/Users/rafaelmelgaco/KaelSolutions-ia360-w3-escalar`
+**Entregue por:** terminal "Maestro" · worktree `/Users/kaelvic/KaelSolutions-ia360-w3-escalar`
 **Branch:** `feat/ia-360-w3-escalar` · **SHA do marco:** `c0db6aa` (árvore limpa) · base `99cd0fc`
 
 O pacote tinha **1** capacidade (chamar um atendente) e agora tem **7**. Mais
@@ -2513,7 +2513,7 @@ a uma tela vazia.
 
 ## O agente usando as mãos — com IA REAL
 
-O bloqueio de crédito foi resolvido: o Rafael forneceu chave OpenAI e o teste rodou com
+O bloqueio de crédito foi resolvido: o Kael forneceu chave OpenAI e o teste rodou com
 **`gpt-5.6-terra`**, pelo mesmo endpoint do botão "Executar teste" da tela. A chave entra por
 `QA_LLM_API_KEY` (ambiente) e é cadastrada **pela rota de credenciais**, que a cifra — nunca no
 arquivo, porque spec versionado é vazamento permanente.
@@ -2662,7 +2662,7 @@ o modelo repete o que lê, então o que ele lê tem que ser escrito pensando em 
 
 ## O que chega ao LEAD — medido com prompt de atendimento, não de operador
 
-Pergunta do Rafael, e ela expôs um viés que eu não tinha declarado: **meus cenários usavam prompt
+Pergunta do Kael, e ela expôs um viés que eu não tinha declarado: **meus cenários usavam prompt
 de OPERADOR** ("você é o assistente de operação da clínica… USE as ferramentas"). O agente
 principal do produto fala direto com o lead. Refiz com prompt de **atendimento** — como um
 self-hoster escreveria, sem uma palavra sobre ferramentas — e voz de **paciente**:

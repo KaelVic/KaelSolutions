@@ -168,7 +168,7 @@ Ambiente fresco estilo VPS: `baseline.sql` + `bootstrap-owner.ts`, `next build &
 - [ ] **5.2** `pnpm typecheck`, `pnpm lint`, `pnpm test:unit`, `pnpm test:db` — os quatro
       verdes, sem `| tail` (mascara exit code).
 - [ ] **5.3** Atualizar `docs/testing/user-journey-map.md` com a jornada nova.
-- [ ] **5.4** Commit final e relatório ao Rafael.
+- [ ] **5.4** Commit final e relatório ao Kael.
 
 ## Self-review do plano
 

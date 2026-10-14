@@ -742,7 +742,7 @@ titulo: A base da cobrança do revendedor chega ao banco, ainda desligada
 Quem instala o CRM para outras empresas ganha, no banco de toda instalação, as tabelas de planos e assinaturas e as travas de pessoas e de números por plano. Nada disso vale enquanto a cobrança estiver desligada, e a chave ainda não pode ser ligada pela tela. Também saem duas colunas antigas de `organizations` que nenhuma tela lia. Crédito: @paulolimajr77.
 ```
 
-- [ ] **Step 8: Abrir o PR 2a** no repositório do Rafael, com o corpo: o que muda para quem usa; `Closes`/`Refs #2108`; o que foi medido (rodapé do `test:unit`, a sabotagem de cada trava, o resultado do `test:db`); **"O que NÃO medi"**; e a declaração de destino (DoD 18): **núcleo**, razão medida pela pergunta "se nenhuma organização ativar isto, a operação comum continua inteira?" — sim, continua (tabelas vazias, funções devolvem nulo).
+- [ ] **Step 8: Abrir o PR 2a** no repositório do Kael, com o corpo: o que muda para quem usa; `Closes`/`Refs #2108`; o que foi medido (rodapé do `test:unit`, a sabotagem de cada trava, o resultado do `test:db`); **"O que NÃO medi"**; e a declaração de destino (DoD 18): **núcleo**, razão medida pela pergunta "se nenhuma organização ativar isto, a operação comum continua inteira?" — sim, continua (tabelas vazias, funções devolvem nulo).
 
 ---
 
@@ -910,7 +910,7 @@ Códigos de erro novos (todos pelo `ok()`/`fail()` de `lib/api/wrappers.ts`; ent
 
 Ações de `audit` novas, no fim de `lib/audit/actions.ts` (os nomes são os da lista da spec §13; **atribuir** um plano a uma empresa sem linha audita `cobranca.plano_trocado` com `de: null`): `cobranca.plano_salvo`, `cobranca.plano_arquivado`, `cobranca.plano_trocado`, `cobranca.prazo_concedido`, `cobranca.isencao_definida`, `cobranca.modulo_desligado`.
 
-**Onde a spec cala e este plano decide** (confirmar com o Rafael no PR 2b): nesta entrega a coluna `provedor` é **sempre nula** (a Stripe é do 3a), então não há dinheiro em jogo e a troca de plano de uma assinatura sem provedor vale **na hora**, em qualquer estado. A regra D-3 ("só na próxima cobrança paga") nasce junto com o provedor, no 3a; os ramos que dependem de `provedor is not null` **não** são escritos aqui (seriam código inalcançável).
+**Onde a spec cala e este plano decide** (confirmar com o Kael no PR 2b): nesta entrega a coluna `provedor` é **sempre nula** (a Stripe é do 3a), então não há dinheiro em jogo e a troca de plano de uma assinatura sem provedor vale **na hora**, em qualquer estado. A regra D-3 ("só na próxima cobrança paga") nasce junto com o provedor, no 3a; os ramos que dependem de `provedor is not null` **não** são escritos aqui (seriam código inalcançável).
 
 Todas as rotas começam por: (1) `requirePlatformAdminEscrita()` (+ `falhaDaEscritaDePlatformAdmin`), (2) **404 se `fn_cobranca_ligada()` for falso** (rota de cobrança com a chave desligada não existe), (3) `requireSupportWrite(` antes do efeito, (4) Zod no corpo (`z.strictObject`, nunca campo desconhecido), (5) `audit` no sucesso, (6) `X-Request-Id`.
 

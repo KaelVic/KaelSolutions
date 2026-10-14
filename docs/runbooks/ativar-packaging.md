@@ -31,11 +31,11 @@ procurada — o que faz qualquer checagem ingênua aprovar tudo.
 ```bash
 ghcr_status() {   # $1=imagem  $2=tag  → 200 existe | 404 não existe | 403 privado
   local t
-  t=$(curl -s "https://ghcr.io/token?scope=repository:melgarafael/$1:pull&service=ghcr.io" \
+  t=$(curl -s "https://ghcr.io/token?scope=repository:KaelVic/$1:pull&service=ghcr.io" \
       | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
   curl -s -o /dev/null -w '%{http_code}' -H "Authorization: Bearer $t" \
     -H 'Accept: application/vnd.oci.image.index.v1+json' \
-    "https://ghcr.io/v2/melgarafael/$1/manifests/$2"
+    "https://ghcr.io/v2/KaelVic/$1/manifests/$2"
 }
 ```
 
@@ -73,7 +73,7 @@ a operação inteira, a atualização de um cliente morre depois do `git checkou
 
 Para cada um de `kaelsolutions-worker` e `kaelsolutions-scheduler`:
 
-> github.com/users/melgarafael/packages/container/`<pacote>`/settings → Danger Zone →
+> github.com/users/KaelVic/packages/container/`<pacote>`/settings → Danger Zone →
 > Change visibility → **Public**
 
 Enquanto estiver aqui, ligue também **Inherit access from repository**, para o pacote seguir a
@@ -95,7 +95,7 @@ bloqueia **todos** eles até que cada um faça rebase. Depois do merge, `imagens
 `main` e todo PR novo já nasce com ele.
 
 ```bash
-gh api -X PATCH repos/melgarafael/KaelSolutions/branches/main/protection/required_status_checks \
+gh api -X PATCH repos/KaelVic/KaelSolutions/branches/main/protection/required_status_checks \
   -f 'checks[][context]=verify' \
   -f 'checks[][context]=build-and-size' \
   -f 'checks[][context]=invariants' \
@@ -111,7 +111,7 @@ gh api -X PATCH repos/melgarafael/KaelSolutions/branches/main/protection/require
 **Verificação:**
 
 ```bash
-gh api repos/melgarafael/KaelSolutions/branches/main/protection \
+gh api repos/KaelVic/KaelSolutions/branches/main/protection \
   --jq '.required_status_checks.contexts|join(", ")'
 # esperado: verify, build-and-size, invariants, e2e, imagens-ok
 ```

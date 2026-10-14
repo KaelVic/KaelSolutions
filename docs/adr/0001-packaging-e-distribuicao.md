@@ -29,7 +29,7 @@ enxergou o defeito mais caro, que era o motivo real para escrever esta doutrina.
 
 ## Decisões
 
-### D1 — O namespace é `ghcr.io/melgarafael/*`. Não migramos para uma org.
+### D1 — O namespace é `ghcr.io/KaelVic/*`. Não migramos para uma org.
 
 **Escolhido porque** é o namespace que o CI já publica (`IMAGE_NAME: ${{ github.repository }}`),
 que o compose já consome, e — decisivo — que está **gravado no `.env` de cada cliente
@@ -50,7 +50,7 @@ instalação viva, que é a parte que nenhum commit alcança. A consistência in
 primeiro defere ao segundo: numa corrida **interna a um fork** ele não cobra o namespace
 (decisão do dono, opção (a) — um fork que publica as próprias imagens não é defeito nosso),
 e contra o upstream cobra como antes. Régua para reconferir antes de citar este parágrafo:
-`grep -rln "ghcr.io/melgarafael" --exclude-dir=node_modules .`
+`grep -rln "ghcr.io/KaelVic" --exclude-dir=node_modules .`
 
 **Reconsideraríamos se:** o projeto ganhar mantenedores com necessidade de publicar sem
 credencial pessoal, ou o repositório mudar de dono. Nesse caso a migração é **aditiva**:

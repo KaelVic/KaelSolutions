@@ -14,7 +14,7 @@ const BINDING: TemplateBinding = {
   name: PEDIDO.name,
   language: PEDIDO.language,
   contractHash: "hash-vigente",
-  values: { "1": "Rafael", "2": "DESK-001", "3": "30/07" },
+  values: { "1": "Kael", "2": "DESK-001", "3": "30/07" },
 };
 
 const CURRENT = {
@@ -59,7 +59,7 @@ describe("sendTemplate", () => {
       {
         type: "body",
         parameters: [
-          { type: "text", text: "Rafael" },
+          { type: "text", text: "Kael" },
           { type: "text", text: "DESK-001" },
           { type: "text", text: "30/07" },
         ],
@@ -102,7 +102,7 @@ describe("sendTemplate", () => {
     const spy = stubFetch({});
     const r = await sendTemplate({
       ...BASE,
-      binding: { ...BINDING, values: { "1": "Rafael" } },
+      binding: { ...BINDING, values: { "1": "Kael" } },
       current: CURRENT,
     });
     expect(r).toEqual({ sent: false, reason: "missing_values", missing: ["2", "3"] });
@@ -113,7 +113,7 @@ describe("sendTemplate", () => {
     const spy = stubFetch({});
     const r = await sendTemplate({
       ...BASE,
-      binding: { ...BINDING, values: { "1": "Rafael", "2": "   ", "3": "30/07" } },
+      binding: { ...BINDING, values: { "1": "Kael", "2": "   ", "3": "30/07" } },
       current: CURRENT,
     });
     expect(r).toMatchObject({ sent: false, reason: "missing_values", missing: ["2"] });

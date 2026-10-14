@@ -36,7 +36,7 @@ function creds(): Creds {
   if (!fs.existsSync(CREDS_PATH)) {
     throw new Error(
       "Falta .e2e-creds.json. NÃO rode o seed (rotaciona o TOTP do admin e derruba o run de outra frente).\n" +
-        "Copie o do maestro: cp /Users/rafaelmelgaco/fv-integra/.e2e-creds.json .",
+        "Copie o do maestro: cp /Users/kaelvic/fv-integra/.e2e-creds.json .",
     );
   }
   return JSON.parse(fs.readFileSync(CREDS_PATH, "utf8")) as Creds;

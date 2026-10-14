@@ -93,7 +93,7 @@ Log do worker no turno de hoje (job `bce692bd-1261-450f-a09a-bba834651d6b`):
 
 Mesma conversa, mesmo turno, resposta que saiu no WhatsApp às 18:32:52:
 
-> "Oi, Rafael! **Sou a assistente virtual da Vitalis.** Como posso te ajudar hoje?"
+> "Oi, Kael! **Sou a assistente virtual da Vitalis.** Como posso te ajudar hoje?"
 
 Numa conversa **nova** (primeira inbound "i" às 18:32:05) — logo, não é histórico.
 

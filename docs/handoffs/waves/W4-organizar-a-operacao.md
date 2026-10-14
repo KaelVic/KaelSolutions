@@ -1,6 +1,6 @@
 # W4 — Organizar a operação (pacote `organizar`)
 
-**Worktree:** `/Users/rafaelmelgaco/KaelSolutions-ia360-w4-organizar` (branch `feat/ia-360-w4-organizar`, base `d25cd1c`)
+**Worktree:** `/Users/kaelvic/KaelSolutions-ia360-w4-organizar` (branch `feat/ia-360-w4-organizar`, base `d25cd1c`)
 **Pacote alvo:** `organizar` — hoje com **1 capacidade** (marcadores). Webhooks e automações: **zero**.
 
 ---

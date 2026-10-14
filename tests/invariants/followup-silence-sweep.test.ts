@@ -905,7 +905,7 @@ async function setOneLiveIndex(columns: string): Promise<void> {
   );
 }
 
-describe("runSilenceSweep — 1 follow-up vivo por lead ORG-WIDE (Task 8.6, furo do Rafael)", () => {
+describe("runSilenceSweep — 1 follow-up vivo por lead ORG-WIDE (Task 8.6, furo do Kael)", () => {
   it("RED→GREEN: contato silencioso casa 2 fluxos — índice ANTIGO (pointer,contact) enrolla nos DOIS (spam); o NOVO (org,contact) barra o 2º", async () => {
     const org = nextOrgId();
     await seedOrg(org);
@@ -930,7 +930,7 @@ describe("runSilenceSweep — 1 follow-up vivo por lead ORG-WIDE (Task 8.6, furo
       // RED — índice como era ANTES da 0062: (pointer_id, contact_id)
       await setOneLiveIndex("pointer_id, contact_id");
       const red = await runSilenceSweep(deps);
-      expect(red.enrolled).toBe(2); // um por fluxo — o spam que o Rafael achou
+      expect(red.enrolled).toBe(2); // um por fluxo — o spam que o Kael achou
       expect(await countLiveForContact(org, contactId)).toBe(2);
 
       // limpa (2 vivos violariam o índice único org-wide ao recriá-lo)

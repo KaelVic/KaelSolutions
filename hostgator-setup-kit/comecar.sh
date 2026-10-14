@@ -9,7 +9,7 @@
 #
 # Uso:
 #   bash comecar.sh
-#   curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/hostgator-setup-kit/comecar.sh | bash
 #
 set -euo pipefail
 

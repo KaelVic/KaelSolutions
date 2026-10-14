@@ -102,7 +102,7 @@ Se você roda o KaelSolutions numa VPS, **leia a seção da versão para a qual 
 
   Você não precisa fazer nada. Quem acompanha o `docker compose ps` pode ver o worker como `unhealthy` enquanto ele estiver parado; isso não reinicia o worker nem reverte uma atualização. O `/healthz` do worker ganhou o campo `ia_drain`.
 
-  Contribuição de @Tong-bit-art (#2691, issue #2505), a partir do caso relatado no #2501 de @rafaelbatistazz.
+  Contribuição de @Tong-bit-art (#2691, issue #2505), a partir do caso relatado no #2501 de @kaelbatistazz.
 
 - **Trocar de plano no teste grátis não espera mais o link de pagamento vencer** Quando a empresa trocava de plano no teste grátis com um link de pagamento ainda em aberto, a troca era recusada até o link vencer (até 24 horas) ou ser pago. Agora o sistema cancela esse link no provedor de pagamento e a troca vale na hora; o próximo "Assinar" gera um link novo, já com o preço do plano escolhido. Se o provedor não confirmar o cancelamento, nada muda e a recusa de antes continua valendo, para nenhum link sobreviver com o preço antigo. Links criados antes desta versão seguem a regra antiga até vencerem.
 
@@ -190,7 +190,7 @@ Se você roda o KaelSolutions numa VPS, **leia a seção da versão para a qual 
 
 - **Conexão com o banco que falha no meio de uma operação deixa de ser reaproveitada** No motor de atendimento, a próxima tarefa podia herdar a operação de quem falhou; agora a conexão que falha é descartada.
 
-  Contribuição de @webtecnica (#2621, issue #2506), sobre o tempo limite trazido pelo #2501 de @rafaelbatistazz.
+  Contribuição de @webtecnica (#2621, issue #2506), sobre o tempo limite trazido pelo #2501 de @kaelbatistazz.
 
 - **A resposta de quem clica num botão do modelo agora aparece na conversa** O toque (e respostas de botão e de lista) entra como texto com o nome do botão, e a IA passa a vê-lo.
 
@@ -403,7 +403,7 @@ Se você roda o KaelSolutions numa VPS, **leia a seção da versão para a qual 
 
 - **Funil arquivado só volta com o nome livre, e o funil de clientes não é mais arquivado com a marca** Desarquivar com o nome de um funil ativo é recusado; para arquivar o funil de clientes, marque outro antes. Funil arquivado com a marca antes desta versão continua marcado até você marcar outro.
 
-  Contribuição de @webtecnica (#2605, issue #2559; refs #979 de @rafaelbatistazz).
+  Contribuição de @webtecnica (#2605, issue #2559; refs #979 de @kaelbatistazz).
 
 - **O diagnóstico passa a mostrar por que o agente de atualização falhou, em vez de uma linha em branco** O `healthcheck.sh` mostra a última falha numa linha (hora, endereço, resposta e código HTTP), cortada em 300 caracteres.
 
@@ -571,7 +571,7 @@ Se você roda o KaelSolutions numa VPS, **leia a seção da versão para a qual 
 
 - **Excluir um funil que já está no arquivo não manda mais arquivar de novo** A recusa continua; muda o conselho, que agora é tirar o funil do arquivo e resolver os negócios.
 
-  Contribuição de @webtecnica (#2532), a partir da issue #979 de @rafaelbatistazz.
+  Contribuição de @webtecnica (#2532), a partir da issue #979 de @kaelbatistazz.
 
 - **As mensagens da IA chegam ao WhatsApp sem "\n" escrito e sem asteriscos duplos** Antes de sair, o texto do agente, da automação "Mensagem escrita pela IA" e da prospecção passa para o formato do WhatsApp, sem mexer em links.
 
@@ -579,7 +579,7 @@ Se você roda o KaelSolutions numa VPS, **leia a seção da versão para a qual 
 
 - **A IA volta a responder sozinha quando a conexão com o banco morre sem aviso** A consulta presa desiste em até um minuto e a IA retoma sem reiniciar o `worker`.
 
-  Contribuição de @rafaelbatistazz (#2501).
+  Contribuição de @kaelbatistazz (#2501).
 
 - **Um negócio recusado pela regra de visibilidade agora sai como "sem permissão", e não mais como erro interno** No modo "Só os seus", o Atendente que cria ou repassa negócio fora do que pode ver recebe a explicação, em vez de "Erro interno". A regra em si não mudou.
 
@@ -902,7 +902,7 @@ Se você roda o KaelSolutions numa VPS, **leia a seção da versão para a qual 
 
   PR #2339, construído sobre o perfil de Portugal de @webtecnica (#2084), a partir da issue #1946 de @maclevison, que pediu o perfil e a revisão da citação.
 
-- **A rede social conectada agora pode sair do atendimento ou ser desconectada pela tela** Antes, a tela de redes sociais só conectava. Quem ligava um Instagram ou um Facebook ao atendimento não tinha como desfazer: a assinatura de webhook continuava viva no provedor e as mensagens continuavam entrando. Agora cada conta tem dois botões, e os dois pedem confirmação. **Remover do atendimento** apaga a assinatura de webhook no provedor e arquiva o canal, e a conta continua vinculada para voltar a receber depois. **Desconectar conta** faz o mesmo e também remove a conta do provedor. Nos dois casos as conversas já recebidas continuam no CRM. Se o provedor recusar a chamada, o canal fica como estava e dá para tentar de novo. Contribuição de @rafaelbatistazz (#2362, refs #1314).
+- **A rede social conectada agora pode sair do atendimento ou ser desconectada pela tela** Antes, a tela de redes sociais só conectava. Quem ligava um Instagram ou um Facebook ao atendimento não tinha como desfazer: a assinatura de webhook continuava viva no provedor e as mensagens continuavam entrando. Agora cada conta tem dois botões, e os dois pedem confirmação. **Remover do atendimento** apaga a assinatura de webhook no provedor e arquiva o canal, e a conta continua vinculada para voltar a receber depois. **Desconectar conta** faz o mesmo e também remove a conta do provedor. Nos dois casos as conversas já recebidas continuam no CRM. Se o provedor recusar a chamada, o canal fica como estava e dá para tentar de novo. Contribuição de @kaelbatistazz (#2362, refs #1314).
 
 - **Em Portugal, o relatório de acesso do titular passa a trazer as alíneas do art. 15.º e a ligação para o data.json** Numa organização com país Portugal, o PDF de acesso ganha a secção "Informações exigidas pelo art. 15.º, n.º 1". A alínea e) traz os direitos de retificação, apagamento, limitação e oposição. A f) traz a autoridade de controlo (CNPD, com o site). A h) descreve os assistentes de IA que estão no ar: quem responde automaticamente e quem só sugere respostas para uma pessoa decidir. Se nenhum estiver no ar, diz que não há assistente a responder. As alíneas a), c) e d) (finalidades, destinatários e prazo de conservação) saem como "não informado pelo controlador", porque ainda não há tela para preenchê-las (#2356).
 
@@ -2361,7 +2361,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 - **O lint da suíte passa a rodar o ESLint 10, e sai a versão que o registro do npm aposentou** O `pnpm lint`, executado pelo check obrigatório `verify`, rodava o ESLint 9.39.5, marcado como sem suporte pelo registro do npm. Agora roda o 10.11.0, que produz as mesmas mensagens, arquivo por arquivo, sem nenhuma regra mudada; o `AGENTS.md` declara a major nova e um teste passa a conferi-la. O ESLint não roda no produto: nada muda na imagem nem para quem opera a instalação.
 
-  Levantamento de @melgarafael (#297). Contribuição de @in100tiva (#1840).
+  Levantamento de @KaelVic (#297). Contribuição de @in100tiva (#1840).
 
 ### Corrigido
 
@@ -3684,13 +3684,13 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 ### Adicionado
 
-- **Quando o telefone da conversa cai, dá para continuar o atendimento por outro número** No Inbox, o botão **Transferir** ganhou duas abas: **Atendente**, como antes, e **Número**. Na aba Número você escolhe outro número de WhatsApp da empresa e clica **Continuar por este número**: o sistema abre a conversa do mesmo cliente nesse número e já a mostra na tela. Se a conversa lá estiver livre, você fica como responsável e o atendimento automático daquele número não entra no meio; se ela já estiver com alguém, a tela diz com quem. Números desconectados aparecem na lista, mas não podem ser escolhidos. Quando o número da conversa aberta não está conectado e existe outro conectado, aparece acima do campo de digitar a faixa **Responder por outro número**, que leva direto para essa escolha. Antes não havia como responder: a conversa ficava presa ao número que caiu. O histórico antigo continua na conversa do número original. Crédito: @rafaelbatistazz.
+- **Quando o telefone da conversa cai, dá para continuar o atendimento por outro número** No Inbox, o botão **Transferir** ganhou duas abas: **Atendente**, como antes, e **Número**. Na aba Número você escolhe outro número de WhatsApp da empresa e clica **Continuar por este número**: o sistema abre a conversa do mesmo cliente nesse número e já a mostra na tela. Se a conversa lá estiver livre, você fica como responsável e o atendimento automático daquele número não entra no meio; se ela já estiver com alguém, a tela diz com quem. Números desconectados aparecem na lista, mas não podem ser escolhidos. Quando o número da conversa aberta não está conectado e existe outro conectado, aparece acima do campo de digitar a faixa **Responder por outro número**, que leva direto para essa escolha. Antes não havia como responder: a conversa ficava presa ao número que caiu. O histórico antigo continua na conversa do número original. Crédito: @kaelbatistazz.
 
 - **Variável META_WEBHOOK_BASE_URL para separar a URL pública dos webhooks da Meta** Adiciona a variável opcional `META_WEBHOOK_BASE_URL`, permitindo configurar uma URL pública dedicada para o callback dos webhooks da Meta (WhatsApp Cloud API / canais oficiais), separada de `NEXT_PUBLIC_APP_URL`. Mantém compatibilidade total com instalações existentes por fallback automático.
 
   Contribuição de @webtecnica (#1554).
 
-- **O link da imagem do modelo se salva na aba Templates, sem enviar nada** Em **Conexões › Templates da Meta**, cada modelo com imagem, vídeo ou documento no cabeçalho ganha um campo para o link público do arquivo e o botão **Salvar link**. Antes a única forma de salvar esse link era enviar o modelo numa conversa com a janela de 24 horas fechada — ou seja, era preciso disparar para um cliente só para deixar o modelo pronto. Agora o link fica salvo direto no modelo, e quando você escolhe esse modelo numa conversa o campo do link já vem preenchido. Apagar o campo e clicar em **Remover link** esquece o link. Salvar é do administrador, como sincronizar. Crédito: @rafaelbatistazz.
+- **O link da imagem do modelo se salva na aba Templates, sem enviar nada** Em **Conexões › Templates da Meta**, cada modelo com imagem, vídeo ou documento no cabeçalho ganha um campo para o link público do arquivo e o botão **Salvar link**. Antes a única forma de salvar esse link era enviar o modelo numa conversa com a janela de 24 horas fechada — ou seja, era preciso disparar para um cliente só para deixar o modelo pronto. Agora o link fica salvo direto no modelo, e quando você escolhe esse modelo numa conversa o campo do link já vem preenchido. Apagar o campo e clicar em **Remover link** esquece o link. Salvar é do administrador, como sincronizar. Crédito: @kaelbatistazz.
 
 ### Corrigido
 
@@ -3727,7 +3727,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 - **Atualizar a instalação não duplica mais as demandas do Radar** Cada atualização da VPS criava uma segunda demanda para toda conversa nova que já tinha a sua, e o Radar passava a mostrar o dobro de demandas abertas sem próximo passo (o índice de atrito também contava em dobro). A atualização agora só cria demanda para conversa que não tem nenhuma, e a duplicata que as atualizações anteriores deixaram é apagada sozinha na próxima atualização. Só sai a cópia que ninguém tocou: demanda com próximo passo, responsável, lead ou caso fica como está, e a cópia que já virou o atendimento em curso da conversa também fica, para não interromper acompanhamento nenhum. Depois de atualizar, a contagem do Radar pode cair, e o número novo é o correto.
 
-- **O "digitando…" aparece no WhatsApp do cliente enquanto a IA prepara a resposta** O indicador de "digitando…" praticamente nunca aparecia quando o agente de IA respondia: ele só era acionado se sobrasse tempo de espera depois que a IA terminava de pensar, e quase nunca sobrava. Agora ele acende no começo do atendimento de cada mensagem, cobrindo os segundos em que o cliente espera a resposta. Crédito: @rafaelbatistazz.
+- **O "digitando…" aparece no WhatsApp do cliente enquanto a IA prepara a resposta** O indicador de "digitando…" praticamente nunca aparecia quando o agente de IA respondia: ele só era acionado se sobrasse tempo de espera depois que a IA terminava de pensar, e quase nunca sobrava. Agora ele acende no começo do atendimento de cada mensagem, cobrindo os segundos em que o cliente espera a resposta. Crédito: @kaelbatistazz.
 
 - **Extensão removida deixa de aparecer como instalada no painel do dono do servidor** Remover uma extensão marca a instalação como removida, mas a linha continua no banco. A tela `/admin/extensoes` lia todas as linhas, então uma extensão já removida seguia listada como instalada, junto com a contagem de empresas dela. Agora a tela ignora as instalações removidas, do mesmo jeito que o restante do sistema de extensões já fazia.
 
@@ -4156,7 +4156,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   indistinguível de um número dos Estados Unidos — e um endereço de captura
   apontado para o país errado não quebra nada, só faz o telefone parar de tocar.
 
-  Contribuição de @rafaelbatistazz (#1405, #1409).
+  Contribuição de @kaelbatistazz (#1405, #1409).
 
 - **Entrar com o Google, sem senha, nas telas de entrar e de criar conta** Quem usa Google Workspace já não precisa criar mais uma senha para começar:
   as telas de entrar e de criar conta ganharam o botão **Entrar com Google**. Ele
@@ -4203,7 +4203,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   Nada para fazer: quem já tem a conta de anúncios conectada passa a ver os nomes
   na próxima ficha que abrir.
 
-  Contribuição de @rafaelbatistazz (#1387 e #1389).
+  Contribuição de @kaelbatistazz (#1387 e #1389).
 
 - **O menu lateral da instalação passa a ser escolhido pela empresa** Até aqui cada **pessoa** escolhia as próprias áreas do menu, convite a convite. A instalação inteira não tinha uma escolha: para uma empresa mostrar o mesmo recorte a todo mundo, era preciso repetir a escolha em cada vínculo — e o convite seguinte reabria tudo.
 
@@ -4359,7 +4359,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   mensagem, e a conversa entra normalmente, sem origem de anúncio, como já
   acontecia. O caminho com o identificador do clique não muda.
 
-  Contribuição de @rafaelbatistazz (#1405).
+  Contribuição de @kaelbatistazz (#1405).
 
 - **O MCP passa a contar token inválido e a barrar quem insiste** O endereço que as ferramentas de IA usam para conversar com o sistema (`/api/mcp`) recusava token inválido sem contar a recusa. Cada recusa custava uma consulta ao banco e ninguém era barrado: dava para varrer tokens sem limite e de graça, e um token já revogado podia ser martelado de vários endereços ao mesmo tempo sem que nada reagisse.
 
@@ -4376,7 +4376,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   aviso passa a ser de erro e diz o motivo.
 
   O link da mídia também pode ficar salvo no modelo: marque "Salvar este link no modelo" e
-  ele vem preenchido nos próximos envios. Crédito: @rafaelbatistazz.
+  ele vem preenchido nos próximos envios. Crédito: @kaelbatistazz.
 
 - **Conectar o Google funciona quando você abre a instalação por localhost** Quem instala o KaelSolutions no próprio computador e abre o sistema por `http://localhost:3000` não conseguia terminar a conexão com o Google Agenda: o endereço de retorno oferecido era sempre o que ficou gravado na instalação (o IP da máquina na rede, por exemplo), e o Google compara esse endereço letra por letra. A conexão voltava para outro endereço e nunca se completava.
 
@@ -4540,7 +4540,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   Corrigir um lançamento errado é lançar o contrário, com motivo: o extrato
   explica o saldo inteiro. Crédito: @423313 (#819).
 
-- **O funil mostra telefone, e-mail e links do cliente no card e no painel do negócio** Para saber como falar com o cliente de um negócio, era preciso sair do funil e abrir a ficha do contato. Agora o card mostra o telefone, o e-mail e um botão para cada link cadastrado (Instagram, site, Google Meu Negócio, Facebook, LinkedIn, TikTok, YouTube ou outro), e o painel do negócio ganhou a seção "Contato" com duas abas: "Dados" (telefone com atalho para o WhatsApp, e-mail e um caminho para a ficha completa) e "Links", onde os endereços se preenchem e se salvam ali mesmo. Os links ficam no próprio contato, em campos personalizados, e só endereços http(s) são aceitos — qualquer outro tipo de endereço é recusado. Contato anonimizado a pedido do titular (LGPD) não aparece no card. Não há mudança no banco de dados. Nada para configurar. Crédito: @RafaelBarbosaBR.
+- **O funil mostra telefone, e-mail e links do cliente no card e no painel do negócio** Para saber como falar com o cliente de um negócio, era preciso sair do funil e abrir a ficha do contato. Agora o card mostra o telefone, o e-mail e um botão para cada link cadastrado (Instagram, site, Google Meu Negócio, Facebook, LinkedIn, TikTok, YouTube ou outro), e o painel do negócio ganhou a seção "Contato" com duas abas: "Dados" (telefone com atalho para o WhatsApp, e-mail e um caminho para a ficha completa) e "Links", onde os endereços se preenchem e se salvam ali mesmo. Os links ficam no próprio contato, em campos personalizados, e só endereços http(s) são aceitos — qualquer outro tipo de endereço é recusado. Contato anonimizado a pedido do titular (LGPD) não aparece no card. Não há mudança no banco de dados. Nada para configurar. Crédito: @KaelBarbosaBR.
 
 - **Lisboa passa a aparecer nas listas de fuso horário** Quem opera em Portugal não encontrava o próprio fuso: o assistente de boas-vindas oferecia Lisboa, mas as listas de Configurações › Organização, do Perfil, da jornada em Equipe › Atendimento e da janela de envio em Conexões › Proteção de envio só tinham cidades da América do Sul, Luanda e UTC. Escolher UTC deixava tudo uma hora fora no verão europeu. Agora "Lisboa (Portugal)" aparece nas quatro. O padrão de quem ainda não escolheu continua São Paulo, e ninguém muda de relógio com a atualização. Crédito: @maclevison.
 
@@ -4806,7 +4806,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
   O aviso se resolve sozinho quando deixa de ser verdade: o canal ganhou número autorizado, foi aberto ao público ou foi arquivado. Quem já tem os canais configurados não vê aviso nenhum.
 
-  Construído sobre o modo de teste do WhatsApp, de @rafaelcesardev (#599).
+  Construído sobre o modo de teste do WhatsApp, de @kaelcesardev (#599).
 
 - **As etiquetas ganham cor — e o filtro passa a mostrar a mesma cor que a lista** A tela Configurações › Tags passa a deixar você escolher a COR de cada etiqueta, numa paleta de oito tons. A paleta não foi escolhida a olho: cada tom foi medido contra os outros, inclusive para quem tem daltonismo, e o texto de dentro do marcador é escolhido pelo contraste — cor não deixa etiqueta ilegível.
 
@@ -4854,7 +4854,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 - **Funil arquivado agora tem caminho de volta — dá para ver, tirar do arquivo e excluir** Arquivar um funil era via de mão única: ele sumia da lista de Funis e não havia onde vê-lo de novo, trazê-lo de volta nem excluí-lo. Quem arquivou por engano ficava com um funil invisível, indestrutível, e ainda com o nome dele ocupado — criar outro com o mesmo nome era recusado por um funil que ninguém conseguia enxergar. Agora a tela de Funis tem uma gaveta "Funis arquivados", fechada por padrão e visível para quem gerencia: de lá dá para tirar o funil do arquivo (ele volta para a lista e recebe negócio outra vez) ou excluí-lo de vez. A exclusão continua valendo só para o funil que nunca recebeu negócio, com formulário ou automação apontando para ele; nos outros casos o sistema recusa explicando, e o funil continua arquivado. A lista de funis do dia a dia e os seletores de destino continuam mostrando só os funis vivos. Você não precisa fazer nada.
 
-  A pedido de @rafaelbatistazz, que mediu o defeito na issue #979 e escreveu os testes que definem o conserto (#988).
+  A pedido de @kaelbatistazz, que mediu o defeito na issue #979 e escreveu os testes que definem o conserto (#988).
 
 - **A DeepSeek entra como empresa de inteligência artificial do atendente** A DeepSeek agora aparece na lista de empresas de IA, junto de Anthropic, OpenAI, Google e
   OpenRouter. Dá para cadastrar a chave em "IA › Credenciais" ou no passo de treinar durante a
@@ -5251,7 +5251,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 - **O filtro por marcador do funil enxerga também as "Tags da conversa"** O filtro por marcador do quadro do funil já olhava o marcador do negócio e o da pessoa. Agora olha também as "Tags da conversa", a caixa do painel do Inbox onde a equipe e a IA marcam a conversa: o seletor oferece as três caixas juntas, sem repetir, e filtrar por um marcador de conversa acha o negócio daquele contato. Vale para qualquer conversa do contato, não só a mais recente. A marcação em lote continua gravando no negócio. Decisão do dono, 19/09. Você não precisa fazer nada.
 
-- **O contato que chega por anúncio guarda também o id do anúncio** Quando alguém clica num anúncio "Clique para o WhatsApp", a origem do contato já registrava o clique, o título e o link do anúncio. O id do próprio anúncio, porém, era descartado sempre que o clique vinha junto — o caso comum —, e sobrevivia só dentro do registro bruto da plataforma. Agora ele é gravado num campo próprio, `ad_id`, tanto pelo canal oficial quanto pelo WhatsApp por QR: ele aparece na origem do contato pela API de contatos e acompanha o negócio que nasce da conversa. Vale para quem chegar a partir desta versão: a origem de quem já está cadastrado não é reescrita. Você não precisa fazer nada. Contribuição de @rafaelbatistazz (#1221).
+- **O contato que chega por anúncio guarda também o id do anúncio** Quando alguém clica num anúncio "Clique para o WhatsApp", a origem do contato já registrava o clique, o título e o link do anúncio. O id do próprio anúncio, porém, era descartado sempre que o clique vinha junto — o caso comum —, e sobrevivia só dentro do registro bruto da plataforma. Agora ele é gravado num campo próprio, `ad_id`, tanto pelo canal oficial quanto pelo WhatsApp por QR: ele aparece na origem do contato pela API de contatos e acompanha o negócio que nasce da conversa. Vale para quem chegar a partir desta versão: a origem de quem já está cadastrado não é reescrita. Você não precisa fazer nada. Contribuição de @kaelbatistazz (#1221).
 
 ### Corrigido
 
@@ -5423,7 +5423,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
   O editor de regras de automação ganhou os mesmos quatro campos, com as mesmas palavras.
 
-  Nada a fazer na atualização. Crédito: @rafaelbatistazz (#1212).
+  Nada a fazer na atualização. Crédito: @kaelbatistazz (#1212).
 
 - **Follow-ups de clínica prontos para instalar — consulta, exame, cirurgia e falta** A tela de Follow-ups tinha o motor inteiro e nenhum fluxo: para ter o primeiro era preciso
   abrir o construtor e desenhar nó por nó — gatilho, espera, ramo, prazo de resposta — e ainda
@@ -5452,7 +5452,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   disparar sozinho faltam dois passos, que a própria tela diz: publicar, e ligar o fluxo no seu
   agente em Agentes › Follow-up.
 
-- **O link do site passa a levar conjunto, anúncio e posicionamento do anúncio** O código de origem que vai no link do WhatsApp agora aceita `utm_adset`, `utm_ad` e `utm_placement`, além da campanha: os quatro níveis que quem opera tráfego lê chegam à origem do contato. Na Meta, basta apontar as macros dinâmicas de conjunto, anúncio e posicionamento para essas chaves na URL do anúncio. Você não precisa fazer nada; quem não usar as chaves novas não vê diferença. Contribuição de @rafaelbatistazz (#1211). Disponível desde a 1.35.1, que saiu sem esta nota.
+- **O link do site passa a levar conjunto, anúncio e posicionamento do anúncio** O código de origem que vai no link do WhatsApp agora aceita `utm_adset`, `utm_ad` e `utm_placement`, além da campanha: os quatro níveis que quem opera tráfego lê chegam à origem do contato. Na Meta, basta apontar as macros dinâmicas de conjunto, anúncio e posicionamento para essas chaves na URL do anúncio. Você não precisa fazer nada; quem não usar as chaves novas não vê diferença. Contribuição de @kaelbatistazz (#1211). Disponível desde a 1.35.1, que saiu sem esta nota.
 
 - **O canal oficial passa a registrar o próprio webhook na Meta** Conectar o canal oficial deixava metade do caminho para o operador: o CRM gravava a credencial validada e o canal ficava ENVIANDO e sem RECEBER até alguém abrir o painel da Meta, colar a URL de callback e marcar os campos — por número, e sem que a tela do CRM dissesse isso em lugar algum. Quem não sabia não via erro nenhum: as respostas do cliente simplesmente não chegavam e a janela de 24 horas nunca abria. Agora, ao conectar, a instalação inscreve o app na WABA e aponta o webhook daquele número para o endereço dela mesma (a inscrição primeiro: sem ela a Meta não entrega nada), guardando o desfecho na sessão — a tela mostra "webhook pendente" com o motivo que a Meta deu e um botão de tentar de novo, sem desconectar e reconectar o canal. Falhar nesse passo NÃO desfaz a conexão: o canal continua enviando, e o que falta é a entrega. O par número/WABA passa a ser conferido junto da credencial (número de uma conta com id de outra gravava uma sessão que envia e cujo webhook nunca chega), e o endereço público da instalação, que era calculado em três rotas com o mesmo código, passa a ter um dono só.
 
@@ -5567,7 +5567,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
   Duas coisas que valem saber: notas de voz enviadas antes desta correção continuam quebradas para quem as recebeu — é preciso gravar de novo. E, quando a plataforma recusa a entrega e avisa o CRM, a mensagem aparece como falha, mas ainda sem o motivo; se ela aceita um áudio que depois não toca, o CRM não tem como saber, e a mensagem fica como enviada.
 
-  Contribuição de @rafaelbatistazz (#1187).
+  Contribuição de @kaelbatistazz (#1187).
 
 - **O radar de risco parava de avaliar a empresa inteira quando um negócio tinha compromisso na agenda** O radar que avalia quais negócios estão esfriando **parava de avaliar a empresa inteira** quando encontrava um único negócio em estado inesperado. Todos os outros ficavam sem avaliação, e ninguém era avisado.
 
@@ -6363,7 +6363,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 ### Alterado
 
-- **O botão que cria um lead no painel do Inbox passa a se chamar "Novo Lead"** No painel lateral do Inbox, o botão "Lead" passa a se chamar "Novo Lead". Ele sempre abriu o cadastro de uma negociação nova para o contato, mas o nome curto dava a entender que mostraria o lead que já existe. O lead existente continua sendo editado em "Leads recentes", no mesmo painel, e a ficha da pessoa continua em "Ver contato". Nada muda no que o botão faz. Crédito: @rafaelbatistazz.
+- **O botão que cria um lead no painel do Inbox passa a se chamar "Novo Lead"** No painel lateral do Inbox, o botão "Lead" passa a se chamar "Novo Lead". Ele sempre abriu o cadastro de uma negociação nova para o contato, mas o nome curto dava a entender que mostraria o lead que já existe. O lead existente continua sendo editado em "Leads recentes", no mesmo painel, e a ficha da pessoa continua em "Ver contato". Nada muda no que o botão faz. Crédito: @kaelbatistazz.
 
 ### Corrigido
 
@@ -6379,7 +6379,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   se cadastra um motivo novo. Deixar o detalhe em branco continua valendo em qualquer funil: grava
   "Outro", como sempre.
 
-- **Arrastar o mesmo card duas vezes seguidas no funil deixa de dar "modificado por outro usuário"** No funil, o primeiro arrastar de um card funcionava, mas arrastar o mesmo card de novo logo em seguida mostrava "Lead foi modificado por outro usuário. Recarregue e tente novamente.", sem ninguém mais usando, e só voltava a funcionar recarregando a página. O próprio movimento registra a mudança de etapa no histórico, e esse registro atualizava o card de novo depois que a tela já tinha guardado a versão anterior. Agora o servidor devolve a versão final do card e a tela a guarda na hora, então, assim que o primeiro movimento é confirmado, dá para mover o mesmo card de novo sem recarregar a página. Crédito: @rafaelbatistazz.
+- **Arrastar o mesmo card duas vezes seguidas no funil deixa de dar "modificado por outro usuário"** No funil, o primeiro arrastar de um card funcionava, mas arrastar o mesmo card de novo logo em seguida mostrava "Lead foi modificado por outro usuário. Recarregue e tente novamente.", sem ninguém mais usando, e só voltava a funcionar recarregando a página. O próprio movimento registra a mudança de etapa no histórico, e esse registro atualizava o card de novo depois que a tela já tinha guardado a versão anterior. Agora o servidor devolve a versão final do card e a tela a guarda na hora, então, assim que o primeiro movimento é confirmado, dá para mover o mesmo card de novo sem recarregar a página. Crédito: @kaelbatistazz.
 
 - **O compromisso do Google que atravessa a borda do período volta a aparecer na grade** O compromisso do Google Agenda que começa antes do período que a tela desenha e termina dentro dele — das 23:30 às 00:30, por exemplo — passa a aparecer quando atravessa a borda desse período: a virada da semana na visão Semana, a virada do mês na visão Mês e toda meia-noite na visão Dia. Ele entra fatiado no pedaço que cai dentro do período. Antes, a grade perguntava pelo começo do compromisso e só desenhava os que começavam dentro do período: o horário que a tela mostrava livre era recusado na hora de marcar. A tela e a rota que a alimenta passam a usar a mesma conta do motor de disponibilidade (interseção de intervalos), lida de um só lugar. Para quem lê a lista pela API, o bloco do Google passa a vir recortado no período pedido — o instante de começo nunca é anterior ao período, e o de fim nunca é posterior. Fora isso, nada mudou: a grade continua recebendo apenas identificador, dono e os dois instantes, nunca o conteúdo do evento.
 
@@ -6405,19 +6405,19 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   Nenhuma ação é necessária na instalação: a regra do banco não mudou e nenhum dado
   foi tocado.
 
-- **Dá para excluir um card do funil pelo menu do próprio card, inclusive no celular** Para excluir um card do funil era preciso selecioná-lo e usar a barra de ações em lote. No celular e no tablet isso era impossível: a caixa de seleção e o botão de menu do card só apareciam com o mouse em cima. Agora o menu de ações do card tem "Excluir", com confirmação que diz o nome do card e o que vai junto (o histórico de atividades; o contato e as conversas continuam), e o botão do menu fica visível em telas de toque. A opção aparece para quem já podia mexer no funil. Selecionar vários cards de uma vez continua só no computador: a caixa de seleção do card segue aparecendo apenas com o mouse em cima. Crédito: @rafaelbatistazz.
+- **Dá para excluir um card do funil pelo menu do próprio card, inclusive no celular** Para excluir um card do funil era preciso selecioná-lo e usar a barra de ações em lote. No celular e no tablet isso era impossível: a caixa de seleção e o botão de menu do card só apareciam com o mouse em cima. Agora o menu de ações do card tem "Excluir", com confirmação que diz o nome do card e o que vai junto (o histórico de atividades; o contato e as conversas continuam), e o botão do menu fica visível em telas de toque. A opção aparece para quem já podia mexer no funil. Selecionar vários cards de uma vez continua só no computador: a caixa de seleção do card segue aparecendo apenas com o mouse em cima. Crédito: @kaelbatistazz.
 
-- **Conectar o Google Agenda deixa escolher qualquer conta do Google, não só a do e-mail de login** Ao conectar o Google Agenda, quem já tinha aberta no navegador a conta com o mesmo e-mail do login no CRM ia direto para ela, sem passar pela escolha de conta. Quem entra no CRM com um e-mail e tem a agenda em outro não conseguia vincular a agenda certa. Agora o CRM pede ao Google o seletor de contas em toda conexão, com a conta do login apenas sugerida — quem desenha essa tela é o Google. A conexão continua sem expirar sozinha. Crédito: @rafaelbatistazz e @webtecnica.
+- **Conectar o Google Agenda deixa escolher qualquer conta do Google, não só a do e-mail de login** Ao conectar o Google Agenda, quem já tinha aberta no navegador a conta com o mesmo e-mail do login no CRM ia direto para ela, sem passar pela escolha de conta. Quem entra no CRM com um e-mail e tem a agenda em outro não conseguia vincular a agenda certa. Agora o CRM pede ao Google o seletor de contas em toda conexão, com a conta do login apenas sugerida — quem desenha essa tela é o Google. A conexão continua sem expirar sozinha. Crédito: @kaelbatistazz e @webtecnica.
 
-- **"Leads recentes" do Inbox diz o funil, a etapa e o status em português** No painel lateral do Inbox, a seção "Leads recentes" mostrava só título, status e valor. Dois leads de mesmo nome em funis diferentes ficavam idênticos ("open · —"), e o status aparecia em inglês. Agora cada lead mostra o funil e a etapa onde está e o status traduzido (Aberto, Ganho, Perdido). Leads de funil arquivado deixam de aparecer na lista. Arquivar um funil não fecha os leads dele, então eles continuavam na lista. Nenhum dado é alterado. Crédito: @rafaelbatistazz.
+- **"Leads recentes" do Inbox diz o funil, a etapa e o status em português** No painel lateral do Inbox, a seção "Leads recentes" mostrava só título, status e valor. Dois leads de mesmo nome em funis diferentes ficavam idênticos ("open · —"), e o status aparecia em inglês. Agora cada lead mostra o funil e a etapa onde está e o status traduzido (Aberto, Ganho, Perdido). Leads de funil arquivado deixam de aparecer na lista. Arquivar um funil não fecha os leads dele, então eles continuavam na lista. Nenhum dado é alterado. Crédito: @kaelbatistazz.
 
-- **O nome que você edita no contato passa a aparecer no lugar do nome do WhatsApp** Quem corrigia o nome de um contato em "Editar contato" continuava vendo o nome do perfil do WhatsApp — às vezes um apelido ou um emoji — no Inbox, na lista de contatos, nas notificações e no radar de risco. O agente de IA e o lembrete da agenda também chamavam o cliente pelo nome do perfil. Agora o nome preenchido na ficha vem primeiro em todos esses lugares; o nome do WhatsApp só aparece quando o contato não tem nome cadastrado. Nada precisa ser refeito: contatos que já têm nome passam a mostrá-lo na hora. O mesmo vale para o card da Agenda, para a prévia de um pedido de LGPD e para o título do negócio que uma automação cria — três lugares que ainda montavam o nome por conta própria e podiam mostrar um código interno do WhatsApp no lugar do nome. Um efeito fica GRAVADO: o card de negócio que nascer de uma primeira mensagem a partir de agora leva esse nome no título — os cards que já existem continuam com o título que receberam quando nasceram. Crédito: @rafaelbatistazz.
+- **O nome que você edita no contato passa a aparecer no lugar do nome do WhatsApp** Quem corrigia o nome de um contato em "Editar contato" continuava vendo o nome do perfil do WhatsApp — às vezes um apelido ou um emoji — no Inbox, na lista de contatos, nas notificações e no radar de risco. O agente de IA e o lembrete da agenda também chamavam o cliente pelo nome do perfil. Agora o nome preenchido na ficha vem primeiro em todos esses lugares; o nome do WhatsApp só aparece quando o contato não tem nome cadastrado. Nada precisa ser refeito: contatos que já têm nome passam a mostrá-lo na hora. O mesmo vale para o card da Agenda, para a prévia de um pedido de LGPD e para o título do negócio que uma automação cria — três lugares que ainda montavam o nome por conta própria e podiam mostrar um código interno do WhatsApp no lugar do nome. Um efeito fica GRAVADO: o card de negócio que nascer de uma primeira mensagem a partir de agora leva esse nome no título — os cards que já existem continuam com o título que receberam quando nasceram. Crédito: @kaelbatistazz.
 
-- **O Radar de risco deixa de mostrar leads de funil arquivado** Depois de arquivar um funil, os leads dele continuavam aparecendo no Radar de risco, e na lista de demandas sem próximo passo, como se precisassem de atenção. Arquivar um funil não fecha os leads, e o radar lia todos os leads abertos da organização. Agora leads de funil arquivado e as demandas ligadas a eles ficam de fora do radar, tanto na tela quanto na consulta que o agente de IA faz. Nenhum dado é alterado: os leads e o histórico continuam guardados no funil arquivado. Um número ainda não acompanha: o contador "Demandas abertas sem próximo passo", na tela de Métricas, continua somando as demandas de funil arquivado — ele sai de outra consulta, e será alinhado em seguida. Até lá as duas telas mostram números diferentes para a mesma coisa, e o do Radar é o que já exclui o funil arquivado. Crédito: @rafaelbatistazz.
+- **O Radar de risco deixa de mostrar leads de funil arquivado** Depois de arquivar um funil, os leads dele continuavam aparecendo no Radar de risco, e na lista de demandas sem próximo passo, como se precisassem de atenção. Arquivar um funil não fecha os leads, e o radar lia todos os leads abertos da organização. Agora leads de funil arquivado e as demandas ligadas a eles ficam de fora do radar, tanto na tela quanto na consulta que o agente de IA faz. Nenhum dado é alterado: os leads e o histórico continuam guardados no funil arquivado. Um número ainda não acompanha: o contador "Demandas abertas sem próximo passo", na tela de Métricas, continua somando as demandas de funil arquivado — ele sai de outra consulta, e será alinhado em seguida. Até lá as duas telas mostram números diferentes para a mesma coisa, e o do Radar é o que já exclui o funil arquivado. Crédito: @kaelbatistazz.
 
-- **Tag em lote no funil mostra as tags que já existem** No funil, ao selecionar vários cards, o menu "Tag…" da barra de ações só oferecia um campo para digitar uma tag nova, sem mostrar as tags que os leads já usam. Agora o menu lista até 10 tags já usadas pelos leads do funil, filtrando pelo que você digita, e clicar aplica a tag a todos os cards selecionados. Digitar uma tag nova continua funcionando. A atualização não muda nada no seu banco: a tela passa a mostrar tags que já existem. Crédito: @rafaelbatistazz.
+- **Tag em lote no funil mostra as tags que já existem** No funil, ao selecionar vários cards, o menu "Tag…" da barra de ações só oferecia um campo para digitar uma tag nova, sem mostrar as tags que os leads já usam. Agora o menu lista até 10 tags já usadas pelos leads do funil, filtrando pelo que você digita, e clicar aplica a tag a todos os cards selecionados. Digitar uma tag nova continua funcionando. A atualização não muda nada no seu banco: a tela passa a mostrar tags que já existem. Crédito: @kaelbatistazz.
 
-- **Tags do contato no Inbox sugerem as tags que já existem** No painel lateral do Inbox, o editor de tags do contato não sugeria nada: cada pessoa digitava a tag do zero, e a mesma ideia virava várias tags diferentes ("google", "gogle", "google ads"). Agora ele mostra, como botões "+ tag", as tags que já existem nos contatos mais recentes da organização — até oito por vez —, do mesmo jeito que o editor de tags da conversa já fazia. Clicar aplica a tag, sempre em minúsculas — é a mesma forma com que o editor já gravava o que se digita, então o rótulo do botão diz exatamente o que vai ser gravado. A atualização não mexe em nenhum dado: as tags que já estão gravadas continuam como estão, e o que muda é a sugestão aparecendo na tela. Crédito: @rafaelbatistazz.
+- **Tags do contato no Inbox sugerem as tags que já existem** No painel lateral do Inbox, o editor de tags do contato não sugeria nada: cada pessoa digitava a tag do zero, e a mesma ideia virava várias tags diferentes ("google", "gogle", "google ads"). Agora ele mostra, como botões "+ tag", as tags que já existem nos contatos mais recentes da organização — até oito por vez —, do mesmo jeito que o editor de tags da conversa já fazia. Clicar aplica a tag, sempre em minúsculas — é a mesma forma com que o editor já gravava o que se digita, então o rótulo do botão diz exatamente o que vai ser gravado. A atualização não mexe em nenhum dado: as tags que já estão gravadas continuam como estão, e o que muda é a sugestão aparecendo na tela. Crédito: @kaelbatistazz.
 
 ## [1.30.0] — 2026-09-16
 
@@ -6429,7 +6429,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
   Quem pode arquivar é quem já podia encerrar: atendente para cima. O que passa a ficar registrado é o motivo da mudança: arquivar deixa o evento próprio `conversation.archived` na auditoria, em vez de se confundir com "devolvida" ou com o fechamento do atendimento. Fechar continua sendo fechar, e o número da aba "Fechadas" passa a contar só as fechadas — antes ele somava as arquivadas e mostrava mais do que a lista.
 
-- **Os guias do assistente passam a funcionar em qualquer pasta, e dois deixam de ser descartados** Um comando só (`curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash`) liga os guias `deskcomm-instalar`, `deskcomm-cliente-novo`, `deskcomm-metricas`, `deskcomm-prompt`, `deskcomm-contribuir` e `deskcomm-doutrina` nas pastas globais do Claude Code, Codex, Cursor, OpenCode e Antigravity — antes eles só existiam com o assistente aberto dentro de um clone atualizado, o que deixava de fora justamente quem ainda não instalou. Pedir o assunto em português aciona o guia em qualquer um deles. Os guias não se atualizam sozinhos: rodar o comando de novo traz a versão nova, e `curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover` desfaz. O cabeçalho de dois guias trazia um erro de formato que assistentes mais rigorosos descartavam sem avisar, e foi corrigido.
+- **Os guias do assistente passam a funcionar em qualquer pasta, e dois deixam de ser descartados** Um comando só (`curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash`) liga os guias `kaelsolutions-instalar`, `kaelsolutions-cliente-novo`, `kaelsolutions-metricas`, `kaelsolutions-prompt`, `kaelsolutions-contribuir` e `kaelsolutions-doutrina` nas pastas globais do Claude Code, Codex, Cursor, OpenCode e Antigravity — antes eles só existiam com o assistente aberto dentro de um clone atualizado, o que deixava de fora justamente quem ainda não instalou. Pedir o assunto em português aciona o guia em qualquer um deles. Os guias não se atualizam sozinhos: rodar o comando de novo traz a versão nova, e `curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/scripts/instalar-guias.sh | bash -s -- --remover` desfaz. O cabeçalho de dois guias trazia um erro de formato que assistentes mais rigorosos descartavam sem avisar, e foi corrigido.
 
 - **Quem ainda não tem conta já vê login, cadastro, convite e páginas legais em espanhol** O idioma da interface sempre dependeu de uma sessão: `preferência da pessoa → idioma da
   organização → padrão`. Fora dessa cadeia — login, cadastro, aceite de convite, política de
@@ -6565,7 +6565,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
   O contato continua **opcional**: quem abre o card no meio da ligação e completa depois segue conseguindo. Sem contato escolhido, a tela diz o que o lead perde — não recebe WhatsApp nem entra nas automações. Aberto pelo Inbox, que já sabe de quem é a conversa, nada muda.
 
-  Leads sem contato criados antes desta versão continuam como estão; vinculá-los pela tela é a próxima fatia da #852. Crédito: @rafaelbatistazz.
+  Leads sem contato criados antes desta versão continuam como estão; vinculá-los pela tela é a próxima fatia da #852. Crédito: @kaelbatistazz.
 
 - **A tela de Contatos passa a filtrar quem veio de anúncio** A lista de Contatos oferecia filtrar por Manual, WhatsApp, Nuvemshop e Importado (CSV). Quem chegou por um clique em anúncio — do Meta ou do Google — ficava gravado com essa origem no sistema e não aparecia em filtro nenhum: para encontrá-lo era preciso abrir contato por contato. Agora as duas origens de anúncio estão na mesma lista de filtros, em português e em espanhol.
 
@@ -6592,9 +6592,9 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 - **Automação com condição de tag passa a funcionar quando a caixa difere** Numa automação, a condição sobre tags só disparava quando o texto digitado era idêntico à tag, maiúsculas incluídas: a regra escrita para "Google" não rodava para a tag "google", que é exatamente como o Inbox grava toda tag de contato. A regra existia, aparecia ativa na tela e nunca acontecia. Agora a condição compara a tag inteira sem diferenciar maiúsculas — "Google" pega "google" e continua não pegando "Google Ads", que é outra tag. Nada que funcionava antes deixa de funcionar, e nenhuma regra passa a alcançar quem não alcançava. Na tela de regras, o operador desses campos passa a se chamar "tem a tag", que é o que ele faz.
 
-- **Automação por tag do contato deixa de criar lead repetido** Uma regra com gatilho "quando um contato ganhar uma tag" e ação "criar/mover lead no funil" criava um negócio novo toda vez que rodava, mesmo quando o contato já tinha um negócio aberto naquele funil — o contato acabava com vários leads iguais. E as ações seguintes da mesma regra, como "atribuir a um atendente", ficavam sem lead para agir, então a execução aparecia como "Parcial" na aba Atividade. Agora a automação move o negócio que o contato já tem no funil de destino, cria só quando não existe nenhum, e as ações seguintes passam a agir sobre esse lead. Leads criados em duplicidade antes desta versão continuam onde estão. Uma consequência que vale saber: numa regra assim, a ação "adicionar tag" que vier depois passa a etiquetar o NEGÓCIO, não mais o contato — é o efeito de as ações seguintes enxergarem o lead. Crédito: @rafaelbatistazz.
+- **Automação por tag do contato deixa de criar lead repetido** Uma regra com gatilho "quando um contato ganhar uma tag" e ação "criar/mover lead no funil" criava um negócio novo toda vez que rodava, mesmo quando o contato já tinha um negócio aberto naquele funil — o contato acabava com vários leads iguais. E as ações seguintes da mesma regra, como "atribuir a um atendente", ficavam sem lead para agir, então a execução aparecia como "Parcial" na aba Atividade. Agora a automação move o negócio que o contato já tem no funil de destino, cria só quando não existe nenhum, e as ações seguintes passam a agir sobre esse lead. Leads criados em duplicidade antes desta versão continuam onde estão. Uma consequência que vale saber: numa regra assim, a ação "adicionar tag" que vier depois passa a etiquetar o NEGÓCIO, não mais o contato — é o efeito de as ações seguintes enxergarem o lead. Crédito: @kaelbatistazz.
 
-- **Contato que veio de anúncio da Meta pelo número oficial passa a ter a origem do anúncio** Quem clicava num anúncio "Clique para o WhatsApp" e caía num número conectado pela API oficial da Meta ficava com a origem "whatsapp", como se tivesse escrito por conta própria. O anúncio de onde a pessoa veio não era gravado, e a venda desse contato não podia ser devolvida à Meta como conversão. Agora a origem passa a ser o anúncio da Meta, com o clique e o título do anúncio, como o canal intermediado já fazia. Vale para os cliques a partir desta versão: a Meta só envia esses dados na primeira mensagem, então os contatos que já entraram continuam como estão. Crédito: @rafaelbatistazz.
+- **Contato que veio de anúncio da Meta pelo número oficial passa a ter a origem do anúncio** Quem clicava num anúncio "Clique para o WhatsApp" e caía num número conectado pela API oficial da Meta ficava com a origem "whatsapp", como se tivesse escrito por conta própria. O anúncio de onde a pessoa veio não era gravado, e a venda desse contato não podia ser devolvida à Meta como conversão. Agora a origem passa a ser o anúncio da Meta, com o clique e o título do anúncio, como o canal intermediado já fazia. Vale para os cliques a partir desta versão: a Meta só envia esses dados na primeira mensagem, então os contatos que já entraram continuam como estão. Crédito: @kaelbatistazz.
 
 - **O CI volta a medir a instalação em PostgreSQL 17, além do 15** Nada muda na sua VPS: nenhuma variável nova, nenhuma migration, nenhuma imagem. O que muda é o que o pipeline mede antes de a release sair — o gate de banco do CI voltou a rodar nas duas majors do PostgreSQL (15 e 17) e passou a exercitar também o `update.sh` sobre um banco COM DADOS, que é o caso da sua instalação e não o de um banco vazio. Crédito: @webtecnica.
 
@@ -6617,7 +6617,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
 - **O worker passa a dizer se o laço do event_log carregou, e a publicação exige isso antes de marcar stable** Nada muda na sua VPS: nenhuma migration, nenhuma variável, nenhum comando. O `/healthz` do worker passa a publicar um campo a mais (`event_log_drain`, com o motivo quando o laço não carregou) e a falha ao carregar o laço deixa de ser um aviso de rotina para ser erro — era o aviso que fazia um drain parado parecer normal, e foi assim que a fila do `event_log` ficou dez dias sem drenar com o worker respondendo saudável. Do lado da publicação, o CI passa a executar as imagens do worker e do scheduler antes de publicá-las: worker que não sobe ou laço que não carrega não vira a versão `stable` de quem self-hospeda. Crédito: @webtecnica.
 
-- **No Inbox, o botão de tags diz que a tag é do contato** No painel lateral do Inbox, o botão que abre as tags do contato dizia apenas "Tag", enquanto logo abaixo, no mesmo painel, fica a seção "Tags da conversa". Os dois lugares guardam tags diferentes, e quem atende não sabia em qual estava mexendo. Agora o botão se chama "Tags do contato". Nada muda no comportamento. Crédito: @rafaelbatistazz.
+- **No Inbox, o botão de tags diz que a tag é do contato** No painel lateral do Inbox, o botão que abre as tags do contato dizia apenas "Tag", enquanto logo abaixo, no mesmo painel, fica a seção "Tags da conversa". Os dois lugares guardam tags diferentes, e quem atende não sabia em qual estava mexendo. Agora o botão se chama "Tags do contato". Nada muda no comportamento. Crédito: @kaelbatistazz.
 
 - **O provisionamento do Supabase lê as chaves em qualquer ordem e não perde mais a senha do banco** Na instalação, o passo que busca as chaves de API do projeto novo lia a resposta
   da Management API por POSIÇÃO: procurava `anon` e, só no que vinha depois dela,
@@ -7236,7 +7236,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   que ele nunca afirma ser humano e responde com honestidade se perguntarem.
 
   Vale para instalações novas. Em instalação existente o texto de base já gravado
-  no banco não é trocado sozinho. Crédito: @rafaelbatistazz.
+  no banco não é trocado sozinho. Crédito: @kaelbatistazz.
 
 - **A proteção da agenda passa a valer para o agente que só consulta horários** O produto tem uma garantia dura: o agente não pode dizer "vou verificar o
   horário e te aviso" — nem "está confirmado" — sem ter consultado a agenda de
@@ -7695,7 +7695,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   organização não conseguia — em nenhuma instalação.
 
   Agora o interruptor grava a escolha. Se você tentou ligar alguma das duas e
-  achou que o clique não pegava, era isto; tente de novo. Crédito: @rafaelbatistazz.
+  achou que o clique não pegava, era isto; tente de novo. Crédito: @kaelbatistazz.
 
 - **O botão "Reativar" de tipo de agendamento passa a funcionar** Em Configurações › Agenda, um tipo de agendamento desativado mostra o botão
   "Reativar" — e ele **nunca funcionou**, desde que a tela existe. Clicar devolvia
@@ -7808,7 +7808,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
 
   Agora ele agenda as automações e o agente de atualização direto, na primeira rodada. Quem já instalou não precisa fazer nada.
 
-  **Achado por duas pessoas no mesmo dia, sem que uma soubesse da outra: @luiscgc91 e @rafaelbatistazz**, as duas instalando numa VPS limpa. As duas escreveram exatamente a mesma correção. A descrição acima é a do @rafaelbatistazz, que nomeia o que se vê na tela.
+  **Achado por duas pessoas no mesmo dia, sem que uma soubesse da outra: @luiscgc91 e @kaelbatistazz**, as duas instalando numa VPS limpa. As duas escreveram exatamente a mesma correção. A descrição acima é a do @kaelbatistazz, que nomeia o que se vê na tela.
 
 - **Áudio, foto, vídeo e documento recebidos pelo WhatsApp oficial agora aparecem** Quem usa o canal **oficial do WhatsApp** (a API da Meta) recebia a mensagem, mas
   **não o arquivo**: o áudio, a foto, o vídeo ou o documento simplesmente não
@@ -8065,7 +8065,7 @@ Esta versão junta 106 mudanças. Cada item é curto para caber na tela de atual
   você cadastrou; quem usa o sistema em espanhol passa a ler o aviso exatamente como ele foi
   gravado. Os rótulos da tela seguem traduzidos.
 
-  Trabalho original de @rafaelbatistazz.
+  Trabalho original de @kaelbatistazz.
 
 - **A IA passa a preencher os campos que você criou no funil** Você pode declarar até 50 campos por funil — prescritor, metragem do imóvel,
   convênio, o que o seu negócio precisa — e a ficha do lead desenha todos eles.
@@ -11113,7 +11113,7 @@ servidor continuaria onde está. A segunda execução fixa tudo na mesma versão
 Para saber em que pé você está, sem mexer em nada:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/melgarafael/KaelSolutions/main/hostgator-setup-kit/diagnostico.sh | bash
+curl -fsSL https://raw.githubusercontent.com/KaelVic/KaelSolutions/main/hostgator-setup-kit/diagnostico.sh | bash
 ```
 
 Ele só lê e explica — não escreve, não reinicia, não atualiza. Se disser que está afetada,

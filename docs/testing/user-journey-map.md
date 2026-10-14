@@ -90,7 +90,7 @@ fonte só (`lib/onboarding/passos.ts`) — eram três listas que discordavam. Ga
 |---|------|-------------|
 | J2.1 | Central lista a sessão criada no onboarding | card com status coerente |
 | J2.2 | Conectar novo WhatsApp (admin) | sessão STARTING → SCAN_QR, QR visível no dialog |
-| J2.3 | QR escaneado com celular real (**precisa do Rafael**) | status WORKING, card "Conectado" |
+| J2.3 | QR escaneado com celular real (**precisa do Kael**) | status WORKING, card "Conectado" |
 | J2.4 | Reconectar sessão | volta a SCAN_QR/WORKING sem duplicar sessão |
 | J2.5 | WAHA derrubado (docker stop) | banner claro, botões desabilitados, 503 amigável |
 | J2.6 | Atendente (role agent) não vê botão de conectar | gate admin respeitado na UI |
@@ -1210,7 +1210,7 @@ Critério: nenhuma tela quebra, nenhum stack trace, nenhum texto de erro cru.
 |----|--------|--------|-----------|
 | M1 | `supabase/config.toml` trava `major_version = 15`, mas `baseline.sql` exige PG17 (`GRANT MAINTAIN`) — contribuidor open-source não sobe ambiente local | reproduzido | Alta (DX) |
 | M2 | Trilha manual do `docs/deploy-selfhost/README.md` não configura o cron do drain → automações mortas em silêncio | explorer webhooks | Alta |
-| M3 | ~~README self-host aponta repo/imagem `kaelsolutions/*`; kit usa `melgarafael/*`~~ **CORRIGIDO 2026-08-13** — era um `git clone` de uma org que não existe (404) em `docs/deploy-selfhost/README.md:26`. Uma consultoria externa leu essa string e concluiu que o compose apontava para uma org desvinculada; o compose sempre apontou para `melgarafael`. | explorer webhooks | — |
+| M3 | ~~README self-host aponta repo/imagem `kaelsolutions/*`; kit usa `KaelVic/*`~~ **CORRIGIDO 2026-08-13** — era um `git clone` de uma org que não existe (404) em `docs/deploy-selfhost/README.md:26`. Uma consultoria externa leu essa string e concluiu que o compose apontava para uma org desvinculada; o compose sempre apontou para `KaelVic`. | explorer webhooks | — |
 | M4 | `INVITE_TOKEN_SECRET` ausente → fallback `"dev-fallback"` → convite forjável em VPS mal configurada | explorer CRM/time | Alta (segurança) |
 | M5 | AI Gateway key ausente → bot mudo sem NENHUM feedback na UI | explorer IA | Média |
 | M6 | Knowledge sources: botões de upload/configurar são stubs "Em breve" | explorer IA | Média |
@@ -1225,7 +1225,7 @@ Critério: nenhuma tela quebra, nenhum stack trace, nenhum texto de erro cru.
 
 1. **Fase A `[P0]` primeira impressão:** J1 completo → J2.1-2.2/2.5-2.6 → J5.1-5.2 → J6.1-6.3.
 2. **Fase B rotina:** J4, J5.3-5.9, J6.4-6.9, J3.1-3.3.
-3. **Fase C IA viva + WhatsApp real:** J3.4-3.9, J2.3-2.4 (com Rafael no QR).
+3. **Fase C IA viva + WhatsApp real:** J3.4-3.9, J2.3-2.4 (com Kael no QR).
 4. **Fase D exploração:** J7 + edge cases restantes.
 
 ## Bugs corrigidos nesta rodada de QA
@@ -1327,7 +1327,7 @@ simples, e um cético a achou lendo o catálogo:
 **Por que a porta NÃO subiu para o menu lateral:** o menu foi medido em 15 itens com folga 0 a
 1280×900, e `crm_b2b` sozinho acrescenta 3. Levei três saídas ao dono com o custo de cada uma e ele
 escolheu manter no hub e consertar o texto (**opção B**, registrada em
-`~/KaelSolutionsDecisoes/Decisão PRs - rafael/124 — …`). A opção de subir ao menu (ou subir só a primeira
+`~/KaelSolutionsDecisoes/Decisão PRs - kael/124 — …`). A opção de subir ao menu (ou subir só a primeira
 porta de cada módulo) segue disponível se a expectativa mudar.
 
 **O que a investigação mediu e NÃO consertou** — é decisão de produto, não

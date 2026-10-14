@@ -40,7 +40,7 @@ async function main() {
       // O hash vem do espelho: é exatamente o que a trava compara. Digitá-lo aqui
       // seria simular o bind em vez de exercitá-lo.
       contractHash: linha.contract_hash,
-      values: { "1": "Rafael", "2": "AT-0088" },
+      values: { "1": "Kael", "2": "AT-0088" },
     },
     current: {
       name: linha.name,

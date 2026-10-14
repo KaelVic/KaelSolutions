@@ -14,7 +14,7 @@
 # ## A régua é a que o repo já pratica — a mesma, contra o REMOTO
 #
 # Espelha a parte de NNNN/timestamp de
-# `.agents/skills/deskcomm-contribuir/scripts/hooks/check-migration-triple.sh`, trocando o
+# `.agents/skills/kaelsolutions-contribuir/scripts/hooks/check-migration-triple.sh`, trocando o
 # index pelo diff do PR (o CI não tem nada staged). O que a régua decide:
 #
 #   * só o arquivo que o PR ACRESCENTA entra na conta (`--diff-filter=A`): editar ou

@@ -186,7 +186,7 @@ test.describe("condição com várias regras — uma bolinha por regra", () => {
       // `"tag"` e `"contains"` — os nomes internos —, e ficou 7 MINUTOS clicando
       // num item que não existe mais. Não era ambiente: as duas frentes (ramos e
       // vocabulário) estavam verdes separadas e vermelhas juntas, porque a
-      // segunda trocou justamente esses rótulos, que é a feature que Rafael
+      // segunda trocou justamente esses rótulos, que é a feature que Kael
       // pediu. Pedir pelo nome interno num painel cujo propósito é NÃO falar em
       // código é o teste desmentindo o produto.
       //
