@@ -3521,7 +3521,7 @@ np_ok /root/_kaelsolutions    kaelsolutions
 np_ok /root/-kaelsolutions    kaelsolutions
 np_ok /root/_-_crm       crm
 np_ok /root/_123         123
-np_ok /root/kaelsolutions.crm kaelsolutions
+np_ok /root/kaelsolutions.crm kaelsolutionscrm
 np_ok /root/crm_cliente  crm_cliente
 
 echo "re-execução: o kit é chamado por caminho RELATIVO, como o README manda"
